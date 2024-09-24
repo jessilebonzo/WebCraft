@@ -389,27 +389,60 @@ a {
   flex-direction: column;
   background-image: url(/assets/home-bg3.png);
   background-size: cover;
-  background-position: center; 
+  background-position: center;
   background-repeat: no-repeat;
 }
 .note-box {
   align-items: center;
-  width: 900px;
-  height: 610px;
+  width: 90%; 
+  max-width: 900px;
+  height: auto; 
   background-color: #ff6f6f;
   border-radius: 20px;
   position: relative;
   border: 2px solid #1c1410;
+  padding: 20px; 
 }
 .holes {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
 .hole {
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    border-radius: 50%;
-    border:2px solid #1c1410;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid #1c1410;
+}
+/* Media query for iPad and tablets (768px to 1024px) */
+@media (max-width: 1024px) {
+  .note-box {
+    width: 95%;
+    height: auto;
+  }
+
+  .coins-img {
+    max-width: 280px;
+  }
+}
+/* Media query for mobile phones (max-width: 768px) */
+@media (max-width: 768px) {
+  .pro-section {
+    padding: 15px;
+  }
+  .note-box {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+  .coins-img {
+    max-width: 200px;
+  }
+  .subscription-box {
+    text-align: center;
+  }
+  .price-info {
+    font-size: 20px;
+  }
 }
