@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <title>Responsive login form</title>
+
+    <style>
+      /*=============== GOOGLE FONTS ===============*/
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+      /*=============== VARIABLES CSS ===============*/
+      :root {
+        /*========== Colors ==========*/
+        --first-color: hsl(244, 75%, 57%);
+        --second-color: hsl(249, 64%, 47%);
+        --title-color: hsl(244, 12%, 12%);
+        --text-color: hsl(244, 4%, 36%);
+        --body-color: hsl(208, 97%, 85%);
+
+        /*========== Font and typography ==========*/
+        --body-font: "Poppins", sans-serif;
+        --h2-font-size: 1.25rem;
+        --small-font-size: 0.813rem;
+        --smaller-font-size: 0.75rem;
+
+        /*========== Font weight ==========*/
+        --font-medium: 500;
+        --font-semi-bold: 600;
+      }
+
+      @media screen and (min-width: 1024px) {
+        :root {
+          --h2-font-size: 1.75rem;
+          --normal-font-size: 1rem;
+          --small-font-size: 0.875rem;
+          --smaller-font-size: 0.813rem;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        background-color: var(--body-color);
+        font-family: var(--body-font);
+        color: var(--text-color);
+      }
+
+      input,
+      button {
+        font-family: var(--body-font);
+        border: none;
+        outline: none;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .login__content,
+      .login__form,
+      .login__inputs {
+        display: grid;
+      }
+
+      .login__content {
+        position: relative;
+        height: 100vh;
+        align-items: center;
+      }
+
+      .login__img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .login__form {
+        position: relative;
+        background-color: hsla(244, 16%, 92%, 0.6);
+        border: 2px solid hsla(244, 16%, 92%, 0.75);
+        margin-inline: 1.5rem;
+        row-gap: 1.25rem;
+        backdrop-filter: blur(20px);
+        padding: 2rem;
+        border-radius: 1rem;
+      }
+
+      .login__title {
+        color: var(--title-color);
+        font-size: var(--h2-font-size);
+        margin-bottom: 0.5rem;
+      }
+
+      .login__title span {
+        color: var(--first-color);
+      }
+
+      .login__description {
+        font-size: var(--small-font-size);
+      }
+
+      .login__inputs {
+        row-gap: 0.75rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .login__label {
+        display: block;
+        color: var(--title-color);
+        font-size: var(--small-font-size);
+        font-weight: var(--font-semi-bold);
+        margin-bottom: 0.25rem;
+      }
+
+      .login__input {
+        width: 100%;
+        padding: 14px 12px;
+        border-radius: 6px;
+        border: 2px solid var(--text-color);
+        background-color: hsla(244, 16%, 92%, 0.6);
+        color: var(--title-color);
+        font-size: var(--smaller-font-size);
+        font-weight: var(--font-medium);
+        transition: border 0.4s;
+      }
+
+      .login__input::placeholder {
+        color: var(--text-color);
+      }
+
+      .login__input:focus,
+      .login__input:valid {
+        border: 2px solid var(--first-color);
+      }
+
+      .login__box {
+        position: relative;
+      }
+
+      .login__box .login__input {
+        padding-right: 36px;
+      }
+
+      .login__eye {
+        width: max-content;
+        height: max-content;
+        position: absolute;
+        right: 0.75rem;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        font-size: 1.25rem;
+        cursor: pointer;
+      }
+
+      .login__check-label {
+        position: relative;
+        display: flex;
+        column-gap: 0.5rem;
+        align-items: center;
+        cursor: pointer;
+        font-size: var(--small-font-size);
+      }
+
+      .login__check-icon {
+        position: absolute;
+        display: none;
+        font-size: 16px;
+      }
+
+      .login__check-input {
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border: 2px solid var(--text-color);
+        background-color: hsla(244, 16%, 92%, 0.2);
+        border-radius: 0.25rem;
+        cursor: pointer;
+      }
+
+      .login__check-input:checked {
+        background: var(--first-color);
+      }
+
+      .login__check-input:checked + .login__check-icon {
+        display: block;
+        color: #fff;
+      }
+
+      .login__buttons {
+        display: flex;
+        column-gap: 0.75rem;
+      }
+
+      .login__button {
+        width: 100%;
+        padding: 14px 2rem;
+        border-radius: 6px;
+        background: linear-gradient(180deg, var(--first-color), var(--second-color));
+        color: #fff;
+        font-size: var(--small-font-size);
+        font-weight: var(--font-semi-bold);
+        box-shadow: 0 6px 24px hsla(244, 75%, 48%, 0.5);
+        margin-bottom: 1rem;
+      }
+
+      .login__button-ghost {
+        background: hsla(244, 16%, 92%, 0.6);
+        border: 2px solid var(--first-color);
+        color: var(--first-color);
+        box-shadow: none;
+      }
+
+      .login__forgot {
+        font-size: var(--smaller-font-size);
+        font-weight: var(--font-semi-bold);
+        color: var(--first-color);
+        text-decoration: none;
+      }
+
+      /*=============== BREAKPOINTS ===============*/
+      @media screen and (max-width: 360px) {
+        .login__buttons {
+          flex-direction: column;
+        }
+      }
+
+      @media screen and (min-width: 576px) {
+        .login__form {
+          width: 450px;
+          justify-self: center;
+        }
+      }
+
+      @media screen and (min-width: 1064px) {
+        .container {
+          height: 100vh;
+          display: grid;
+          place-items: center;
+        }
+
+        .login__content {
+          width: 1024px;
+          height: 600px;
+        }
+
+        .login__img {
+          border-radius: 3.5rem;
+          box-shadow: 0 24px 48px hsla(244, 75%, 36%, 0.45);
+        }
+
+        .login__form {
+          justify-self: flex-end;
+          margin-right: 4.5rem;
+        }
+      }
+
+      @media screen and (min-width: 1200px) {
+        .login__content {
+          height: 700px;
+        }
+
+        .login__form {
+          row-gap: 2rem;
+          padding: 3rem;
+          border-radius: 1.25rem;
+          border: 2px solid hsla(244, 16%, 92%, 0.75);
+        }
+
+        .login__description,
+        .login__label,
+        .login__button {
+          font-size: var(--normal-font-size);
+        }
+
+        .login__inputs {
+          row-gap: 1.25rem;
+          margin-bottom: 0.75rem;
+        }
+
+        .login__input {
+          border: 2.5px solid var(--text-color);
+          padding: 1rem;
+          font-size: var(--small-font-size);
+        }
+
+        .login__input:focus,
+        .login__input:valid {
+          border: 2.5px solid var(--first-color);
+        }
+
+        .login__button,
+        .login__button-ghost {
+          padding: 1rem 2rem;
+          font-size: var(--normal-font-size);
+          border-radius: 0.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="login">
+        <div class="login__content">
+          <img class="login__img" src="https://images.pexels.com/photos/1329711/pexels-photo-1329711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Login image" />
+
+          <form class="login__form">
+            <div>
+              <h1 class="login__title">
+                <span>Welcome</span> Back!
+              </h1>
+
+              <p class="login__description">
+                Welcome! Please login to continue.
+              </p>
+            </div>
+
+            <div>
+              <div class="login__inputs">
+                <div>
+                  <label for="email" class="login__label">Email</label>
+                  <input class="login__input" type="email" id="email" placeholder="Enter your email address" required />
+                </div>
+
+                <div>
+                  <label for="password" class="login__label">Password</label>
+                  <div class="login__box">
+                    <input class="login__input" type="password" id="password" placeholder="Enter your password" required />
+                    <i class="ri-eye-off-line login__eye" id="input-icon"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="login__check">
+                <label class="login__check-label" for="check">
+                  <input class="login__check-input" type="checkbox" id="check" />
+                  <i class="ri-check-line login__check-icon"></i>
+                  Remember me
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <div class="login__buttons">
+                <button class="login__button">Log In</button>
+                <button class="login__button login__button-ghost">Sign Up</button>
+              </div>
+
+              <a class="login__forgot" href="#">Forgot Password?</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--=============== MAIN JS ===============-->
+    <script>
+      /*=============== SHOW HIDDEN - PASSWORD ===============*/
+      const showHiddenPassword = (inputPassword, inputIcon) => {
+        const input = document.getElementById(inputPassword),
+              iconEye = document.getElementById(inputIcon);
+
+        iconEye.addEventListener('click', () => {
+          // Change password to text
+          if (input.type === 'password') {
+            // Switch to text
+            input.type = 'text';
+
+            // Add icon
+            iconEye.classList.add('ri-eye-line');
+
+            // Remove icon
+            iconEye.classList.remove('ri-eye-off-line');
+          } else {
+            // Change to password
+            input.type = 'password';
+
+            // Remove icon
+            iconEye.classList.remove('ri-eye-line');
+
+            // Add icon
+            iconEye.classList.add('ri-eye-off-line');
+          }
+        });
+      };
+
+      showHiddenPassword('password', 'input-icon');
+    </script>
+  </body>
+</html>
