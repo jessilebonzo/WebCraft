@@ -554,3 +554,199 @@ a {
     max-width: 100%;
   }
 }
+/* End of Homepage */
+/* Blog Section */
+/* Flip card styles */
+.card-flip {
+  perspective: 1000px;
+  border-radius: 10px;
+  background-color: #ccc;
+  font-family: 'Baloo 2', cursive;
+}
+
+.card-flip > div {
+  backface-visibility: hidden;
+  transition: transform 300ms ease-in-out;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 90%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-flip:hover .card-front {
+  transform: rotateY(-180deg);
+}
+
+.card-flip:hover .card-back {
+  transform: rotateY(0deg);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .card-flip {
+    margin-bottom: 2rem;
+  }
+
+  .card-front, .card-back {
+    height: auto;
+  }
+
+  .post-content-entry {
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-flip > div {
+    padding: 0.5rem;
+  }
+
+  .card-back {
+    padding: 0.5rem;
+  }
+
+  .post-thumbnail img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .post-content-entry h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Dashboard - All Design Templates */
+/* Hover card styling */
+.hover-card {
+  position: relative;
+  width: 100%;
+  background-color: var(--card-background);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 0.6rem rgba(200, 200, 200, 0.5); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 0.8rem rgba(200, 200, 200, 0.6);
+}
+
+img.hover-image {
+  width: 100%;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-content {
+  text-align: left;
+  color: var(--font-color);
+}
+
+.card-content h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-content p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-content blockquote {
+  font-size: 1rem;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.read-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.read-option input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* Modal Styles */
+.modal-body img {
+  width: 100%;
+  height: auto;
+}
+/* viewing modal */
+.main-display img {
+  max-height: 400px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.image-gallery {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-gallery .hover-image {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.image-gallery .hover-image:hover {
+  transform: scale(1.1);
+}
+
+.description h3 {
+  margin-top: 20px;
+  color: #333;
+}
+
+.description p {
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .image-gallery .hover-image {
+      height: 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  .image-gallery {
+      flex-wrap: wrap;
+  }
+  .image-gallery .col-3 {
+      width: 50%;
+  }
+  .main-display img {
+      max-height: 200px;
+  }
+}
