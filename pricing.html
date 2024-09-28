@@ -9,70 +9,175 @@
   <meta name="description" content="" />
   <meta name="keywords" content="bootstrap, bootstrap4" />
 
-		<!-- Bootstrap CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-		<link href="css/tiny-slider.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
-		<title>Pricing</title>
-	</head>
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="css/tiny-slider.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <title>Pricing</title>
+  
+  <style>
+    .ad-button {
+      background-color: #ff5733;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
 
-	<body>
-		<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
-			<div class="container">
-				<a class="navbar-brand" href="index.html">
-					<img src="assets/logo.png" alt="WebCraft Logo" width="115" height="130"></a>
+    .ad-button:hover {
+      background-color: #ff6f3f;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
 
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+    .ad-button::after {
+      content: '🔥';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 25px;
+      animation: flame 1s ease-in-out infinite alternate;
+    }
 
-				<div class="collapse navbar-collapse justify-content-center" id="navbarsFurni">
-					<ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
-							<li class="nav-item active">
-									<a class="nav-link" href="index.html">Home</a>
-							</li>
-							
-							<li><a class="nav-link" href="pricing.html">Pricing</a></li>
-							<li><a class="nav-link" href="about-us.html">About Us</a></li>
-							<li><a class="nav-link" href="blog.html">Blog</a></li>
-					</ul>
-			</div>			
-			<div><p><a href="signin.html" class="btn btn-secondary me-2;">Sign in</a></p></div>
-			</div>
-			</div>	
-		</nav>
-		<!-- End Header/Navigation -->
+    /* Custom Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
 
-		<!-- Start Hero Section -->
-			<div class="hero-section">
-				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-lg-5">
-							<div class="intro-excerpt">
-								<h1>Pricing</h1>
-								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-								<!-- <p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p> -->
-							</div>
-						</div>
-						<div class="col-lg-7">
-							<div class="hero-img-wrap">
-								<img src="images/" class="img-fluid">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		<!-- End Hero Section -->		
-		<script src="js/bootstrap.bundle.min.js"></script>
-		<script src="js/tiny-slider.js"></script>
-		<script src="js/custom.js"></script>
-	</body>
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 300px;
+      text-align: center;
+    }
 
-	<script>
-		!(function(){const sc=document.createElement('script');sc.src="https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18007&token=66F12CE5E4B061B2651780CE";sc.async=true;sc.defer=true;document.body.appendChild(sc);})()
-		</script>
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
 
+    .btn-primary {
+      background-color: #ff5733;
+      color: white;
+    }
 
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Start Header/Navigation -->
+  <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/logo.png" alt="WebCraft Logo" width="115" height="130"></a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navbarsFurni">
+        <ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li><a class="nav-link" href="pricing.html">Pricing</a></li>
+          <li><a class="nav-link" href="about-us.html">About Us</a></li>
+          <li><a class="nav-link" href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div><p><a href="signin.html" class="btn btn-secondary me-2;">Sign in</a></p></div>
+    </div>      
+  </nav>
+  <!-- End Header/Navigation -->
+
+  <!-- Start Hero Section -->
+  <div class="hero-section">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-5">
+          <div class="intro-excerpt">
+            <h1>Pricing</h1>
+            <p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+            <!-- Ad Button -->
+            <p><a href="https://formsubmit.co/el/baheva" class="ad-button" target="_blank">
+            Purchase Template Designs Here Now
+            </a></p>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="hero-img-wrap">
+            <img src="images/" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Hero Section -->   
+
+  <!-- Custom Modal for Purchase Confirmation -->
+  <div id="purchaseModal" class="modal">
+    <div class="modal-content">
+      <p>WebCraft says: You are being redirected to the purchase form!</p>
+      <button id="confirmPurchaseBtn" class="btn btn-primary">OK</button>
+      <button id="cancelPurchaseBtn" class="btn btn-secondary">Cancel</button>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/tiny-slider.js"></script>
+  <script src="js/custom.js"></script>
+
+  <script>
+    document.querySelector('.ad-button').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default action of the link
+
+      // Show custom modal instead of the alert
+      var modal = document.getElementById("purchaseModal");
+      var confirmBtn = document.getElementById("confirmPurchaseBtn");
+      var cancelBtn = document.getElementById("cancelPurchaseBtn");
+
+      modal.style.display = "block";
+
+      // When the user clicks the confirm button
+      confirmBtn.onclick = function () {
+        window.open("https://formsubmit.co/el/baheva", "_blank"); // Change to your purchase URL
+        modal.style.display = "none"; // Hide the modal
+      }
+
+      // When the user clicks the cancel button
+      cancelBtn.onclick = function () {
+        modal.style.display = "none"; // Just close the modal
+      }
+
+      // When the user clicks anywhere outside the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    });
+  </script>
+
+</body>
 </html>
