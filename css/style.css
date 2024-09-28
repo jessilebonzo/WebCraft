@@ -378,8 +378,8 @@ a {
 
 /* PRO Section */
 .coins-img {
-  width: 90%;
-  max-width: 325px;
+  width: 100%;
+  max-width: 350px;
 }
 .pro-section {
   display: flex;
