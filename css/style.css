@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+/* dashboard-nav-active */
 /* Hero-Home Section */
 .main-heading {
   font-family: 'Baloo 2', cursive;
@@ -555,6 +556,60 @@ a {
   }
 }
 /* End of Homepage */
+/* About Us Section */
+.collaborators {
+  background-color: #ff6f6f;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'baloo 2', cursive;
+}
+
+.collaborators h2 {
+  color: white;
+  margin-bottom: 40px;
+}
+
+.collaborator-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.collaborator {
+  background-color: #FFF3BE;
+  border-radius: 10px;
+  padding: 20px;
+  width: 180px;
+  text-align: center;
+  color: white;
+}
+
+.collaborator img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.collaborator h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.collaborator p {
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .collaborator-container {
+      flex-direction: column;
+      align-items: center;
+  }
+}
 /* Blog Section */
 /* Flip card styles */
 .card-flip {
