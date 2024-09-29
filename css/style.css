@@ -888,6 +888,16 @@ img.hover-image {
   color: #555;
 }
 
+.img-fluid {
+  max-width: 100%; 
+  height: auto;
+}
+@media (min-width: 992px) { 
+  .img-fluid {
+      max-width: 150%; 
+  }
+}
+
 @media (max-width: 768px) {
   .image-gallery .hover-image {
       height: 80px;
