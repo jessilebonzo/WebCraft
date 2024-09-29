@@ -735,6 +735,7 @@ img.hover-image {
   font-style: italic;
   color: #555;
   margin-bottom: 0.5rem;
+  font-size: small;
 }
 
 .read-option {

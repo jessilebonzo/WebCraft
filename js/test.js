@@ -38,3 +38,18 @@ function changeImage(imageSrc) {
 	function changeImage5(imageSrc) {
 		document.getElementById('mainImage5').src = imageSrc;
 	}
+	function changeImage6(imageSrc) {
+		document.getElementById('mainImage6').src = imageSrc;
+	}
+	function changeImage6(imageSrc) {
+		document.getElementById('mainImage7').src = imageSrc;
+	}
+	function changeImage6(imageSrc) {
+		document.getElementById('mainImage8').src = imageSrc;
+	}
+	function changeImage6(imageSrc) {
+		document.getElementById('mainImage9').src = imageSrc;
+	}
+	function changeImage6(imageSrc) {
+		document.getElementById('mainImage10').src = imageSrc;
+	}
