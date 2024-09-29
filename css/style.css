@@ -691,6 +691,29 @@ a {
 }
 
 /* Dashboard - All Design Templates */
+/* Theme background image above navbar */
+.theme-background {
+  background-size: cover;
+  background-position: center;
+  height: 290px;
+  width: 100%;
+  position: relative;
+  z-index: -1;
+}
+.theme-container {
+  text-align: center;
+  font-family: 'Baloo 2', cursive;
+  color: black;
+}
+.img-vibe {
+  width: 300px;
+  height: 180px;
+}
+.custom-navbar {
+  position: relative;
+  z-index: 1;
+}
+
 /* view live  */
 /* Hover card styling */
 .hover-card {
@@ -702,10 +725,41 @@ a {
   box-shadow: 0 2px 0.6rem rgba(200, 200, 200, 0.5); 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+.hover-card {
+  position: relative;
+  width: 100%;
+  background-color: var(--card-background);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 0.6rem rgba(200, 200, 200, 0.5); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 .hover-card:hover {
   transform: scale(1.05);
   box-shadow: 0 2px 0.8rem rgba(200, 200, 200, 0.6);
+}
+/* Different background colors for each card on hover */
+.card-1:hover {
+  background-color: #5B99C2; 
+}
+
+.card-2:hover {
+  background-color: #C085EA; 
+}
+
+.card-3:hover {
+  background-color: #F7C8E0; 
+}
+.card-4:hover {
+  background-color: #1F316F; 
+}
+
+.card-5:hover {
+  background-color: #1A4870; 
+}
+
+.card-6:hover {
+  background-color: #1A4870; 
 }
 
 img.hover-image {
@@ -716,7 +770,7 @@ img.hover-image {
 
 .card-content {
   text-align: left;
-  color: var(--font-color);
+  color: #333;
 }
 
 .card-content h3 {
@@ -733,21 +787,33 @@ img.hover-image {
 .card-content blockquote {
   font-size: 1rem;
   font-style: italic;
-  color: #555;
+  color: #333;
   margin-bottom: 0.5rem;
-  font-size: small;
+  font-size: smaller;
+}
+/* retro card */
+.card-content-1 {
+  text-align: left;
+  color: gray;
 }
 
-.read-option {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+.card-content-1 h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
-.read-option input[type="checkbox"] {
-  width: 1.2rem;
-  height: 1.2rem;
+.card-content-1 p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-content-1 blockquote {
+  font-size: 1rem;
+  font-style: italic;
+  color: gray;
+  margin-bottom: 0.5rem;
+  font-size: smaller;
 }
 
 /* Modal Styles */
