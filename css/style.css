@@ -700,15 +700,6 @@ a {
   position: relative;
   z-index: -1;
 }
-.theme-container {
-  text-align: center;
-  font-family: 'Baloo 2', cursive;
-  color: black;
-}
-.img-vibe {
-  width: 300px;
-  height: 180px;
-}
 .custom-navbar {
   position: relative;
   z-index: 1;
@@ -856,7 +847,7 @@ img.hover-image {
   color: #555;
 }
 
-.img-fluid {
+.img-fluid-1 {
   max-width: 100%; 
   height: auto;
 }
