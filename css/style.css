@@ -1,104 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* dashboard-nav-active */
-/* second navbar for themes */
-.custom-second-navbar {
-  background-color: transparent !important;
-  border: none;
-}
-
-.custom-second-navbar .custom-navbar-nav .nav-link {
-  color: black;
-  font-weight: 600; 
-  position: relative;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  font-family: 'Baloo 2', cursive;
-}
-
-.custom-second-navbar .custom-navbar-nav .nav-link:hover {
-  color: gray;
-  opacity: 1;
-}
-/* Hover effect for nav links for larger screens (desktop and tablet) */
-@media (min-width: 768px) {
-  .custom-second-navbar .custom-navbar-nav .nav-link:before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 8px;
-      right: 8px;
-      background: #4DB0A6; 
-      height: 5px;
-      opacity: 0;
-      visibility: hidden;
-      width: 0;
-      transition: .15s all ease-out;
-  }
-
-  .custom-second-navbar .custom-navbar-nav .nav-link:hover:before {
-      opacity: 1;
-      visibility: visible;
-      width: calc(100% - 16px); 
-  }
-
-  .custom-second-navbar .custom-navbar-nav .nav-link:hover {
-      color: #4DB0A6; 
-  }
-}
-
-@media (max-width: 767.98px) {
-  .custom-navbar-nav {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      text-align: center;
-  }
-  
-  /* Adjust the grid for the second row */
-  .custom-navbar-nav li:nth-child(5),
-  .custom-navbar-nav li:nth-child(6),
-  .custom-navbar-nav li:nth-child(7) {
-      grid-column: span 1;
-  }
-
-  .navbar-collapse {
-      padding: 20px;
-  }
-
-  /* Second row for mobile (3 items) */
-  .custom-navbar-nav li:nth-child(5), 
-  .custom-navbar-nav li:nth-child(6), 
-  .custom-navbar-nav li:nth-child(7) {
-      grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* Hover effect for nav links on mobile */
-  .custom-second-navbar .custom-navbar-nav .nav-link:hover {
-      color: #4DB0A6; /* Hover text color for mobile */
-  }
-  
-  .custom-second-navbar .custom-navbar-nav .nav-link:before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 8px;
-      right: 8px;
-      background: #4DB0A6; /* Teal underline */
-      height: 5px;
-      opacity: 0;
-      visibility: hidden;
-      width: 0;
-      transition: .15s all ease-out;
-  }
-
-  .custom-second-navbar .custom-navbar-nav .nav-link:hover:before {
-      opacity: 1;
-      visibility: visible;
-      width: calc(100% - 16px); /* Underline fills width */
-  }
-}
-
 /* Hero-Home Section */
 .main-heading {
   font-family: 'Baloo 2', cursive;
@@ -980,7 +882,4 @@ img.hover-image {
   .main-display img {
       max-height: 200px;
   }
-}
-.text-center {
-  display: flex;
 }
