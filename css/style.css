@@ -306,7 +306,7 @@ a {
 
 .custom-navbar {
   background: #ffff !important;
-  padding-top: 5px;
+  padding-top: 20px;
   padding-bottom: 5px; }
   .custom-navbar .navbar-brand {
     font-size: 32px;
@@ -572,7 +572,6 @@ a {
   font-family: "Baloo 2", cursive;
 }
 .footer-wrapper footer {
-  background-color: #FFECE7;
   padding-top: 0;
   padding-right: 15px;
   padding-left: 25px;
@@ -587,6 +586,8 @@ a {
 .footer-wrapper .subscribe-section h3 {
   font-size: 2em;
   margin-bottom: 20px;
+  font-weight: bold;
+  color: gray;
 }
 .footer-wrapper .subscribe-section form {
   display: flex;
@@ -637,7 +638,6 @@ a {
   font-size: 1em;
   padding-top: 20px;
   border-top: 1px solid #e0e0e0;
-  background-color: #FFF3BE;
   width: 100%;
 }
 
@@ -693,7 +693,7 @@ a {
 .team-container {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(5, 1fr); /* Default for large screens */
+  grid-template-columns: repeat(5, 1fr); 
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;

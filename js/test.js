@@ -41,15 +41,15 @@ function changeImage(imageSrc) {
 	function changeImage6(imageSrc) {
 		document.getElementById('mainImage6').src = imageSrc;
 	}
-	function changeImage6(imageSrc) {
+	function changeImage7(imageSrc) {
 		document.getElementById('mainImage7').src = imageSrc;
 	}
-	function changeImage6(imageSrc) {
+	function changeImage8(imageSrc) {
 		document.getElementById('mainImage8').src = imageSrc;
 	}
-	function changeImage6(imageSrc) {
+	function changeImage9(imageSrc) {
 		document.getElementById('mainImage9').src = imageSrc;
 	}
-	function changeImage6(imageSrc) {
+	function changeImage10(imageSrc) {
 		document.getElementById('mainImage10').src = imageSrc;
 	}
