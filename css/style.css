@@ -797,9 +797,16 @@ a {
   width: 350px;
   height: 250px;
 }
+
+
+.aboutUs-image {
+  width: 350px;
+  height: 120px;
+}
+
 .blog-image {
-  width: 250px;
-  height: 200px;
+  width: 300px;
+  height: 100px;
 }
 
 .feature-text {
