@@ -685,30 +685,30 @@ a {
 }
 
 .team-logo img {
-  max-width: 350px;
+  max-width: 300px;
   justify-content: center;
   min-height: fit-content;
 }
 
 .team-container {
   display: grid;
-  gap: 20px;
+  gap: 10px;
   grid-template-columns: repeat(5, 1fr); 
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .team-member {
   background-color: #4db6ac;
   border-radius: 10px;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .team-member h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 10px;
   color: #fff;
   font-family: 'Baloo 2', cursive;
@@ -722,7 +722,7 @@ a {
 
 .team-photo {
   width: 180px;
-  height: 160px;
+  height: 180px;
   background-color: #ffffff;
   border-radius: 20%;
   margin: 0 auto 20px;
@@ -773,16 +773,16 @@ a {
 .features-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 10px;
+  justify-content: center;
+  gap: 30px;
 }
 
 .feature-card {
   background-color: whitesmoke;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 28%;
-  padding: 20px;
+  width: 25%;
+  padding: 15px;
   text-align: left;
   transition: transform 0.3s;
   font-family: 'Baloo 2', cursive;
@@ -861,7 +861,7 @@ a {
   margin: 0 auto;
 }
 .webcraftteam-img {
-  max-width: 80%;
+  max-width: 50%;
   height: auto;
   display: block;
   margin: 0 auto; 
