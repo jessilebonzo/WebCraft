@@ -21,7 +21,7 @@ function changeImage(imageSrc) {
 			card.style.boxShadow = 'none';
 	});
 }
-// modal shop
+// modal shop 30 Design templates
 	function changeImage1(imageSrc) {
 			document.getElementById('mainImage1').src = imageSrc;
 	}
@@ -52,4 +52,66 @@ function changeImage(imageSrc) {
 	}
 	function changeImage10(imageSrc) {
 		document.getElementById('mainImage10').src = imageSrc;
+	}
+	function changeImage11(imageSrc) {
+		document.getElementById('mainImage11').src = imageSrc;
+	}
+	function changeImage12(imageSrc) {
+		document.getElementById('mainImage12').src = imageSrc;
+	}
+	function changeImage13(imageSrc) {
+		document.getElementById('mainImage13').src = imageSrc;
+	}
+	function changeImage14(imageSrc) {
+		document.getElementById('mainImage14').src = imageSrc;
+	}
+	function changeImage15(imageSrc) {
+		document.getElementById('mainImage15').src = imageSrc;
+	}
+	function changeImage16(imageSrc) {
+		document.getElementById('mainImage16').src = imageSrc;
+	}
+	function changeImage17(imageSrc) {
+		document.getElementById('mainImage17').src = imageSrc;
+	}	function changeImage18(imageSrc) {
+		document.getElementById('mainImage18').src = imageSrc;
+	}	function changeImage19(imageSrc) {
+		document.getElementById('mainImage19').src = imageSrc;
+	}	function changeImage20(imageSrc) {
+		document.getElementById('mainImage20').src = imageSrc;
+	}	function changeImage21(imageSrc) {
+		document.getElementById('mainImage21').src = imageSrc;
+	}
+	function changeImage22(imageSrc) {
+	document.getElementById('mainImage22').src = imageSrc;
+	}
+	function changeImage22(imageSrc) {
+	document.getElementById('mainImage22').src = imageSrc;
+	}
+	function changeImage23(imageSrc) {
+	document.getElementById('mainImage23').src = imageSrc;
+	}
+	function changeImage24(imageSrc) {
+	document.getElementById('mainImage24').src = imageSrc;
+	}
+	function changeImage25(imageSrc) {
+	document.getElementById('mainImage25').src = imageSrc;
+	}
+	function changeImage26(imageSrc) {
+	document.getElementById('mainImage26').src = imageSrc;
+	}
+	function changeImage27(imageSrc) {
+	document.getElementById('mainImage27').src = imageSrc;
+	}
+		function changeImage27(imageSrc) {
+	document.getElementById('mainImage27').src = imageSrc;
+	}
+	function changeImage28(imageSrc) {
+	document.getElementById('mainImage28').src = imageSrc;
+	}
+	function changeImage28(imageSrc) {
+	document.getElementById('mainImage29').src = imageSrc;
+	}
+	function changeImage30(imageSrc) {
+	document.getElementById('mainImage30').src = imageSrc;
 	}
