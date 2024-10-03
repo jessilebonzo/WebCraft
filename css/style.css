@@ -555,6 +555,16 @@ a {
   }
 }
 /* footer section */
+/* Gradient Glow Footer to be readable */
+.footer-link {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
 .footer-wrapper .footer-container {
   display: flex;
   justify-content: space-around;
