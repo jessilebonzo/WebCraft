@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--=============== REMIXICONS ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
 
     <title>WebCraft</title>
 
@@ -212,12 +215,22 @@
         width: 100%;
         padding: 14px 2rem;
         border-radius: 6px;
-        background: linear-gradient(180deg, var(--first-color), var(--second-color));
+        background: linear-gradient(
+          180deg,
+          var(--first-color),
+          var(--second-color)
+        );
         color: #fff;
         font-size: var(--small-font-size);
         font-weight: var(--font-semi-bold);
         box-shadow: 0 6px 24px #f79c83;
         margin-bottom: 1rem;
+        transition: background 0.3s;
+      }
+
+      .login__button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
       }
 
       .login__button-ghost {
@@ -311,6 +324,38 @@
           font-size: var(--normal-font-size);
           border-radius: 0.75rem;
         }
+        .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .modal-content p {
+        margin-bottom: 20px;
+      }
+
+      .modal button {
+        padding: 10px 20px;
+        background-color: var(--first-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
       }
     </style>
   </head>
@@ -320,7 +365,8 @@
         <div class="login__content">
           <img class="login__img" src="assets/test2.gif" />
 
-          <form class="login__form">
+          <!-- Login Form -->
+          <form class="login__form" id="loginForm">
             <div>
               <h1 class="login__title">
                 <span>Welcome</span> Back!
@@ -335,13 +381,25 @@
               <div class="login__inputs">
                 <div>
                   <label for="email" class="login__label">Email</label>
-                  <input class="login__input" type="email" id="email" placeholder="Enter your email address" required />
+                  <input
+                    class="login__input"
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email address"
+                    required
+                  />
                 </div>
 
                 <div>
                   <label for="password" class="login__label">Password</label>
                   <div class="login__box">
-                    <input class="login__input" type="password" id="password" placeholder="Enter your password" required />
+                    <input
+                      class="login__input"
+                      type="password"
+                      id="password"
+                      placeholder="Enter your password"
+                      required
+                    />
                     <i class="ri-eye-off-line login__eye" id="input-icon"></i>
                   </div>
                 </div>
@@ -349,7 +407,11 @@
 
               <div class="login__check">
                 <label class="login__check-label" for="check">
-                  <input class="login__check-input" type="checkbox" id="check" />
+                  <input
+                    class="login__check-input"
+                    type="checkbox"
+                    id="check"
+                  />
                   <i class="ri-check-line login__check-icon"></i>
                   Remember me
                 </label>
@@ -357,56 +419,282 @@
             </div>
 
             <div>
-              <div class="login__buttons">
-                <button class="login__button">Log In</button>
-                <button class="login__button login__button-ghost">Sign Up</button>
+              <div class="login__buttons" style="justify-content: center;">
+                <button type="submit" class="login__button" id="loginButton">Log In</button>
               </div>
 
               <a class="login__forgot" href="#">Forgot Password?</a>
+              <div style="margin-top: 1rem; text-align: center;">
+                <span>Don't have an account? </span>
+                <a
+                  class="login__signup"
+                  href="#"
+                  style="color: var(--first-color); font-weight: var(--font-semi-bold);"
+                  id="showSignUp"
+                  >Register here</a
+                >
+              </div>
+            </div>
+          </form>
+
+          <!-- Sign-Up Form -->
+          <form class="login__form" id="signUpForm" style="display: none;">
+            <div>
+              <h1 class="login__title">
+                <span>Create</span> Account
+              </h1>
+
+              <p class="login__description">
+                Fill in your details to create an account.
+              </p>
+            </div>
+
+            <div>
+              <div class="login__inputs">
+                <div>
+                  <label for="signupEmail" class="login__label">Email</label>
+                  <input
+                    class="login__input"
+                    type="email"
+                    id="signupEmail"
+                    placeholder="Enter your email address"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label for="signupPassword" class="login__label">Password</label>
+                  <div class="login__box">
+                    <input
+                      class="login__input"
+                      type="password"
+                      id="signupPassword"
+                      placeholder="Enter your password"
+                      required
+                    />
+                    <i
+                      class="ri-eye-off-line login__eye"
+                      id="input-icon-signup"
+                    ></i>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="confirmPassword" class="login__label">Confirm Password</label>
+                  <div class="login__box">
+                    <input
+                      class="login__input"
+                      type="password"
+                      id="confirmPassword"
+                      placeholder="Confirm your password"
+                      required
+                    />
+                    <i
+                      class="ri-eye-off-line login__eye"
+                      id="input-icon-confirm"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="login__buttons" style="justify-content: center;">
+                <button type="submit" class="login__button" id="signUpButton">Sign Up</button>
+              </div>
+
+              <div style="margin-top: 1rem; text-align: center;">
+                <span>Already have an account? </span>
+                <a
+                  class="login__login"
+                  href="#"
+                  style="color: var(--first-color); font-weight: var(--font-semi-bold);"
+                  id="showLogin"
+                  >Login here</a
+                >
+              </div>
             </div>
           </form>
         </div>
       </div>
     </div>
 
+    <div id="customModal" class="modal">
+        <div class="modal-content">
+          <p id="modalMessage"></p>
+          <button id="modalCloseBtn">OK</button>
+        </div>
+      </div>
     <!--=============== MAIN JS ===============-->
+    <script type="module">
+      // Import the functions you need from the SDKs
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+      import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
+        authDomain: "webcraft-7f386.firebaseapp.com",
+        projectId: "webcraft-7f386",
+        storageBucket: "webcraft-7f386.appspot.com",
+        messagingSenderId: "983810632123",
+        appId: "1:983810632123:web:de8d379daa38fbca42fc9e",
+        measurementId: "G-WSSVHJ9VV3",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+
+      // Initialize Firebase Authentication
+      const auth = getAuth(app);
+
+      // Initialize Firestore
+      const db = getFirestore(app);
+
+      // modal
+      const modal = document.getElementById('customModal');
+      const modalMessage = document.getElementById('modalMessage');
+      const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+       // Function to show modal with custom message
+       function showModal(message) {
+        modalMessage.textContent = message;
+        modal.style.display = 'flex';
+      }
+      // Function to close modal and optionally redirect
+      function closeModal(redirect = false) {
+        modal.style.display = 'none';
+        if (redirect) {
+          window.location.href = 'dashboard.html';
+        }
+      }
+
+      // Close modal on clicking the OK button
+      modalCloseBtn.addEventListener('click', function () {
+        closeModal(modal.dataset.redirect === 'true');
+      });
+
+
+      // Handle Sign-Up
+       // Handle Sign-Up
+       document.getElementById("signUpForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById("signupEmail").value.trim();
+        const password = document.getElementById("signupPassword").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+        const signUpButton = document.getElementById("signUpButton");
+
+        signUpButton.disabled = true;
+
+        if (password !== confirmPassword) {
+          showModal("Passwords do not match. Please try again.");
+          signUpButton.disabled = false;
+          return;
+        }
+
+        try {
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
+
+          showModal("Sign up successful!");
+          modal.dataset.redirect = 'true';
+
+
+          await setDoc(doc(db, "users", user.uid), { email: email, createdAt: new Date() });
+        } catch (error) {
+          showModal(`Invalid Email/Password. Please try again.`);
+          signUpButton.disabled = false;
+        }
+      });
+
+      // Handle Login
+      document.getElementById("loginForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const loginButton = document.getElementById("loginButton");
+
+        loginButton.disabled = true;
+
+        try {
+          const userCredential = await signInWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
+          showModal("Login successful!");
+          modal.dataset.redirect = 'true';
+
+
+          localStorage.setItem('loggedInUserId', user.uid);
+        } catch (error) {
+          showModal(`Invalid Email/Password. Please try again.`);
+          loginButton.disabled = false;
+        }
+      });
+    </script>
+
     <script>
+      // Toggle between login and sign-up forms
+      const showSignUp = document.getElementById("showSignUp");
+      const showLogin = document.getElementById("showLogin");
+      const loginForm = document.getElementById("loginForm");
+      const signUpForm = document.getElementById("signUpForm");
+
+      if (showSignUp) {
+        showSignUp.addEventListener("click", (e) => {
+          e.preventDefault();
+          loginForm.style.display = "none";
+          signUpForm.style.display = "grid";
+        });
+      }
+
+      if (showLogin) {
+        showLogin.addEventListener("click", (e) => {
+          e.preventDefault();
+          signUpForm.style.display = "none";
+          loginForm.style.display = "grid";
+        });
+      }
+
       /*=============== SHOW HIDDEN - PASSWORD ===============*/
       const showHiddenPassword = (inputPassword, inputIcon) => {
         const input = document.getElementById(inputPassword),
-              iconEye = document.getElementById(inputIcon);
+          iconEye = document.getElementById(inputIcon);
 
-        iconEye.addEventListener('click', () => {
-          // Change password to text
-          if (input.type === 'password') {
-            // Switch to text
-            input.type = 'text';
-
-            // Add icon
-            iconEye.classList.add('ri-eye-line');
-
-            // Remove icon
-            iconEye.classList.remove('ri-eye-off-line');
+        iconEye.addEventListener("click", () => {
+          if (input.type === "password") {
+            input.type = "text";
+            iconEye.classList.add("ri-eye-line");
+            iconEye.classList.remove("ri-eye-off-line");
           } else {
-            // Change to password
-            input.type = 'password';
-
-            // Remove icon
-            iconEye.classList.remove('ri-eye-line');
-
-            // Add icon
-            iconEye.classList.add('ri-eye-off-line');
+            input.type = "password";
+            iconEye.classList.remove("ri-eye-line");
+            iconEye.classList.add("ri-eye-off-line");
           }
         });
       };
 
-      showHiddenPassword('password', 'input-icon');
+      // For login form
+      showHiddenPassword("password", "input-icon");
+
+      // For sign-up form
+      showHiddenPassword("signupPassword", "input-icon-signup");
+      showHiddenPassword("confirmPassword", "input-icon-confirm");
+    </script>
+
+    <script>
+      !(function(){
+        const sc = document.createElement('script');
+        sc.src = "https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18007&token=66F12CE5E4B061B2651780CE";
+        sc.async = true;
+        sc.defer = true;
+        document.body.appendChild(sc);
+      })()
     </script>
   </body>
-  
-	<script>
-		!(function(){const sc=document.createElement('script');sc.src="https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18007&token=66F12CE5E4B061B2651780CE";sc.async=true;sc.defer=true;document.body.appendChild(sc);})()
-		</script>
-
-
 </html>
