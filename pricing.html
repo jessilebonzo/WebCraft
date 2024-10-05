@@ -145,7 +145,7 @@
   <!-- Custom Modal for Purchase Confirmation -->
   <div id="purchaseModal" class="modal">
     <div class="modal-content">
-      <p>WebCraft says: You are being redirected to the purchase form!</p>
+      <p>WebCraft says: You are being redirected to the payment tab!</p>
       <button id="confirmPurchaseBtn" class="btn btn-primary">OK</button>
       <button id="cancelPurchaseBtn" class="btn btn-secondary">Cancel</button>
     </div>
@@ -168,7 +168,7 @@
 
       // When the user clicks the confirm button
       confirmBtn.onclick = function () {
-        window.open("https://formsubmit.co/el/baheva", "_blank"); // Change to your purchase URL
+        window.open("payment.html", "_self"); // Opens payment.html in the same tab
         modal.style.display = "none"; // Hide the modal
       }
 

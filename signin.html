@@ -593,7 +593,7 @@
         signUpButton.disabled = true;
 
         if (password !== confirmPassword) {
-          showModal("Passwords do not match. Please try again.");
+          showModal("WebCraft says: Passwords do not match. Please try again.");
           signUpButton.disabled = false;
           return;
         }
@@ -602,13 +602,13 @@
           const userCredential = await createUserWithEmailAndPassword(auth, email, password);
           const user = userCredential.user;
 
-          showModal("Sign up successful!");
+          showModal("WebCraft says: Sign up successful!");
           modal.dataset.redirect = 'true';
 
 
           await setDoc(doc(db, "users", user.uid), { email: email, createdAt: new Date() });
         } catch (error) {
-          showModal(`Invalid Email/Password. Please try again.`);
+          showModal(`WebCraft says: Invalid Email/Password. Please try again.`);
           signUpButton.disabled = false;
         }
       });
@@ -626,13 +626,13 @@
         try {
           const userCredential = await signInWithEmailAndPassword(auth, email, password);
           const user = userCredential.user;
-          showModal("Login successful!");
+          showModal("WebCraft says: Login successful!");
           modal.dataset.redirect = 'true';
 
 
           localStorage.setItem('loggedInUserId', user.uid);
         } catch (error) {
-          showModal(`Invalid Email/Password. Please try again.`);
+          showModal(`WebCraft says: Invalid Email/Password. Please try again.`);
           loginButton.disabled = false;
         }
       });
