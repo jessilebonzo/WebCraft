@@ -70,6 +70,53 @@
 						height: 200px; /* Adjust height for smaller screens */
 					}
 				}
+
+				/* Modal styles */
+				.modal-content {
+					padding: 20px;
+					text-align: center;
+					background-color: #fefefe;
+					margin: 15% auto;
+					border: 1px solid #888;
+					width: 80%;
+					max-width: 400px; /* Wider modal */
+				}
+
+				.modal-btn {
+					margin: 15px;
+					padding: 10px 20px;
+					width: 120px;
+					border-radius: 25px; /* Rounded edges for all modal buttons */
+				}
+
+				.modal-btn-logout {
+					background-color: #ff4a4a; /* Red button for logout */
+					color: white;
+					border: none;
+				}
+
+				.modal-btn-cancel {
+					background-color: #4CAF50; /* Complementary color (green) */
+					color: white;
+					border: none;
+				}
+
+				.modal-content .btn-wrapper {
+					display: flex;
+					justify-content: space-around;
+				}
+
+				/* Overlay styles */
+				.overlay {
+					display: none; /* Initially hidden */
+					position: fixed;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+					z-index: 9; /* Behind the modal but above the content */
+				}
 			</style>
 		</head>
 		<body>
@@ -97,7 +144,7 @@
 					</ul>
 				</div>
 				<div>
-					<p><a href="signin.html" class="btn btn-secondary me-2">Sign in</a></p>
+					<p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogout()" style="background-color: #ff4a4a;">Log out</a></p> <!-- Red logout button -->
 				</div>
 			</div>
 		</nav>
@@ -105,8 +152,54 @@
 		<!-- Image Below Navbar -->
 		<div class="theme-background" style="background-image: url('assets/vibes/final_allVIBE2.png');"></div>
 		
-	<script>
-		!(function(){const sc=document.createElement('script');sc.src="https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18007&token=66F12CE5E4B061B2651780CE";sc.async=true;sc.defer=true;document.body.appendChild(sc);})()
+		<!-- Overlay for darkening background -->
+		<div id="overlay" class="overlay"></div>
+
+		<!-- Log out Confirmation Modal -->
+		<div id="logoutModal" class="modal" style="display: none;">
+			<div class="modal-content">
+				<p>WebCraft says: Are you sure you want to log out?</p>
+				<div class="btn-wrapper">
+					<button id="confirmLogoutBtn" class="modal-btn modal-btn-logout">Log out</button>
+					<button id="cancelLogoutBtn" class="modal-btn modal-btn-cancel">Cancel</button>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			function confirmLogout() {
+				var modal = document.getElementById("logoutModal");
+				var overlay = document.getElementById("overlay");
+				var confirmBtn = document.getElementById("confirmLogoutBtn");
+				var cancelBtn = document.getElementById("cancelLogoutBtn");
+
+				// Show overlay and modal
+				overlay.style.display = "block";
+				modal.style.display = "block";
+
+				// Confirm logout action
+				confirmBtn.onclick = function () {
+					window.location.href = "index.html"; // Change this to your log-out URL
+				}
+
+				// Cancel log-out action
+				cancelBtn.onclick = function () {
+					modal.style.display = "none";
+					overlay.style.display = "none"; // Hide overlay
+				}
+
+				// Close modal and hide overlay when clicking outside of it
+				window.onclick = function (event) {
+					if (event.target == modal || event.target == overlay) {
+						modal.style.display = "none";
+						overlay.style.display = "none"; // Hide overlay
+					}
+				}
+			}
+		</script>
+
+		<script>
+			!(function(){const sc=document.createElement('script');sc.src="https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18007&token=66F12CE5E4B061B2651780CE";sc.async=true;sc.defer=true;document.body.appendChild(sc);})()
 		</script>
 
 		
@@ -128,7 +221,7 @@
 				</div>
 			</div>
 		</nav>
-		<!-- End Header/Navigation -->
+			<!-- End Header/Navigation -->
 		
 		</body>
 		</html>

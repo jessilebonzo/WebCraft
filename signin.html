@@ -608,7 +608,7 @@
 
           await setDoc(doc(db, "users", user.uid), { email: email, createdAt: new Date() });
         } catch (error) {
-          showModal(`WebCraft says: Invalid Email/Password. Please try again.`);
+          showModal(`WebCraft says: Invalid Email or Email already used/Invalid Password. Please try again.`);
           signUpButton.disabled = false;
         }
       });
