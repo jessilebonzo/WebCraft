@@ -1,2 +1,98 @@
 <!-- ANALYTICS........ -->
- Testinggggg
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time Firebase Analytics</title>
+  
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  
+
+  <!-- Style -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #analytics-display, #active-users {
+      padding: 20px;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+    <h1>Real-Time Firebase Analytics</h1>
+    <p>Showing real-time analytics data from Firebase.</p>
+  
+    <div id="active-users">
+      <h2>Active Users:</h2>
+      <p>Number of active users: <span id="active-user-count">0</span></p>
+    </div>
+  
+    <div id="analytics-display">
+      <h2>Page Views:</h2>
+      <!-- Real-time analytics data will be displayed here -->
+    </div>
+
+  <!-- Firebase Initialization Script -->
+  <script>
+    // Your Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
+      authDomain: "webcraft-7f386.firebaseapp.com",
+      databaseURL: "https://webcraft-7f386-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "webcraft-7f386",
+      storageBucket: "webcraft-7f386.appspot.com",
+      messagingSenderId: "983810632123",
+      appId: "1:983810632123:web:de8d379daa38fbca42fc9e",
+      measurementId: "G-WSSVHJ9VV3"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const analytics = firebase.analytics();
+    const database = firebase.database();
+
+    // Reference to the analytics data in Firebase Realtime Database
+    const pageViewsRef = database.ref('analytics/page_views');
+    const activeUsersRef = database.ref('status');
+
+    // Fetch real-time page views data and display it
+    pageViewsRef.on('value', (snapshot) => {
+      const data = snapshot.val();
+      const analyticsDisplay = document.getElementById('analytics-display');
+      analyticsDisplay.innerHTML = '<h2>Page Views:</h2>';  // Reset content
+
+      for (const key in data) {
+        const pageView = data[key];
+        analyticsDisplay.innerHTML += `<p>Page: ${pageView.page}, Time: ${new Date(pageView.timestamp).toLocaleString()}</p>`;
+      }
+    });
+
+    // Fetch the number of active users in real-time
+    activeUsersRef.on('value', (snapshot) => {
+      const activeUserCount = snapshot.numChildren(); // Count active users
+      document.getElementById('active-user-count').innerText = activeUserCount;
+    });
+
+    // Set user presence
+    const userId = "user_" + new Date().getTime(); // Example user ID
+    const userStatusDatabaseRef = activeUsersRef.child(userId);
+
+    userStatusDatabaseRef.set(true); // Set presence to true
+
+    // Remove user when they disconnect
+    userStatusDatabaseRef.onDisconnect().remove();
+  </script>
+
+</body>
+</html>
