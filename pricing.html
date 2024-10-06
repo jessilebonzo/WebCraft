@@ -108,7 +108,7 @@
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li><a class="nav-link" href="pricing.html">Pricing</a></li>
-          <li><a class="nav-link" href="blog.html">Blog</a></li>
+          <li><a class="nav-link" href="blog.html">Preview</a></li>
           <li><a class="nav-link" href="about-us.html">More</a></li>
         </ul>
       </div>
@@ -150,9 +150,8 @@
   <!-- Custom Modal for Purchase Confirmation -->
   <div id="purchaseModal" class="modal">
     <div class="modal-content">
-      <p>WebCraft says: You are being redirected to the payment tab!</p>
+      <p>WebCraft says: You need to log in before being redirected to the payment tab!</p>
       <button id="confirmPurchaseBtn" class="btn btn-primary btn-margin">OK</button>
-      <button id="cancelPurchaseBtn" class="btn btn-secondary btn-margin">Cancel</button>
     </div>
   </div>
 
@@ -162,33 +161,28 @@
 
   <script>
     document.querySelector('.ad-button').addEventListener('click', function(event) {
-      event.preventDefault(); // Prevent default action of the link
+  event.preventDefault(); // Prevent default action of the link
 
-      // Show custom modal instead of the alert
-      var modal = document.getElementById("purchaseModal");
-      var confirmBtn = document.getElementById("confirmPurchaseBtn");
-      var cancelBtn = document.getElementById("cancelPurchaseBtn");
+  // Show custom modal instead of the alert
+  var modal = document.getElementById("purchaseModal");
+  var confirmBtn = document.getElementById("confirmPurchaseBtn");
 
-      modal.style.display = "block";
+  modal.style.display = "block";
 
-      // When the user clicks the confirm button
-      confirmBtn.onclick = function () {
-        window.open("payment.html", "_self"); // Opens payment.html in the same tab
-        modal.style.display = "none"; // Hide the modal
-      }
+  // When the user clicks the confirm button
+  confirmBtn.onclick = function () {
+    modal.style.display = "none"; // Hide the modal
+    window.close(); // Close the window
+  }
 
-      // When the user clicks the cancel button
-      cancelBtn.onclick = function () {
-        modal.style.display = "none"; // Just close the modal
-      }
+  // When the user clicks anywhere outside the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+});
 
-      // When the user clicks anywhere outside the modal, close it
-      window.onclick = function (event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-    });
   </script>
 
 </body>
