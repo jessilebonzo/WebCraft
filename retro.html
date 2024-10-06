@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="WebCraft Team">
   <link rel="shortcut icon" href="assets/webcraft.png">
-
   <meta name="description" content="" />
   <meta name="keywords" content="bootstrap, bootstrap4" />
 
@@ -29,7 +28,7 @@
       body {
         margin: 0;
         padding: 0;
-        background-image: url('assets/vibes/final_retroBG.png'); /* Replace with your desired background image */
+        background-image: url('assets/vibes/final_retroBG.png');
         background-size: cover;
         background-position: center;
         height: 100vh;
@@ -44,7 +43,7 @@
         background-size: cover;
         background-position: center;
         width: 100%;
-        height: 370px; /* Adjust height as necessary */
+        height: 370px; 
         margin-bottom: 0;
       }
 
@@ -64,58 +63,57 @@
         background-color: #6c757d;
       }
 
-      /* Responsive adjustments */
       @media (max-width: 768px) {
         .theme-background {
-          height: 200px; /* Adjust height for smaller screens */
+          height: 200px; 
         }
       }
 
       /* Modal styles */
-      .modal-content {
+      .custom-modal-content {
         padding: 20px;
         text-align: center;
         background-color: #fefefe;
         margin: 15% auto;
         border: 1px solid #888;
         width: 80%;
-        max-width: 400px; /* Wider modal */
+        max-width: 400px;
       }
 
-      .modal-btn {
+      .custom-modal-btn {
         margin: 15px;
         padding: 10px 20px;
         width: 120px;
-        border-radius: 25px; /* Rounded edges for all modal buttons */
+        border-radius: 25px;
       }
 
-      .modal-btn-logout {
-        background-color: #ff4a4a; /* Red button for logout */
+      .custom-modal-btn-logout {
+        background-color: #ff4a4a;
         color: white;
         border: none;
       }
 
-      .modal-btn-cancel {
-        background-color: #4CAF50; /* Complementary color (green) */
+      .custom-modal-btn-cancel {
+        background-color: #4CAF50;
         color: white;
         border: none;
       }
 
-      .modal-content .btn-wrapper {
+      .custom-modal-content .btn-wrapper {
         display: flex;
         justify-content: space-around;
       }
 
       /* Overlay styles */
-      .overlay {
-        display: none; /* Initially hidden */
+      .custom-overlay {
+        display: none;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.7); /* Dark overlay */
-        z-index: 9; /* Behind the modal but above the content */
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 9;
       }
     </style>
   </head>
@@ -144,7 +142,7 @@
           </ul>
         </div>
         <div>
-          <p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogout()" style="background-color: #ff4a4a;">Log out</a></p> <!-- Red logout button -->
+          <p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogout()" style="background-color: #ff4a4a;">Log out</a></p>
         </div>
       </div>
     </nav>
@@ -153,25 +151,25 @@
     <div class="theme-background" style="background-image: url('assets/vibes/final_retroVIBE2.png');"></div>
     
     <!-- Overlay for darkening background -->
-    <div id="overlay" class="overlay"></div>
+    <div id="customOverlay" class="custom-overlay"></div>
 
     <!-- Log out Confirmation Modal -->
-    <div id="logoutModal" class="modal" style="display: none;">
-      <div class="modal-content">
+    <div id="customLogoutModal" class="modal" style="display: none;">
+      <div class="custom-modal-content">
         <p>WebCraft says: Are you sure you want to log out?</p>
         <div class="btn-wrapper">
-          <button id="confirmLogoutBtn" class="modal-btn modal-btn-logout">Log out</button>
-          <button id="cancelLogoutBtn" class="modal-btn modal-btn-cancel">Cancel</button>
+          <button id="customConfirmLogoutBtn" class="custom-modal-btn custom-modal-btn-logout">Log out</button>
+          <button id="customCancelLogoutBtn" class="custom-modal-btn custom-modal-btn-cancel">Cancel</button>
         </div>
       </div>
     </div>
 
     <script>
       function confirmLogout() {
-        var modal = document.getElementById("logoutModal");
-        var overlay = document.getElementById("overlay");
-        var confirmBtn = document.getElementById("confirmLogoutBtn");
-        var cancelBtn = document.getElementById("cancelLogoutBtn");
+        var modal = document.getElementById("customLogoutModal");
+        var overlay = document.getElementById("customOverlay");
+        var confirmBtn = document.getElementById("customConfirmLogoutBtn");
+        var cancelBtn = document.getElementById("customCancelLogoutBtn");
 
         // Show overlay and modal
         overlay.style.display = "block";
@@ -197,17 +195,19 @@
         }
       }
     </script>
-
+	
+    <!-- External Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script>
-      !(function(){
-        const sc = document.createElement('script');
-        sc.src = "https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18007&token=66F12CE5E4B061B2651780CE";
-        sc.async = true;
-        sc.defer = true;
-        document.body.appendChild(sc);
-      })()
+        !(function(){
+            const sc = document.createElement('script');
+            sc.src = "https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18007&token=66F12CE5E1";
+            sc.async = true;
+            const s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(sc, s);
+        })();
     </script>
-
+	
     <!-- Second Navbar -->
     <nav class="custom-second-navbar navbar navbar-expand-md navbar-dark bg-transparent" aria-label="webcraft second navigation bar">
       <div class="container">
@@ -227,7 +227,6 @@
       </div>
     </nav>
     <!-- End Header/Navigation -->
-    
   </body>
 </html>
 

@@ -71,8 +71,8 @@
           }
       }
 
-      /* Modal styles */
-      .modal-content {
+      /* Log-out modal styles */
+      #logoutModal .modal-content {
           padding: 20px;
           text-align: center;
           background-color: #fefefe;
@@ -82,32 +82,32 @@
           max-width: 400px; /* Wider modal */
       }
 
-      .modal-btn {
+      #logoutModal .modal-btn {
           margin: 15px;
           padding: 10px 20px;
           width: 120px;
           border-radius: 25px; /* Rounded edges for all modal buttons */
       }
 
-      .modal-btn-logout {
+      #logoutModal .modal-btn-logout {
           background-color: #ff4a4a; /* Red button for logout */
           color: white;
           border: none;
       }
 
-      .modal-btn-cancel {
+      #logoutModal .modal-btn-cancel {
           background-color: #4CAF50; /* Complementary color (green) */
           color: white;
           border: none;
       }
 
-      .modal-content .btn-wrapper {
+      #logoutModal .btn-wrapper {
           display: flex;
           justify-content: space-around;
       }
 
       /* Overlay styles */
-      .overlay {
+      #logoutOverlay {
           display: none; /* Initially hidden */
           position: fixed;
           top: 0;
@@ -153,8 +153,8 @@
     <!-- Image Below Navbar -->
     <div class="theme-background" style="background-image: url('assets/vibes/final_coquetteVIBE.png');"></div>
     
-    <!-- Overlay for darkening background -->
-    <div id="overlay" class="overlay"></div>
+    <!-- Overlay for log-out modal -->
+    <div id="logoutOverlay" class="overlay"></div>
 
     <!-- Log out Confirmation Modal -->
     <div id="logoutModal" class="modal" style="display: none;">
@@ -170,7 +170,7 @@
     <script>
         function confirmLogout() {
             var modal = document.getElementById("logoutModal");
-            var overlay = document.getElementById("overlay");
+            var overlay = document.getElementById("logoutOverlay");
             var confirmBtn = document.getElementById("confirmLogoutBtn");
             var cancelBtn = document.getElementById("cancelLogoutBtn");
 
@@ -198,15 +198,17 @@
             }
         }
     </script>
-
+	
+    <!-- External Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script>
         !(function(){
             const sc = document.createElement('script');
-            sc.src = "https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18007&token=66F12CE5E4B061B2651780CE";
+            sc.src = "https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18007&token=66F12CE5E1";
             sc.async = true;
-            sc.defer = true;
-            document.body.appendChild(sc);
-        })()
+            const s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(sc, s);
+        })();
     </script>
 
     <!-- Second Navbar -->

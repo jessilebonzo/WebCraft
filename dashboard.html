@@ -71,8 +71,8 @@
 					}
 				}
 
-				/* Modal styles */
-				.modal-content {
+				/* Log-out modal styles (Unique to log-out) */
+				#logoutModalNew .modal-content {
 					padding: 20px;
 					text-align: center;
 					background-color: #fefefe;
@@ -82,32 +82,32 @@
 					max-width: 400px; /* Wider modal */
 				}
 
-				.modal-btn {
+				#logoutModalNew .modal-btn {
 					margin: 15px;
 					padding: 10px 20px;
 					width: 120px;
 					border-radius: 25px; /* Rounded edges for all modal buttons */
 				}
 
-				.modal-btn-logout {
+				#logoutModalNew .modal-btn-logout {
 					background-color: #ff4a4a; /* Red button for logout */
 					color: white;
 					border: none;
 				}
 
-				.modal-btn-cancel {
+				#logoutModalNew .modal-btn-cancel {
 					background-color: #4CAF50; /* Complementary color (green) */
 					color: white;
 					border: none;
 				}
 
-				.modal-content .btn-wrapper {
+				#logoutModalNew .btn-wrapper {
 					display: flex;
 					justify-content: space-around;
 				}
 
-				/* Overlay styles */
-				.overlay {
+				/* Overlay styles for log-out modal */
+				#logoutOverlayNew {
 					display: none; /* Initially hidden */
 					position: fixed;
 					top: 0;
@@ -144,7 +144,7 @@
 					</ul>
 				</div>
 				<div>
-					<p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogout()" style="background-color: #ff4a4a;">Log out</a></p> <!-- Red logout button -->
+					<p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogoutNew()" style="background-color: #ff4a4a;">Log out</a></p> <!-- Red logout button -->
 				</div>
 			</div>
 		</nav>
@@ -152,26 +152,26 @@
 		<!-- Image Below Navbar -->
 		<div class="theme-background" style="background-image: url('assets/vibes/final_allVIBE2.png');"></div>
 		
-		<!-- Overlay for darkening background -->
-		<div id="overlay" class="overlay"></div>
+		<!-- Overlay for log-out modal -->
+		<div id="logoutOverlayNew" class="overlay"></div>
 
 		<!-- Log out Confirmation Modal -->
-		<div id="logoutModal" class="modal" style="display: none;">
+		<div id="logoutModalNew" class="modal" style="display: none;">
 			<div class="modal-content">
 				<p>WebCraft says: Are you sure you want to log out?</p>
 				<div class="btn-wrapper">
-					<button id="confirmLogoutBtn" class="modal-btn modal-btn-logout">Log out</button>
-					<button id="cancelLogoutBtn" class="modal-btn modal-btn-cancel">Cancel</button>
+					<button id="confirmLogoutBtnNew" class="modal-btn modal-btn-logout">Log out</button>
+					<button id="cancelLogoutBtnNew" class="modal-btn modal-btn-cancel">Cancel</button>
 				</div>
 			</div>
 		</div>
 
 		<script>
-			function confirmLogout() {
-				var modal = document.getElementById("logoutModal");
-				var overlay = document.getElementById("overlay");
-				var confirmBtn = document.getElementById("confirmLogoutBtn");
-				var cancelBtn = document.getElementById("cancelLogoutBtn");
+			function confirmLogoutNew() {
+				var modal = document.getElementById("logoutModalNew");
+				var overlay = document.getElementById("logoutOverlayNew");
+				var confirmBtn = document.getElementById("confirmLogoutBtnNew");
+				var cancelBtn = document.getElementById("cancelLogoutBtnNew");
 
 				// Show overlay and modal
 				overlay.style.display = "block";
@@ -198,11 +198,19 @@
 			}
 		</script>
 
-		<script>
-			!(function(){const sc=document.createElement('script');sc.src="https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18007&token=66F12CE5E4B061B2651780CE";sc.async=true;sc.defer=true;document.body.appendChild(sc);})()
-		</script>
-
 		
+    <!-- External Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        !(function(){
+            const sc = document.createElement('script');
+            sc.src = "https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18007&token=66F12CE5E1";
+            sc.async = true;
+            const s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(sc, s);
+        })();
+    </script>
+
 		<!-- Second Navbar -->
 		<nav class="custom-second-navbar navbar navbar-expand-md navbar-dark bg-transparent" aria-label="webcraft second navigation bar">
 			<div class="container">
@@ -225,6 +233,7 @@
 		
 		</body>
 		</html>
+
 
 		<!-- Start Hero Section -->
 			<div class="hero-section">
