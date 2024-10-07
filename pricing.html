@@ -173,7 +173,8 @@
       </div>
   </div>
 </div>
-
+<br>
+<br>
 
 <!-- End Hero Section -->
  <!-- footer section -->
@@ -181,7 +182,7 @@
 	<footer>
 	  <div class="footer-container">
 		<div class="subscribe-section"><br>
-		  <h3 style="font-size: medium;">
+		  <h3 style="font-size: large;">
 			<img src="assets/envelope-outline.svg" alt="Image" class="img-fluid">
 			Send me tips, trends, freebies, updates & offers.
 		  </h3>
@@ -238,32 +239,36 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/tiny-slider.js"></script>
   <script src="js/custom.js"></script>
-
   <script>
-    document.querySelector('.ad-button').addEventListener('click', function(event) {
-  event.preventDefault(); // Prevent default action of the link
-
-  // Show custom modal instead of the alert
-  var modal = document.getElementById("purchaseModal");
-  var confirmBtn = document.getElementById("confirmPurchaseBtn");
-
-  modal.style.display = "block";
-
-  // When the user clicks the confirm button
-  confirmBtn.onclick = function () {
-    modal.style.display = "none"; // Hide the modal
-    window.close(); // Close the window
-  }
-
-  // When the user clicks anywhere outside the modal, close it
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-});
-
+    // Add click event listener for both purchase buttons
+    const buttons = document.querySelectorAll('.ad-button');
+    
+    buttons.forEach(button => {
+      button.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default action of the link
+    
+        // Show custom modal instead of the alert
+        var modal = document.getElementById("purchaseModal");
+        var confirmBtn = document.getElementById("confirmPurchaseBtn");
+    
+        modal.style.display = "block";
+    
+        // When the user clicks the confirm button
+        confirmBtn.onclick = function () {
+          modal.style.display = "none"; // Hide the modal
+          window.close(); // Close the window
+        }
+    
+        // When the user clicks anywhere outside the modal, close it
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+      });
+    });
   </script>
+  
   <script>
     !(function(){const sc=document.createElement('script');sc.src="https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18007&token=66F12CE5E4B061B2651780CE";sc.async=true;sc.defer=true;document.body.appendChild(sc);})()
     </script>
