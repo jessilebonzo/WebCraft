@@ -516,8 +516,8 @@ a {
   padding: 10px;
 }
 .hole {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: px;
   background-color: white;
   border-radius: 50%;
   border: 2px solid #1c1410;
@@ -1319,12 +1319,6 @@ img.hover-image {
         background-color: #1D100C; 
       }
 /* Pricing */
-.features-container-2 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
 
 .feature-card-2 {
   background-color: #FF6D6D;
