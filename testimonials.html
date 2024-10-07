@@ -3,361 +3,243 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="author" content="Untree.co">
-  <link rel="shortcut icon" href="favicon.png">
+  <meta name="author" content="WebCraft Team">
+  <link rel="shortcut icon" href="assets/webcraft.png">
 
   <meta name="description" content="" />
   <meta name="keywords" content="bootstrap, bootstrap4" />
 
-  <!-- Bootstrap CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <link href="css/tiny-slider.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
-  <title>Testimonials</title>
-  <style>
-    .ad-button {
-      background-color: #ff5733;
-      color: white;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 5px;
-      font-size: 20px;
-      cursor: pointer;
-      text-decoration: none;
-      position: relative;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-  
-    .ad-button:hover {
-      background-color: #ff6f3f;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-  
-    .ad-button::after {
-      content: '🔥';
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      font-size: 25px;
-      animation: flame 1s ease-in-out infinite alternate;
-    }
-  
-    /* Custom Modal Styling */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-  
-    .modal-content {
-      background-color: #fefefe;
-      margin: 15% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 300px;
-      text-align: center;
-    }
-  
-    .btn {
-      padding: 13px 32px; /* Match padding to the ad-button */
-      border: none;
-      cursor: pointer;
-      margin-top: 1px;
-      font-size: 15px; /* Match font size to the ad-button */
-    }
-  
-    .btn-primary {
-      background-color: #ff5733;
-      color: white;
-    }
-  
-    .btn-secondary {
-      background-color: #6c757d;
-      color: white;
-    }
+		<!-- Bootstrap CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+		<link href="css/tiny-slider.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+		<title>Testimonials</title>
+		
+		<style>
+		  /* Set the background image to cover the entire page */
+		  body {
+		      margin: 0;
+		      padding: 0;
+		      background-size: cover;
+		      background-position: center;
+		      height: 100vh;
+					background-color: white;
+		  }
 
-    .btn-margin {
-      margin-top: 10px; /* Adjust the space as needed */
-    }
-  </style>
-  
-</head>
+		  .custom-navbar {
+		      z-index: 10;
+		      width: 100%;
+		  }
 
-<body style="background-color: white;">
-  <!-- Start Header/Navigation -->
-  <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
-    <div class="container">
-      <a class="navbar-brand" href="dashboard.html">
-        <img src="assets/trademark/logo_2.png" alt="WebCraft Logo" width="100" height="50">
-      </a>
-  
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse justify-content-center" id="navbarsFurni">
-        <ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
-          <li class="nav-item active">
-          <li><a class="nav-link" href="dashboard.html">Templates</a></li>
-          <li><a class="nav-link" href="payment.html">Payment</a></li>
-          <li><a class="nav-link" href="analytics.html">Analytics</a></li>
-          <li><a class="nav-link" href="testimonials.html">Testimonials</a></li>
-        </ul>
-      </div>
-      <div>
-        <p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogoutNew()" style="background-color: #ff4a4a;">Log out</a></p> <!-- Red logout button -->
-      </div>
-    </div>
-  </nav>
-  <!-- End Header/Navigation -->
+		  .btn-secondary {
+		      background-color: #6c757d;
+		  }
 
-  <!-- Start Hero Section -->
-  <div class="hero-section">
-    <div class="container">
-      <div class="pricing-section">
-        <div class="container">
-          <img src="assets/testimonials.png" alt="Feature" class="blog-image" style="align-items: start; margin-bottom: 20px; margin-top: 20px; width: 52%; height: auto;">
-        </div>	
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Hero Section -->
-<!-- Testimonials Slider -->
- <!-- Start Testimonial Slider -->
- <div class="testimonial-section">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-12">
-				<div class="testimonial-slider-wrap text-center">
+		  /* Log-out modal styles (Unique to log-out) */
+		  #logoutModal .modal-content {
+		      padding: 20px;
+		      text-align: center;
+		      background-color: #fefefe;
+		      margin: 15% auto;
+		      border: 1px solid #888;
+		      width: 80%;
+		      max-width: 400px; /* Wider modal */
+		  }
 
-					<div id="testimonial-nav">
-						<span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
-						<span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
-					</div>
+		  #logoutModal .modal-btn {
+		      margin: 15px;
+		      padding: 10px 20px;
+		      width: 120px;
+		      border-radius: 25px; /* Rounded edges for all modal buttons */
+		  }
 
-					<div class="testimonial-slider">
-						
-						<div class="item">
-							<div class="row justify-content-center">
-								<div class="col-lg-8 mx-auto">
+		  #logoutModal .modal-btn-logout {
+		      background-color: #ff4a4a; /* Red button for logout */
+		      color: white;
+		      border: none;
+		  }
 
-									<div class="testimonial-block text-center">
-										<blockquote class="mb-5">
-											<p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-										</blockquote>
+		  #logoutModal .modal-btn-cancel {
+		      background-color: #4CAF50; /* Complementary color (green) */
+		      color: white;
+		      border: none;
+		  }
 
-										<div class="author-info">
-											<div class="author-pic">
-												<img src="images/person-1.png" alt="Maria Jones" class="img-fluid">
-											</div>
-											<h3 class="font-weight-bold">Maria Jones</h3>
-											<span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-										</div>
-									</div>
+		  #logoutModal .btn-wrapper {
+		      display: flex;
+		      justify-content: space-around;
+		  }
 
-								</div>
-							</div>
-						</div> 
-						<!-- END item -->
+		  /* Overlay styles for log-out modal */
+		  #logoutOverlay {
+		      display: none; /* Initially hidden */
+		      position: fixed;
+		      top: 0;
+		      left: 0;
+		      width: 100%;
+		      height: 100%;
+		      background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+		      z-index: 9; /* Behind the modal but above the content */
+		  }
+		</style>
+	</head>
 
-						<div class="item">
-							<div class="row justify-content-center">
-								<div class="col-lg-8 mx-auto">
+	<body>
 
-									<div class="testimonial-block text-center">
-										<blockquote class="mb-5">
-											<p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-										</blockquote>
+		
+    <!-- External Scripts -->
+    <script>
+        !(function(){
+            const sc = document.createElement('script');
+            sc.src = "https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18007&token=66F12CE5E4B061B2651780CE";
+            sc.async = true;
+            sc.defer = true;
+            document.body.appendChild(sc);
+        })()
+    </script>
 
-										<div class="author-info">
-											<div class="author-pic">
-												<img src="images/person-1.png" alt="Maria Jones" class="img-fluid">
-											</div>
-											<h3 class="font-weight-bold">Maria Jones</h3>
-											<span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-										</div>
-									</div>
 
-								</div>
-							</div>
-						</div> 
-						<!-- END item -->
+		<!-- Start Header/Navigation -->
+		<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
+			<div class="container">
+				<a class="navbar-brand" href="dashboard.html">
+					<img src="assets/trademark/logo_2.png" alt="WebCraft Logo" width="100" height="50"></a>
 
-						<div class="item">
-							<div class="row justify-content-center">
-								<div class="col-lg-8 mx-auto">
-
-									<div class="testimonial-block text-center">
-										<blockquote class="mb-5">
-											<p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-										</blockquote>
-
-										<div class="author-info">
-											<div class="author-pic">
-												<img src="images/person-1.png" alt="Maria Jones" class="img-fluid">
-											</div>
-											<h3 class="font-weight-bold">Maria Jones</h3>
-											<span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-										</div>
-									</div>
-
-								</div>
-							</div>
-						</div> 
-						<!-- END item -->
-						<div class="item">
-							<div class="row justify-content-center">
-								<div class="col-lg-8 mx-auto">
-
-									<div class="testimonial-block text-center">
-										<blockquote class="mb-5">
-											<p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-										</blockquote>
-
-										<div class="author-info">
-											<div class="author-pic">
-												<img src="images/person-1.png" alt="Maria Jones" class="img-fluid">
-											</div>
-											<h3 class="font-weight-bold">Maria Jones</h3>
-											<span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-										</div>
-									</div>
-
-								</div>
-							</div>
-						</div> 
-						<!-- END item -->
-						<div class="item">
-							<div class="row justify-content-center">
-								<div class="col-lg-8 mx-auto">
-
-									<div class="testimonial-block text-center">
-										<blockquote class="mb-5">
-											<p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-										</blockquote>
-
-										<div class="author-info">
-											<div class="author-pic">
-												<img src="images/person-1.png" alt="Maria Jones" class="img-fluid">
-											</div>
-											<h3 class="font-weight-bold">Maria Jones</h3>
-											<span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-										</div>
-									</div>
-
-								</div>
-							</div>
-						</div> 
-						<!-- END item -->
-					</div>
-
-				</div>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse justify-content-center" id="navbarsFurni">
+					<ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
+							<li class="nav-item active">
+								<li><a class="nav-link" href="dashboard.html">Templates</a></li>
+								<li><a class="nav-link" href="payment.html">Payment</a></li>
+								<li><a class="nav-link" href="analytics.html">Analytics</a></li>
+								<li><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+					</ul>
+			</div>			
+			<div>
+				<p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogout()" style="background-color: #ff4a4a;">Log out</a></p> <!-- Red logout button -->
 			</div>
+			</div>
+		</nav>
+		<!-- End Header/Navigation -->
+
+		<!-- Overlay for log-out modal -->
+		<div id="logoutOverlay" class="overlay"></div>
+
+		<!-- Log out Confirmation Modal -->
+		<div id="logoutModal" class="modal" style="display: none;">
+		    <div class="modal-content">
+		        <p>WebCraft says: Are you sure you want to log out?</p>
+		        <div class="btn-wrapper">
+		            <button id="confirmLogoutBtn" class="modal-btn modal-btn-logout">Log out</button>
+		            <button id="cancelLogoutBtn" class="modal-btn modal-btn-cancel">Cancel</button>
+		        </div>
+		    </div>
 		</div>
-	</div>
-</div>
-<!-- End Testimonial Slider -->
 
-  <div id="purchaseModal" class="modal">
-    <div class="modal-content">
-      <p>WebCraft says: You need to log in before being redirected to the payment tab!</p>
-      <button id="confirmPurchaseBtn" class="btn btn-primary btn-margin">OK</button>
-    </div>
-  </div>
+		<script>
+		    function confirmLogout() {
+		        var modal = document.getElementById("logoutModal");
+		        var overlay = document.getElementById("logoutOverlay");
+		        var confirmBtn = document.getElementById("confirmLogoutBtn");
+		        var cancelBtn = document.getElementById("cancelLogoutBtn");
 
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/tiny-slider.js"></script>
-  <script src="js/custom.js"></script>
+		        // Show overlay and modal
+		        overlay.style.display = "block";
+		        modal.style.display = "block";
 
-  <script>
-    document.querySelector('.ad-button').addEventListener('click', function(event) {
-  event.preventDefault(); // Prevent default action of the link
+		        // Confirm logout action
+		        confirmBtn.onclick = function () {
+		            window.location.href = "index.html"; // Change this to your log-out URL
+		        }
 
-  // Show custom modal instead of the alert
-  var modal = document.getElementById("purchaseModal");
-  var confirmBtn = document.getElementById("confirmPurchaseBtn");
+		        // Cancel log-out action
+		        cancelBtn.onclick = function () {
+		            modal.style.display = "none";
+		            overlay.style.display = "none"; // Hide overlay
+		        }
 
-  modal.style.display = "block";
+		        // Close modal and hide overlay when clicking outside of it
+		        window.onclick = function (event) {
+		            if (event.target == modal || event.target == overlay) {
+		                modal.style.display = "none";
+		                overlay.style.display = "none"; // Hide overlay
+		            }
+		        }
+		    }
+		</script>
 
-  // When the user clicks the confirm button
-  confirmBtn.onclick = function () {
-    modal.style.display = "none"; // Hide the modal
-    window.close(); // Close the window
-  }
+	</body>
+</html>
 
-  // When the user clicks anywhere outside the modal, close it
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-});
 
-  </script>
 
-</body>
+		<!-- Start Hero Section -->
+
+		<div class="payment-section">
+			<div class="container">
+				<img src="assets/testimonials.png" alt="Feature" class="blog-image" style="align-items: start; margin-bottom: 20px; margin-top: 20px; width: 52%; height: auto;">
+			</span>
+	</div>	
 <!-- footer section -->
 <div class="footer-wrapper">
-  <footer>
-    <div class="footer-container">
-      <div class="subscribe-section"><br>
-        <h3 style="font-size: medium;">
-          <img src="assets/envelope-outline.svg" alt="Image" class="img-fluid">
-          Send me tips, trends, freebies, updates & offers.
-        </h3>
-        <form id="subscribe-form" action="https://formsubmit.co/el/baheva" method="POST" target="_blank" onsubmit="return submitForm();">
-          <input type="email" name="email" placeholder="Your Email" required>
-          <button type="submit">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send">
-              <line x1="22" y1="2" x2="11" y2="13"></line>
-              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-            </svg>
-          </button>
-        </form>
-      </div>
-      <div class="footer-image">
-        <img src="assets/trademark/webcraft animated.gif" alt="logo">
-      </div>
-    </div>
-  </footer>
-  <div class="footer-bottom" style="background-color: #e0e0e0">
-    <ul class="list-unstyled d-inline-flex ms-auto">
-      <p>
-        <a href="#">Terms &amp; Conditions |</a>
-        <a href="#">Cookie Consent |</a>
-        <a href="#">Privacy Policy |</a>
-        <a href="#">Support</a>
-        <a href="#">&copy; WebCraft Team 2024</a>
-      </p>
-    </ul>
+	<footer>
+	  <div class="footer-container">
+		<div class="subscribe-section"><br>
+		  <h3 style="font-size: medium;">
+			<img src="assets/envelope-outline.svg" alt="Image" class="img-fluid">
+			Send me tips, trends, freebies, updates & offers.
+		  </h3>
+		  <form id="subscribe-form" action="https://formsubmit.co/el/baheva" method="POST" target="_blank" onsubmit="return submitForm();">
+			<input type="email" name="email" placeholder="Your Email" required>
+			<button type="submit">
+			  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send">
+				<line x1="22" y1="2" x2="11" y2="13"></line>
+				<polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+			  </svg>
+			</button>
+		  </form>
+		</div>
+		<div class="footer-image">
+		  <img src="assets/trademark/webcraft animated.gif" alt="logo">
+		</div>
+	  </div>
+	</footer>
+	<div class="footer-bottom" style="background-color: #e0e0e0">
+	  <ul class="list-unstyled d-inline-flex ms-auto">
+		<p>
+		  <a href="#">Terms &amp; Conditions |</a>
+		  <a href="#">Cookie Consent |</a>
+		  <a href="#">Privacy Policy |</a>
+		  <a href="#">Support</a>
+		  <a href="#">&copy; WebCraft Team 2024</a>
+		</p>
+	  </ul>
+	</div>
   </div>
-</div>
+  
+  <script>
+	function submitForm() {
+	  const form = document.getElementById('subscribe-form');
+	  const email = form.email.value;
+  
+	  // Check if email input is filled
+	  if (email) {
+		// Open the link in a new tab with the email as a query parameter
+		window.open(`https://formsubmit.co/el/hocuya?email=${encodeURIComponent(email)}`, '_blank');
+		return false; // Prevent the form from submitting the default way
+	  }
+	  return false; // Prevent default action if email is not filled
+	}
+  </script>
+  
 
-<script>
-  function submitForm() {
-    const form = document.getElementById('subscribe-form');
-    const email = form.email.value;
-
-    // Check if email input is filled
-    if (email) {
-      // Open the link in a new tab with the email as a query parameter
-      window.open(`https://formsubmit.co/el/hocuya?email=${encodeURIComponent(email)}`, '_blank');
-      return false; // Prevent the form from submitting the default way
-    }
-    return false; // Prevent default action if email is not filled
-  }
-</script>
-
-<script>
-  !(function(){const sc=document.createElement('script');sc.src="https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18007&token=66F12CE5E4B061B2651780CE";sc.async=true;sc.defer=true;document.body.appendChild(sc);})()
-</script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/tiny-slider.js"></script>
+		<script src="js/custom.js"></script>
+	</body>
 
 </html>
