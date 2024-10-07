@@ -846,11 +846,15 @@ a {
   background-color: #FFE98A;
   border: 2px solid black;
 }
-
+.yellow-1 {
+  background-color: #FFE98A;
+  border-radius: 40px;
+}
 .red {
   background-color: #E37072;
   border: 2px solid black;
 }
+
 
 .teal {
   background-color: #219B90;
@@ -1314,4 +1318,27 @@ img.hover-image {
       .testimonial-slider-wrap .tns-nav button:hover:before, .testimonial-slider-wrap .tns-nav button.tns-nav-active:before {
         background-color: #1D100C; 
       }
-      
+/* Pricing */
+.features-container-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.feature-card-2 {
+  background-color: #FF6D6D;
+  border: 2px solid black;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  text-align: left;
+  transition: transform 0.3s;
+  font-family: 'Baloo 2', cursive;
+  text-align: start;
+  color: black;
+}
+
+.feature-card-2:hover {
+  transform: translateY(-10px);
+}
