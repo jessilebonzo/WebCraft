@@ -517,7 +517,7 @@ a {
 }
 .hole {
   width: 25px;
-  height: px;
+  height: 25px;
   background-color: white;
   border-radius: 50%;
   border: 2px solid #1c1410;
@@ -1335,4 +1335,149 @@ img.hover-image {
 
 .feature-card-2:hover {
   transform: translateY(-10px);
+}
+/* top picks */
+.ranking-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+  height: 60vh;
+  /* background-color: #e0f7fa; */
+}
+
+.podium-wrapper {
+  display: flex;
+  align-items: flex-start; 
+  position: relative;
+}
+
+.podium-wrapper img {
+  width: 150px;
+}
+
+.card-custom {
+  width: 300px; 
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.card-custom h5 {
+  margin: 10px 0;
+  font-size: 20px; 
+  color: #333;
+}
+
+.card-custom p {
+  margin: 0;
+  font-size: 16px; 
+  color: #777;
+}
+
+.card-img-top {
+  height: 150px; 
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
+/* Adjust card heights for different ranks */
+.podium-wrapper:nth-child(2) .card-custom {
+  top: -80px; 
+}
+
+.podium-wrapper:nth-child(1) .card-custom {
+  top: -40px; 
+}
+
+.podium-wrapper:nth-child(3) .card-custom {
+  top: 0; 
+}
+/* Responsive layout for iPad and medium screens */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .ranking-container {
+      display: flex; 
+      justify-content: center;
+      align-items: flex-start; 
+      height: auto;
+  }
+
+  .podium-wrapper {
+      flex-direction: column; 
+      align-items: center;
+      gap: 10px;
+      margin-right: 20px;
+  }
+
+  .podium-wrapper img {
+      width: 120px;
+      margin-top: 0;
+  }
+
+  .card-custom {
+      width: 180px;
+      top: 0; 
+  }
+
+  /* Adjust positions for ranking */
+  .podium-wrapper:nth-child(1) .card-custom {
+      top: -30px; 
+  }
+
+  .podium-wrapper:nth-child(2) .card-custom {
+      top: -60px; 
+  }
+
+  .podium-wrapper:nth-child(3) .card-custom {
+      top: 0; 
+  }
+
+  .card-custom h5 {
+      font-size: 18px;
+  }
+
+  .card-custom p {
+      font-size: 14px;
+  }
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .ranking-container {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+  }
+
+  .podium-wrapper {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+  }
+
+  .podium-wrapper img {
+      width: 120px;
+      margin-top: 0;
+  }
+
+  .card-custom {
+      width: 180px;
+      top: 0; 
+  }
+
+  .podium-wrapper:nth-child(2) .card-custom {
+      top: 0;
+  }
+
+  .podium-wrapper:nth-child(1) .card-custom {
+      top: 0;
+  }
+
+  .podium-wrapper:nth-child(3) .card-custom {
+      top: 0;
+  }
 }
