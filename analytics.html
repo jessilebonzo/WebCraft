@@ -180,87 +180,94 @@
  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
- 
  <script>
-  // Your Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
-    authDomain: "webcraft-7f386.firebaseapp.com",
-    databaseURL: "https://webcraft-7f386-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "webcraft-7f386",
-    storageBucket: "webcraft-7f386.appspot.com",
-    messagingSenderId: "983810632123",
-    appId: "1:983810632123:web:de8d379daa38fbca42fc9e",
-    measurementId: "G-WSSVHJ9VV3"
-  };
-// Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-    const analytics = firebase.analytics();
-    const database = firebase.database();
-
-    // Reference to the analytics data in Firebase Realtime Database
-    const pageViewsRef = database.ref('analytics/page_views');
-    const activeUsersRef = database.ref('status');
-    const usersRef = database.ref('users'); // Reference to all users
-
-    // Function to log a page view
-    function logPageView(pageName) {
-      const pageViewData = {
-        page: pageName,
-        timestamp: Date.now()
-      };
-
-      // Push the page view data to the database
-      pageViewsRef.push(pageViewData);
-    }
-
-    // Log a page view when the page loads
-    logPageView('Analytics'); // Change 'home' to the appropriate page name
-
-    // Fetch real-time page views data and display it
-    pageViewsRef.on('value', (snapshot) => {
-      const data = snapshot.val();
-      const analyticsDisplay = document.getElementById('analytics-display');
-      analyticsDisplay.innerHTML = '<h2>Page Views:</h2>';  // Reset content
-
-      if (data) {
-        for (const key in data) {
-          const pageView = data[key];
-          analyticsDisplay.innerHTML += `<p>Page: ${pageView.page}, Time: ${new Date(pageView.timestamp).toLocaleString()}</p>`;
-        }
-      } else {
-        analyticsDisplay.innerHTML += '<p>No page view data available.</p>';
-      }
-    });
-
-    // Fetch the number of active users in real-time
-    activeUsersRef.on('value', (snapshot) => {
-      const activeUserCount = snapshot.numChildren(); // Count active users
-      document.getElementById('active-user-count').innerText = activeUserCount;
-    });
-
-    // Fetch the total number of accounts created
-    usersRef.on('value', (snapshot) => {
-      const totalAccountsCount = snapshot.numChildren(); // Count total accounts
-
-      // Debugging: Log the snapshot data and count
-      console.log("Users Snapshot: ", snapshot.val());
-      console.log("Total Accounts: ", totalAccountsCount);
-
-      // Display the total number of accounts in an HTML element
-      document.getElementById('total-account-count').innerText = totalAccountsCount;
-    });
-
-    // Set user presence
-    const userId = "user_" + new Date().getTime(); // Unique user ID based on timestamp
-    const userStatusDatabaseRef = activeUsersRef.child(userId);
-
-    userStatusDatabaseRef.set(true); // Set presence to true
-
-    // Remove user when they disconnect
-    userStatusDatabaseRef.onDisconnect().remove();
-</script>
-
+	// Your Firebase configuration
+	const firebaseConfig = {
+	  apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
+	  authDomain: "webcraft-7f386.firebaseapp.com",
+	  databaseURL: "https://webcraft-7f386-default-rtdb.asia-southeast1.firebasedatabase.app",
+	  projectId: "webcraft-7f386",
+	  storageBucket: "webcraft-7f386.appspot.com",
+	  messagingSenderId: "983810632123",
+	  appId: "1:983810632123:web:de8d379daa38fbca42fc9e",
+	  measurementId: "G-WSSVHJ9VV3"
+	};
+  
+	// Initialize Firebase
+	const app = firebase.initializeApp(firebaseConfig);
+	const analytics = firebase.analytics();
+	const database = firebase.database();
+  
+	// Reference to the active users in Firebase Realtime Database
+	const activeUsersRef = database.ref('status');
+  
+	// Generate a persistent unique session ID using localStorage
+	let sessionId = localStorage.getItem('webcraftSessionId');
+	if (!sessionId) {
+	  sessionId = "user_" + new Date().getTime();
+	  localStorage.setItem('webcraftSessionId', sessionId);
+	}
+  
+	const userStatusDatabaseRef = activeUsersRef.child(sessionId);
+  
+	// Set user presence (set to true)
+	userStatusDatabaseRef.set(true);
+  
+	// Remove user presence when they disconnect or close the browser/tab
+	userStatusDatabaseRef.onDisconnect().remove();
+  
+	// Fetch the number of active users in real-time
+	activeUsersRef.on('value', (snapshot) => {
+	  const activeUserCount = snapshot.numChildren(); // Count active users
+	  document.getElementById('active-user-count').innerText = activeUserCount;
+	});
+  
+	// Function to log a page view
+	const pageViewsRef = database.ref('analytics/page_views');
+	function logPageView(pageName) {
+	  const pageViewData = {
+		page: pageName,
+		timestamp: Date.now()
+	  };
+  
+	  // Push the page view data to the database
+	  pageViewsRef.push(pageViewData);
+	}
+  
+	// Log a page view when the page loads
+	logPageView('Analytics');
+  
+	// Fetch real-time page views data and display it
+	pageViewsRef.on('value', (snapshot) => {
+	  const data = snapshot.val();
+	  const analyticsDisplay = document.getElementById('analytics-display');
+	  analyticsDisplay.innerHTML = '<h2>Page Views:</h2>';  // Reset content
+  
+	  if (data) {
+		for (const key in data) {
+		  const pageView = data[key];
+		  analyticsDisplay.innerHTML += `<p>Page: ${pageView.page}, Time: ${new Date(pageView.timestamp).toLocaleString()}</p>`;
+		}
+	  } else {
+		analyticsDisplay.innerHTML += '<p>No page view data available.</p>';
+	  }
+	});
+  
+	// Fetch the total number of accounts created
+	const usersRef = database.ref('users');
+	usersRef.on('value', (snapshot) => {
+	  const totalAccountsCount = snapshot.numChildren(); // Count total accounts
+  
+	  // Debugging: Log the snapshot data and count
+	  console.log("Users Snapshot: ", snapshot.val());
+	  console.log("Total Accounts: ", totalAccountsCount);
+  
+	  // Display the total number of accounts in an HTML element
+	  document.getElementById('total-account-count').innerText = totalAccountsCount;
+	});
+  
+  </script>
+  
 <div class="main-container">
 
   <div class="card-container">
