@@ -1478,3 +1478,85 @@ img.hover-image {
       top: 0;
   }
 }
+/* Analytics Section */
+   /* Container styling */
+	 .main-container {
+		font-family: 'Baloo 2', cursive;
+		/* background-color: white; */
+		margin: 0;
+		padding: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.card-container {
+		display: flex;
+		gap: 20px;
+		width: 100%;
+		max-width: 900px;
+		flex-direction: row;
+	}
+
+	.card {
+		background-color: #FFF1B7;
+		border-radius: 40px;
+		padding: 20px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		border: 2px solid black;
+		flex: 1;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	/* Hover effect for card */
+	.card:hover {
+		transform: scale(1.05);
+		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+	}
+
+	.active-users, .page-views {
+		background-color: #FF6D6D;
+		border-radius: 20px;
+		padding: 15px;
+		text-align: center;
+		margin-top: 10px;
+		font-weight: bold;
+		color: black;
+	}
+
+	.active-users-title, .page-views-title {
+		font-size: 1.5em;
+		text-align: center;
+		font-weight: bold;
+		color: black;
+		margin-bottom: 10px;
+	}
+
+	.active-users span {
+		font-size: 3.5em;
+		font-weight: bold;
+		color: #dc3545;
+	}
+
+	.page-views {
+		overflow-y: auto;
+		max-height: 200px;
+		text-align: left;
+		font-weight: bold;
+		color: black;
+	}
+
+	.page-views-item {
+		background-color: #f8d7da;
+		margin-bottom: 5px;
+		padding: 10px;
+		border-radius: 5px;
+	}
+
+	/* Responsive Design */
+	@media (max-width: 768px) {
+		.card-container {
+			flex-direction: column;
+			align-items: center;
+		}
+	}

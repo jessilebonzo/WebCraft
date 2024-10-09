@@ -87,8 +87,6 @@
 	</head>
 
 	<body>
-
-		
     <!-- External Scripts -->
     <script>
         !(function(){
@@ -139,7 +137,12 @@
 		        </div>
 		    </div>
 		</div>
-
+  <!-- Start Hero Section -->
+	<div class="payment-section">
+		<div class="container">
+			<img src="assets/analyticsText.png" alt="Feature" class="blog-image" style="align-items: start; margin-bottom: 20px; margin-top: 20px; width: 40%; height: auto;">
+		</div>
+	</div>
 		<script>
 		    function confirmLogout() {
 		        var modal = document.getElementById("logoutModal");
@@ -172,58 +175,13 @@
 		    }
 		</script>
 
-	</body>
-</html>
-
-
-  <!-- Start Hero Section -->
-<div class="payment-section">
-  <div class="container">
-    <img src="assets/analyticsText.png" alt="Feature" class="blog-image" style="align-items: start; margin-bottom: 20px; margin-top: 20px; width: 40%; height: auto;">
-  </div>
-</div>
-
-<!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-<!-- Style -->
-<style>
-  .firebase-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
-  .firebase-body #analytics-display, .firebase-body #active-users {
-    padding: 20px;
-    border: 1px solid #ccc;
-    margin-top: 20px;
-  }
-  .firebase-body h2 {
-    color: #333;
-  }
-  
-  /* Unique container styling */
-  .unique-container {
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px;
-    border: 2px solid #000;
-    background-color: #f9f9f9;
-    text-align: center;
-    position: relative;
-  }
-  
-  /* Scrollable page views */
-  .scrollable-views {
-    max-height: 200px;
-    overflow-y: auto;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
-</style>
-
 <!-- Firebase Initialization Script -->
-<script>
+ <!-- Firebase SDKs -->
+ <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+ 
+ <script>
   // Your Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
@@ -303,19 +261,31 @@ const app = firebase.initializeApp(firebaseConfig);
     userStatusDatabaseRef.onDisconnect().remove();
 </script>
 
-<!-- Unique container -->
-<div class="unique-container">
-  <div id="active-users">
-    <h2>Active Users:</h2>
-    <p>Number of active users: <span id="active-user-count">0</span></p>
-  </div>
+<div class="main-container">
 
-  <div id="analytics-display" class="scrollable-views">
-    <h2>Page Views:</h2>
-    <!-- Real-time analytics data will be displayed here -->
+  <div class="card-container">
+    <!-- Active Users Section -->
+    <div class="card">
+      <div class="active-users-title">
+        <h2 style="font-size: 40px; font-weight:bold;">Active Users</h2>
+      </div>
+      <div class="active-users">
+        <h2>Number of active users:</h2><br>
+        <span id="active-user-count">0</span>
+      </div>
+    </div>
+
+    <!-- Page Views Section -->
+    <div class="card" style="flex: 2;">
+      <div class="page-views-title">
+        <h2 style="font-size: 40px; font-weight:bold;">Page Views</h2>
+      </div>
+      <div class="page-views" id="analytics-display">
+        <!-- Real-time analytics data will be displayed here -->
+      </div>
+    </div>
   </div>
 </div>
-
   
 <!-- footer section -->
 <div class="footer-wrapper">
