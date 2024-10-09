@@ -109,7 +109,7 @@ function changeImage(imageSrc) {
 	function changeImage28(imageSrc) {
 	document.getElementById('mainImage28').src = imageSrc;
 	}
-	function changeImage28(imageSrc) {
+	function changeImage29(imageSrc) {
 	document.getElementById('mainImage29').src = imageSrc;
 	}
 	function changeImage30(imageSrc) {
