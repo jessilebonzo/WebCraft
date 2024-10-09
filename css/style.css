@@ -1498,7 +1498,7 @@ img.hover-image {
 		flex-direction: row;
 	}
 
-	.card-3 {
+	.card-41 {
 		background-color: #FFF1B7;
 		border-radius: 40px;
 		padding: 20px;
@@ -1509,9 +1509,10 @@ img.hover-image {
 	}
 
 	/* Hover effect for card */
-	.card-3:hover {
+	.card-41:hover {
 		transform: scale(1.05);
 		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: #4db6ac; 
 	}
 
 	.active-users, .page-views {
