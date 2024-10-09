@@ -1492,7 +1492,7 @@ img.hover-image {
 
 	.card-container {
 		display: flex;
-		gap: 20px;
+		gap: 30px;
 		width: 100%;
 		max-width: 900px;
 		flex-direction: row;
