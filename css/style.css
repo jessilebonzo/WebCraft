@@ -452,11 +452,11 @@ a {
     -webkit-box-shadow: none;
     box-shadow: none; }
   .btn.btn-primary {
-    background: #3b5d50;
-    border-color: #3b5d50; }
+    background: #ff5733;
+    border-color: #ff5733; }
     .btn.btn-primary:hover {
-      background: #314d43;
-      border-color: #314d43; }
+      background: #219B90CC;
+      border-color: #219B90CC; }
   .btn.btn-secondary {
     color: #2f2f2f;
     background: #f9bf29;
@@ -1366,7 +1366,14 @@ img.hover-image {
   border-radius: 8px;
   text-align: center;
   position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth effect */
 }
+
+.card-custom:hover {
+  transform: scale(1.05); /* Scale the card on hover */
+  box-shadow: 0px 10px 16px rgba(10, 1, 1, 0.3); /* Increase shadow on hover */
+}
+
 
 .card-custom h5 {
   margin: 10px 0;
@@ -1377,7 +1384,7 @@ img.hover-image {
 .card-custom p {
   margin: 0;
   font-size: 16px; 
-  color: #777;
+  color: black;
 }
 
 .card-img-top {

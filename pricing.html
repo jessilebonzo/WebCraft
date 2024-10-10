@@ -59,7 +59,9 @@
       background-color: #fefefe;
       margin: 15% auto;
       padding: 20px;
+      width: 20%;
       border: 1px solid #888;
+      border-radius: 15px;
       width: 80%;
       max-width: 300px;
       text-align: center;
@@ -237,9 +239,12 @@
   <!-- Custom Modal for Purchase Confirmation -->
   <div id="purchaseModal" class="modal">
     <div class="modal-content">
-      <p>WebCraft says: You need to log in before being redirected to the payment tab!</p>
+      <div style="text-align: center;">
+        <img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display: inline-block;">
+      <p>You need to log in before being redirected to the payment tab!</p>
       <button id="confirmPurchaseBtn" class="btn btn-primary btn-margin">OK</button>
     </div>
+  </div>
   </div>
 
   <script src="js/bootstrap.bundle.min.js"></script>
