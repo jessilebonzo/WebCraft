@@ -88,7 +88,7 @@
       .login__img {
         position: absolute;
         width: 100%;
-        height: 100%;
+        height: 90%;
         object-fit: cover;
         object-position: center;
       }
@@ -212,21 +212,25 @@
       }
 
       .login__button {
-        width: 100%;
+        width: 40%;
         padding: 14px 2rem;
         border-radius: 6px;
         background: linear-gradient(
-          180deg,
-          var(--first-color),
-          var(--second-color)
+            180deg,
+            var(--first-color),
+            var(--second-color)
         );
         color: #fff;
         font-size: var(--small-font-size);
         font-weight: var(--font-semi-bold);
-        box-shadow: 0 6px 24px #f79c83;
         margin-bottom: 1rem;
-        transition: background 0.3s;
-      }
+        transition: background 0.3s, box-shadow 0.3s; /* Added transition for box-shadow */
+    }
+    
+    .login__button:hover {
+        box-shadow: 0 6px 24px #f79c83; /* Box shadow on hover */
+    }
+    
 
       .login__button:disabled {
         background: #ccc;
@@ -274,8 +278,8 @@
         }
 
         .login__img {
-          border-radius: 3.5rem;
-          box-shadow: 0 24px 48px #f79c83;
+          border-radius: 2rem;
+          border: 2px solid #ff4f4f;
         }
 
         .login__form {
@@ -290,8 +294,6 @@
         }
 
         .login__form {
-          row-gap: 2rem;
-          padding: 3rem;
           border-radius: 1.25rem;
           border: 2px solid hsla(244, 16%, 92%, 0.75);
         }
@@ -366,12 +368,13 @@
           <img class="login__img" src="assets/test2.gif" />
 
           <!-- Login Form -->
-          <form class="login__form" id="loginForm">
+          <form class="login__form" id="loginForm">   
+            <img style="margin-left: auto;" src="assets/trademark/logo_2.png" alt="WebCraft Logo" width="120" height="50">
             <div>
               <h1 class="login__title">
                 <span>Welcome</span> Back!
               </h1>
-
+              
               <p class="login__description">
                 Welcome! Please login to continue.
               </p>
@@ -412,9 +415,11 @@
                     type="checkbox"
                     id="check"
                   />
+                  
                   <i class="ri-check-line login__check-icon"></i>
-                  Remember me
+                  Remember me <a class="login__forgot" href="#" style="margin-left: auto;">Forgot Password?</a>
                 </label>
+                
               </div>
             </div>
 
@@ -422,8 +427,6 @@
               <div class="login__buttons" style="justify-content: center;">
                 <button type="submit" class="login__button" id="loginButton">Log In</button>
               </div>
-
-              <a class="login__forgot" href="#">Forgot Password?</a>
               <div style="margin-top: 1rem; text-align: center;">
                 <span>Don't have an account? </span>
                 <a
