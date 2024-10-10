@@ -69,6 +69,7 @@
       padding: 20px;
       text-align: center;
       background-color: #fefefe;
+			border-radius: 15px;
       margin: 15% auto;
       border: 1px solid #888;
       width: 80%;
@@ -151,7 +152,10 @@
   <!-- Log out Confirmation Modal -->
   <div id="logoutModal" class="modal" style="display: none;">
     <div class="modal-content">
-      <p>WebCraft says: Are you sure you want to log out?</p>
+			<div style="text-align: center;">
+				<img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display: inline-block;">
+		</div>
+      <p>Are you sure you want to log out?</p>
       <div class="btn-wrapper">
         <button id="confirmLogoutBtn" class="modal-btn modal-btn-logout">Log out</button>
         <button id="cancelLogoutBtn" class="modal-btn modal-btn-cancel">Cancel</button>
@@ -337,10 +341,6 @@
 												<p style="text-align: center; font-weight:bold">Home</p>
 										</div>
 										<div class="col-6 col-md-4 mb-3"> 
-												<img src="/assets/Donut Shop-Pastel/2 Menu.png" alt="Image 2" class="img-fluid hover-image" onclick="changeImage1('/assets/Donut Shop-Pastel/2 Menu.png')">
-												<p style="text-align: center; font-weight:bold">Menu</p>
-										</div>
-										<div class="col-6 col-md-4 mb-3"> 
 												<img src="/assets/Donut Shop-Pastel/3 About.png" alt="Image 3" class="img-fluid hover-image" onclick="changeImage1('/assets/Donut Shop-Pastel/3 About.png')">
 												<p style="text-align: center; font-weight:bold">About</p>
 										</div>
@@ -382,116 +382,44 @@
 	</div>
 	</div>
 	</div>
-<!-- Modal for seasonal Image -->
+
+<!-- Modal Event Template -->
 <div class="modal" id="imageModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
 	<div class="modal-dialog modal-xl modal-dialog-centered">
 			<div class="modal-content">
 					<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel16">Seasonal Apparel Template</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="container mt-5">
-							<div class="row">
-										<div class="col-lg-8 col-md-12">
-											<div class="main-display text-center mb-4">
-													<img id="mainImage2" src="/assets/Seasonal Apparel-Pastel/1 Home.png" alt="Main Display Image" class="img-fluid rounded">
-											</div><br>
-											<div class="image-gallery row">
-													<div class="col-6 col-md-4 mb-3">
-															<img src="/assets/Seasonal Apparel-Pastel/1 Home.png" alt="Image 1" class="img-fluid hover-image" onclick="changeImage2('/assets/Seasonal Apparel-Pastel/1 Home.png')">
-															<p style="text-align: center; font-weight:bold">Home</p>
-													</div>
-													<div class="col-6 col-md-4 mb-3">
-															<img src="/assets/Seasonal Apparel-Pastel/2 Collection.png" alt="Image 2" class="img-fluid hover-image" onclick="changeImage2('/assets/Seasonal Apparel-Pastel/2 Collection.png')">
-															<p style="text-align: center; font-weight:bold">Collections</p>
-													</div>
-													<div class="col-6 col-md-4 mb-3">
-															<img src="/assets/Seasonal Apparel-Pastel/2 Menu.png" alt="Image 3" class="img-fluid hover-image" onclick="changeImage2('/assets/Seasonal Apparel-Pastel/2 Menu.png')">
-															<p style="text-align: center; font-weight:bold">Menu</p>
-													</div>
-													<div class="col-6 col-md-4 mb-3">
-															<img src="/assets/Seasonal Apparel-Pastel/3 About.png" alt="Image 4" class="img-fluid hover-image" onclick="changeImage2('/assets/Seasonal Apparel-Pastel/3 About.png')">
-															<p style="text-align: center; font-weight:bold">About</p>
-													</div>
-													<div class="col-6 col-md-4 mb-3">
-															<img src="/assets/Seasonal Apparel-Pastel/4 Testimonials.png" alt="Image 5" class="img-fluid hover-image" onclick="changeImage2('/assets/Seasonal Apparel-Pastel/4 Testimonials.png')">
-															<p style="text-align: center; font-weight:bold">Testimonials</p>
-													</div>
-													<div class="col-6 col-md-4 mb-3">
-															<img src="/assets/Seasonal Apparel-Pastel/5 Blog.png" alt="Image 6" class="img-fluid hover-image" onclick="changeImage2('/assets/Seasonal Apparel-Pastel/5 Blog.png')">
-															<p style="text-align: center; font-weight:bold">Blog</p>
-													</div>
-													<div class="col-6 col-md-4 mb-3">
-															<img src="/assets/Seasonal Apparel-Pastel/6 Contact.png" alt="Image 7" class="img-fluid hover-image" onclick="changeImage2('/assets/Seasonal Apparel-Pastel/6 Contact.png')">
-															<p style="text-align: center; font-weight:bold">Contact</p>
-													</div>
-											</div>
-									</div>
-									<div class="col-lg-4 col-md-12">
-											<div class="description mt-4">
-													<h3>About This Project</h3>
-													<p>This elegant one-page website template is perfect for showcasing seasonal apparel in soothing pastel hues. With a stylish layout and seamless navigation, it highlights spring and summer collections like light jackets and swimwear. The pastel theme creates a fresh, inviting atmosphere, ideal for brands looking to attract trend-conscious customers.</p>	
-													<h3>Features</h3>
-													<ul>
-														<li>One-Page Layout</li>
-														<li>Product Showcase</li>
-														<li>Responsive Design</li>
-														<li>Customer Testimonials</li>
-														<li>Easy Customization</li>
-														<li>Blog Section</li>
-												</ul>
-												<h3>Frequently Asked Question</h3>
-												<p><strong>What types of businesses is this template suitable for?</strong></p>
-													<h6>This template is ideal for fashion brands, boutiques, or online retailers specializing in seasonal apparel like light jackets and swimwear, particularly in pastel colors.</h6>								
-													<div class="text-center">
-														<a href=" https://webcraft-templates.my.canva.site/pastel-seasonal-apparel" target="_blank" class="btn btn-secondary me-2" style="background-color:#6985FF; color: black;">View Live Demo</a>
-															<a href="payment.html" class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;">Buy Template</a>
-													</div>
-											</div>
-									</div>
-							</div>
-					</div>
-			</div>
-	</div>
-</div>
-	<!-- Modal for Third Image -->
-<!-- Modal Event Template -->
-<div class="modal" id="imageModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
-	<div class="modal-dialog modal-xl modal-dialog-centered">
-			<div class="modal-content">
-					<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabeL3">Event Planner Template</h5>
+							<h5 class="modal-title" id="exampleModalLabel2">Event Planner Template</h5>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="container mt-5">
 							<div class="row">
 								<div class="col-lg-8 col-md-12"> 
 											<div class="col-lg-8 col-md-12"> 
-													<img id="mainImage3" src="/assets/Event Planner/1 Home.png" alt="Main Display Image" class="img-fluid rounded">
+													<img id="mainImage2" src="/assets/Event Planner/1 Home.png" alt="Main Display Image" class="img-fluid rounded">
 											</div><br>
 											<div class="image-gallery row">
 												<div class="col-6 col-md-4 mb-3"> 
-															<img src="/assets/Event Planner/1 Home.png" alt="Image 1" class="img-fluid hover-image" onclick="changeImage3('/assets/Event Planner/1 Home.png')">
+															<img src="/assets/Event Planner/1 Home.png" alt="Image 1" class="img-fluid hover-image" onclick="changeImage2('/assets/Event Planner/1 Home.png')">
 															<p style="text-align: center; font-weight:bold">Home</p>
 													</div>
 													<div class="col-6 col-md-4 mb-3"> 
-															<img src="/assets/Event Planner/2 About.png" alt="Image 2" class="img-fluid hover-image" onclick="changeImage3('/assets/Event Planner/2 About.png')">
+															<img src="/assets/Event Planner/2 About.png" alt="Image 2" class="img-fluid hover-image" onclick="changeImage2('/assets/Event Planner/2 About.png')">
 															<p style="text-align: center; font-weight:bold">About</p>
 													</div>
 													<div class="col-6 col-md-4 mb-3"> 
-															<img src="/assets/Event Planner/3 Services.png" alt="Image 3" class="img-fluid hover-image" onclick="changeImage3('/assets/Event Planner/3 Services.png')">
+															<img src="/assets/Event Planner/3 Services.png" alt="Image 3" class="img-fluid hover-image" onclick="changeImage2('/assets/Event Planner/3 Services.png')">
 															<p style="text-align: center; font-weight:bold">Services</p>
 													</div>
 													<div class="col-6 col-md-4 mb-3"> 
-															<img src="/assets/Event Planner/4 Gallery.png" alt="Image 4" class="img-fluid hover-image" onclick="changeImage3('/assets/Event Planner/4 Gallery.png')">
+															<img src="/assets/Event Planner/4 Gallery.png" alt="Image 4" class="img-fluid hover-image" onclick="changeImage2('/assets/Event Planner/4 Gallery.png')">
 															<p style="text-align: center; font-weight:bold">Gallery</p>
 													</div>
 													<div class="col-6 col-md-4 mb-3"> 
-															<img src="/assets/Event Planner/5 Testimonials.png" alt="Image 5" class="img-fluid hover-image" onclick="changeImage3('/assets/Event Planner/5 Testimonials.png')">
+															<img src="/assets/Event Planner/5 Testimonials.png" alt="Image 5" class="img-fluid hover-image" onclick="changeImage2('/assets/Event Planner/5 Testimonials.png')">
 															<p style="text-align: center; font-weight:bold">Testimonials</p>
 													</div>
 													<div class="col-6 col-md-4 mb-3"> 
-															<img src="/assets/Event Planner/6 Contact.png" alt="Image 6" class="img-fluid hover-image" onclick="changeImage3('/assets/Event Planner/6 Contact.png')">
+															<img src="/assets/Event Planner/6 Contact.png" alt="Image 6" class="img-fluid hover-image" onclick="changeImage2('/assets/Event Planner/6 Contact.png')">
 															<p style="text-align: center; font-weight:bold">Contact</p>
 													</div>
 											</div>
@@ -523,6 +451,75 @@
 			</div>
 	</div>
 </div>
+<!-- Modal for seasonal Image -->
+<div class="modal" id="imageModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+	<div class="modal-dialog modal-xl modal-dialog-centered">
+			<div class="modal-content">
+					<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel13">Seasonal Apparel Template</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="container mt-5">
+							<div class="row">
+										<div class="col-lg-8 col-md-12">
+											<div class="main-display text-center mb-4">
+													<img id="mainImage3" src="/assets/Seasonal Apparel-Pastel/1 Home.png" alt="Main Display Image" class="img-fluid rounded">
+											</div><br>
+											<div class="image-gallery row">
+													<div class="col-6 col-md-4 mb-3">
+															<img src="/assets/Seasonal Apparel-Pastel/1 Home.png" alt="Image 1" class="img-fluid hover-image" onclick="changeImage3('/assets/Seasonal Apparel-Pastel/1 Home.png')">
+															<p style="text-align: center; font-weight:bold">Home</p>
+													</div>
+													<div class="col-6 col-md-4 mb-3">
+															<img src="/assets/Seasonal Apparel-Pastel/2 Collection.png" alt="Image 2" class="img-fluid hover-image" onclick="changeImage3('/assets/Seasonal Apparel-Pastel/2 Collection.png')">
+															<p style="text-align: center; font-weight:bold">Collections</p>
+													</div>
+													<div class="col-6 col-md-4 mb-3">
+															<img src="/assets/Seasonal Apparel-Pastel/3 About.png" alt="Image 3" class="img-fluid hover-image" onclick="changeImage3('/assets/Seasonal Apparel-Pastel/3 About.png')">
+															<p style="text-align: center; font-weight:bold">About</p>
+													</div>
+													<div class="col-6 col-md-4 mb-3">
+															<img src="/assets/Seasonal Apparel-Pastel/4 Testimonials.png" alt="Image 4" class="img-fluid hover-image" onclick="changeImage3('/assets/Seasonal Apparel-Pastel/4 Testimonials.png')">
+															<p style="text-align: center; font-weight:bold">Testimonials</p>
+													</div>
+													<div class="col-6 col-md-4 mb-3">
+															<img src="/assets/Seasonal Apparel-Pastel/5 Blog.png" alt="Image 5" class="img-fluid hover-image" onclick="changeImage3('/assets/Seasonal Apparel-Pastel/5 Blog.png')">
+															<p style="text-align: center; font-weight:bold">Blog</p>
+													</div>
+													<div class="col-6 col-md-4 mb-3">
+															<img src="/assets/Seasonal Apparel-Pastel/6 Contact.png" alt="Image 6" class="img-fluid hover-image" onclick="changeImage3('/assets/Seasonal Apparel-Pastel/6 Contact.png')">
+															<p style="text-align: center; font-weight:bold">Contact</p>
+													</div>
+											</div>
+									</div>
+									<div class="col-lg-4 col-md-12">
+											<div class="description mt-4">
+													<h3>About This Project</h3>
+													<p>This elegant one-page website template is perfect for showcasing seasonal apparel in soothing pastel hues. With a stylish layout and seamless navigation, it highlights spring and summer collections like light jackets and swimwear. The pastel theme creates a fresh, inviting atmosphere, ideal for brands looking to attract trend-conscious customers.</p>	
+													<h3>Features</h3>
+													<ul>
+														<li>One-Page Layout</li>
+														<li>Product Showcase</li>
+														<li>Responsive Design</li>
+														<li>Customer Testimonials</li>
+														<li>Easy Customization</li>
+														<li>Blog Section</li>
+												</ul>
+												<h3>Frequently Asked Question</h3>
+												<p><strong>What types of businesses is this template suitable for?</strong></p>
+													<h6>This template is ideal for fashion brands, boutiques, or online retailers specializing in seasonal apparel like light jackets and swimwear, particularly in pastel colors.</h6>								
+													<div class="text-center">
+														<a href=" https://webcraft-templates.my.canva.site/pastel-seasonal-apparel" target="_blank" class="btn btn-secondary me-2" style="background-color:#6985FF; color: black;">View Live Demo</a>
+															<a href="payment.html" class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;">Buy Template</a>
+													</div>
+											</div>
+									</div>
+							</div>
+					</div>
+			</div>
+	</div>
+</div>
+
 <!-- Modal Fourth Image -->
 <!-- Modal for Photography Image -->
 <div class="modal" id="imageModal4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">

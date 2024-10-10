@@ -72,6 +72,7 @@
           text-align: center;
           background-color: #fefefe;
           margin: 15% auto;
+					border-radius: 15px;
           border: 1px solid #888;
           width: 80%;
           max-width: 400px; /* Wider modal */
@@ -161,7 +162,10 @@
     <!-- Log out Confirmation Modal -->
     <div id="logoutModal" class="modal" style="display: none;">
         <div class="modal-content">
-            <p>WebCraft says: Are you sure you want to log out?</p>
+					<div style="text-align: center;">
+						<img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display: inline-block;">
+				</div>
+            <p>Are you sure you want to log out?</p>
             <div class="btn-wrapper">
                 <button id="confirmLogoutBtn" class="modal-btn modal-btn-logout">Log out</button>
                 <button id="cancelLogoutBtn" class="modal-btn modal-btn-cancel">Cancel</button>
