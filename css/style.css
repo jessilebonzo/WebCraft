@@ -1090,6 +1090,9 @@ a {
   background-color: #5C3A8E ; 
 }
 
+.card-11:hover {
+  background-color: #4A5E9C ; 
+}
 .card-12:hover {
   background-color: #FCDAE5; 
 }
@@ -1101,7 +1104,9 @@ a {
 .card-14:hover {
   background-color: #865DFF; 
 }
-
+.card-15:hover {
+  background-color: #3B6990; 
+}
 img.hover-image {
   width: 100%;
   border-radius: 1rem;
