@@ -95,7 +95,7 @@
   .custom-second-navbar .custom-navbar-nav .nav-link:hover:before {
       opacity: 1;
       visibility: visible;
-      width: calc(100% - 16px); /* Underline fills width */
+      width: calc(100% - 16px); 
   }
 }
 .theme-container {
@@ -1013,7 +1013,6 @@ a {
 } */
 
 /* Dashboard - All Design Templates */
-/* Theme background image above navbar */
 .theme-background {
   background-size: cover;
   background-position: center;
@@ -1321,7 +1320,6 @@ img.hover-image {
         background-color: #1D100C; 
       }
 /* Pricing */
-
 .feature-card-2 {
   background-color: #FF6D6D;
   border: 2px solid black;
@@ -1345,7 +1343,6 @@ img.hover-image {
   align-items: flex-end;
   gap: 20px;
   height: 60vh;
-  /* background-color: #e0f7fa; */
 }
 
 .podium-wrapper {
@@ -1366,12 +1363,12 @@ img.hover-image {
   border-radius: 8px;
   text-align: center;
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .card-custom:hover {
-  transform: scale(1.05); /* Scale the card on hover */
-  box-shadow: 0px 10px 16px rgba(10, 1, 1, 0.3); /* Increase shadow on hover */
+  transform: scale(1.05); 
+  box-shadow: 0px 10px 16px rgba(10, 1, 1, 0.3); 
 }
 
 
@@ -1494,7 +1491,6 @@ img.hover-image {
    /* Container styling */
 	 .main-container {
 		font-family: 'Baloo 2', cursive;
-		/* background-color: white; */
 		margin: 0;
 		padding: 20px;
 		display: flex;
@@ -1573,3 +1569,148 @@ img.hover-image {
 			align-items: center;
 		}
 	}
+/* payment */
+/* Card 1 */
+.feature-card-3 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  background-color: #FF6D6D;
+  border: 2px solid black;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-family: 'Baloo 2', cursive;
+  text-align: start;
+  color: black;
+}
+
+.feature-card-3:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+.feature-card-3 a {
+  text-decoration: none; 
+  color: black; 
+  transition: color 0.3s;
+}
+
+.feature-card-3 a:hover {
+  color: #6985FF;
+}
+
+/* Card 2 */
+.feature-card-4 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  background-color: #FF6D6D;
+  border: 2px solid black;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-family: 'Baloo 2', cursive;
+  text-align: start;
+  color: black;
+  flex-direction: row-reverse;
+}
+
+.feature-card-4:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+.feature-card-4 a {
+  text-decoration: none; 
+  color: black; 
+  transition: color 0.3s;
+}
+
+.feature-card-4 a:hover {
+  color: #6985FF;
+}
+
+.feature-list {
+  padding: 20px;
+  background-color: #fff2a0;
+  border-radius: 20px;
+  margin-right: 15px;
+  margin-left: 15px;
+  position: relative;
+}
+
+.price {
+  font-size: 45px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.qr-subscribe {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff2a0;
+  border-radius: 20px;
+}
+
+.qr-code {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.subscribe-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .feature-card-3,
+  .feature-card-4 {
+    flex-direction: column; 
+    text-align: center; 
+  }
+
+  .qr-subscribe {
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .subscribe-button {
+    width: 100%;
+    position: relative;
+  }
+}
+
+/* Ensuring iPad layout remains consistent */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .feature-card-3,
+  .feature-card-4 {
+    flex-direction: row; 
+    justify-content: space-between;
+  }
+
+  .feature-list {
+    margin-right: 20px;
+  }
+
+  .qr-subscribe {
+    margin-top: 0; 
+  }
+
+  .subscribe-button {
+    width: auto; 
+  }
+}
