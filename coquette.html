@@ -9,6 +9,9 @@
   <meta name="description" content="" />
   <meta name="keywords" content="bootstrap, bootstrap4" />
 
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+
   <!-- Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -17,6 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
   <title>Coquette Themes</title>
 </head>
+
 
 <body>
   
@@ -739,5 +743,46 @@
 		<script src="js/custom.js"></script>
 		<script src="js/test.js"></script>
 	</body>
+
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+<script>
+  // Your Firebase configuration
+  const firebaseConfig = {
+	  apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
+	  authDomain: "webcraft-7f386.firebaseapp.com",
+	  databaseURL: "https://webcraft-7f386-default-rtdb.asia-southeast1.firebasedatabase.app",
+	  projectId: "webcraft-7f386",
+	  storageBucket: "webcraft-7f386.appspot.com",
+	  messagingSenderId: "983810632123",
+	  appId: "1:983810632123:web:de8d379daa38fbca42fc9e",
+	  measurementId: "G-WSSVHJ9VV3"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+	const analytics = firebase.analytics();
+	const database = firebase.database();
+
+// Function to log a page view
+const pageViewsRef = database.ref('analytics/page_views');
+	function logPageView(pageName) {
+	  const pageViewData = {
+		page: pageName,
+		timestamp: Date.now()
+	  };
+  
+	  // Push the page view data to the database
+	  pageViewsRef.push(pageViewData);
+
+	console.log
+	}
+  
+	// Log a page view when the page loads
+	logPageView('Coquette');
+
+	</script>
 
 </html>
