@@ -18,6 +18,50 @@
 </head>
 
 <body>
+	
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+	<script>
+		// Your Firebase configuration
+		const firebaseConfig = {
+			apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
+			authDomain: "webcraft-7f386.firebaseapp.com",
+			databaseURL: "https://webcraft-7f386-default-rtdb.asia-southeast1.firebasedatabase.app",
+			projectId: "webcraft-7f386",
+			storageBucket: "webcraft-7f386.appspot.com",
+			messagingSenderId: "983810632123",
+			appId: "1:983810632123:web:de8d379daa38fbca42fc9e",
+			measurementId: "G-WSSVHJ9VV3"
+		}
+	  
+		// Initialize Firebase
+		const app = firebase.initializeApp(firebaseConfig);
+		  const analytics = firebase.analytics();
+		  const database = firebase.database();
+	  
+	  // Function to log a page view
+	  const pageViewsRef = firebase.database().ref('analytics/page_views');
+	  console.log("Database Reference: ", pageViewsRef);
+		  function logPageView(pageName) {
+			const pageViewData = {
+			  page: pageName,
+			  timestamp: Date.now()
+			};
+		
+			// Push the page view data to the database
+			pageViewsRef.push(pageViewData);
+		  }
+		
+		  // Log a page view when the page loads
+		  document.addEventListener('DOMContentLoaded', function() {
+		// Ensure Firebase is initialized
+		logPageView('Abstract Theme');
+	  });
+		
+		  </script>
+	
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
