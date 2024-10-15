@@ -1714,3 +1714,31 @@ img.hover-image {
     width: auto; 
   }
 }
+/* Tutorial */
+.responsive-button {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  font-family: 'Baloo 2', cursive;
+  width: 80%;
+  max-width: 350px;
+  height: 60px;
+  margin: 10px auto;
+  background-color: #FFF09ABF;
+  color: black;
+  font-weight: bold;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+.responsive-button:hover {
+  background-color: #219B90CC; 
+  color: white; 
+  transform: scale(1.05);
+}
+
+.button-container {
+  text-align: center;
+}
