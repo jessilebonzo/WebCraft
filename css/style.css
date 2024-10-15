@@ -441,8 +441,8 @@ a {
   padding: 12px 30px;
   border-radius: 30px;
   color: #ffffff;
-  background: #2f2f2f;
-  border-color: #2f2f2f; }
+  background: #ff6f6f;
+  border-color: #2f2f2f; } 
   .btn:hover {
     color: #ffffff;
     background: #222222;
@@ -452,8 +452,8 @@ a {
     -webkit-box-shadow: none;
     box-shadow: none; }
   .btn.btn-primary {
-    background: #ff5733;
-    border-color: #ff5733; }
+    background: #ff6f6f;
+    border-color: #2f2f2f; }
     .btn.btn-primary:hover {
       background: #219B90CC;
       border-color: #219B90CC; }
