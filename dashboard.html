@@ -69,7 +69,7 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<title>WebCraft</title>
 			<style>
-				/* Set the background image to cover the entire page */
+				
 				body {
 					margin: 0;
 					padding: 0;
@@ -108,14 +108,12 @@
 					background-color: #6c757d;
 				}
 		
-				/* Responsive adjustments */
 				@media (max-width: 768px) {
 					.theme-background {
 						height: 200px; 
 					}
 				}
 
-				/* Log-out modal styles (Unique to log-out) */
 				#logoutModalNew .modal-content {
 					padding: 20px;
 					text-align: center;
@@ -131,17 +129,17 @@
 					margin: 15px;
 					padding: 10px 20px;
 					width: 120px;
-					border-radius: 25px; /* Rounded edges for all modal buttons */
+					border-radius: 25px; 
 				}
 
 				#logoutModalNew .modal-btn-logout {
-					background-color: #ff4a4a; /* Red button for logout */
+					background-color: #ff4a4a; 
 					color: white;
 					border: none;
 				}
 
 				#logoutModalNew .modal-btn-cancel {
-					background-color: #4CAF50; /* Complementary color (green) */
+					background-color: #4CAF50; 
 					color: white;
 					border: none;
 				}
@@ -151,16 +149,15 @@
 					justify-content: space-around;
 				}
 
-				/* Overlay styles for log-out modal */
 				#logoutOverlayNew {
-					display: none; /* Initially hidden */
+					display: none; 
 					position: fixed;
 					top: 0;
 					left: 0;
 					width: 100%;
 					height: 100%;
-					background: rgba(0, 0, 0, 0.7); /* Dark overlay */
-					z-index: 9; /* Behind the modal but above the content */
+					background: rgba(0, 0, 0, 0.7); 
+					z-index: 9; 
 				}
 			</style>
 		</head>
@@ -187,18 +184,15 @@
 					</ul>
 				</div>
 				<div>
-					<p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogoutNew()" style="background-color: #ff4a4a;">Log out</a></p> <!-- Red logout button -->
+					<p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogoutNew()" style="background-color: #ff4a4a;">Log out</a></p> 
 				</div>
 			</div>
 		</nav>
-		
-		<!-- Image Below Navbar -->
+
 		<div class="theme-background" style="background-image: url('assets/vibes/final_allVIBE2.png');"></div>
 		
-		<!-- Overlay for log-out modal -->
 		<div id="logoutOverlayNew" class="overlay"></div>
 
-		<!-- Log out Confirmation Modal -->
 		<div id="logoutModalNew" class="modal" style="display: none;">
 			<div class="modal-content">
 				<div style="text-align: center;">
@@ -225,20 +219,20 @@
 
 				// Confirm logout action
 				confirmBtn.onclick = function () {
-					window.location.href = "index.html"; // Change this to your log-out URL
+					window.location.href = "index.html"; 
 				}
 
 				// Cancel log-out action
 				cancelBtn.onclick = function () {
 					modal.style.display = "none";
-					overlay.style.display = "none"; // Hide overlay
+					overlay.style.display = "none"; 
 				}
 
 				// Close modal and hide overlay when clicking outside of it
 				window.onclick = function (event) {
 					if (event.target == modal || event.target == overlay) {
 						modal.style.display = "none";
-						overlay.style.display = "none"; // Hide overlay
+						overlay.style.display = "none"; 
 					}
 				}
 			}
@@ -305,10 +299,7 @@
 					<p>Business Template</p>
 					<blockquote>"Retro Comic Vault, Unlock Classic Adventures!"</blockquote>
 					<p class="d-grid justify-content-center">
-						<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Comic%20Book%20Store)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">
-							Free
-						</a>
-											</p>
+						<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Comic%20Book%20Store)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">Free</a></p>
 			</div>
 	</div>
 </div>
@@ -367,10 +358,7 @@
 												<h6>Yes, you can easily upload and replace any images in the template with your own comic book covers or promotional materials.</h6>								
 												<div class="text-center">
 												<a href="https://webcraft-templates.my.canva.site/comic-book-store-retro" target="_blank" class="btn btn-secondary me-2" style="background-color:#6985FF; color: black;">View Live Demo</a>
-												<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Comic%20Book%20Store)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">
-													Get Template
-												</a>
-																									</div>
+												<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Comic%20Book%20Store)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">Get Template</a></div>
 											</div>
 									</div>
 							</div>
@@ -457,10 +445,7 @@
 												<h6>Yes, you can share the Canva design link with your team for collaborative editing, as long as they have a Canva account.</h6>								
 												<div class="text-center">
 												<a href="https://webcraft-templates.my.canva.site/abstract-online-marketing" target="_blank" class="btn btn-secondary me-2" style="background-color:#6985FF; color: black;">View Live Demo</a>
-												<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Online%20Marketing)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">
-													Get Template
-												</a>
-																									</div>
+												<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Online%20Marketing)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">Get Template</a></div>
 											</div>
 									</div>
 							</div>
@@ -477,10 +462,7 @@
 									<p>Agency Template</p>
 									<blockquote>"Your Pet's Health, Our Priority!"</blockquote>
 									<p class="d-grid justify-content-center">
-										<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Veterinary%20Care)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">
-											Free
-										</a>
-																			</p>
+										<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Veterinary%20Care)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">Free</a></p>
 							</div>
 					</div>
 				</div>
@@ -528,16 +510,12 @@
 												</p>	
 												<h3>Features</h3>
 												<ul>
-													<li>Fully Customizable Pages
-													</li>
-													<li>Appointment Booking System
-													</li>
+													<li>Fully Customizable Pages</li>
+													<li>Appointment Booking System</li>
 													<li>Mobile-Responsive Design</li>
 													<li>Pre-loaded with pet care icons and images.</li>
-													<li>Social media integration to link your profiles.
-													</li>
-													<li>Typography Customization
-													</li>
+													<li>Social media integration to link your profiles.</li>
+													<li>Typography Customization</li>
 											</ul>
 											<h3>Frequently Asked Question</h3>
 											<p><strong>What kind of support is included?</strong></p>
@@ -545,10 +523,7 @@
 												</h6>								
 												<div class="text-center">
 												<a href="https://webcraft-templates.my.canva.site/minimalist-veterinary-care" target="_blank" class="btn btn-secondary me-2" style="background-color:#6985FF; color: black;">View Live Demo</a>
-												<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Veterinary%20Care)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">
-													Get Template
-												</a>
-																									</div>
+												<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Veterinary%20Care)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">Get Template</a></div>
 											</div>
 									</div>
 							</div>
@@ -566,10 +541,7 @@
 					<p>Business Template</p>
 					<blockquote>"Indulge in Fresh Flavors!"</blockquote>
 					<p class="d-grid justify-content-center">
-						<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Donut%20Shop)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">
-							Free
-						</a>
-											</p>
+						<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Donut%20Shop)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">Free</a></p>
 			</div>
 	</div>
 </div>
@@ -629,10 +601,7 @@
 								<h6>Yes, the template offers full customization for branding, allowing you to easily update your logo, colors, and menu items.</h6>								
 								<div class="text-center">
 								<a href="https://webcraft-templates.my.canva.site/pastel-donut-shop" target="_blank" class="btn btn-secondary me-2" style="background-color:#6985FF; color: black;">View Live Demo</a>
-								<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Donut%20Shop)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">
-									Get Template
-								</a>
-																	</div>
+								<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Donut%20Shop)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">Get Template</a></div>
 							</div>
 					</div>
 			</div>
@@ -652,10 +621,7 @@
 					<p>Agency Template</p>
 					<blockquote>"Transform Your Body, Empower Your Mind!"</blockquote>
 					<p class="d-grid justify-content-center">
-						<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Fitness%20Website)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">
-							Free
-						</a>
-											</p>
+						<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Fitness%20Website)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">Free</a></p>
 			</div>
 	</div>
 </div>
@@ -703,16 +669,12 @@
 								</p>	
 								<h3>Features</h3>
 								<ul>
-									<li>Responsive Design
-									</li>
-									<li>Customizable Sections
-									</li>
+									<li>Responsive Design</li>
+									<li>Customizable Sections</li>
 									<li>Integrated Class Schedule</li>
 									<li>Trainer Profiles</li>
-									<li>Membership Options
-									</li>
-									<li>User-Friendly Navigation
-									</li>
+									<li>Membership Options</li>
+									<li>User-Friendly Navigation</li>
 							</ul>
 							<h3>Frequently Asked Question</h3>
 							<p><strong>Is there a support option available if I need help?</strong></p>
@@ -720,10 +682,7 @@
 								</h6>								
 								<div class="text-center">
 								<a href="https://webcraft-templates.my.canva.site/gradient-glow-fitness" target="_blank" class="btn btn-secondary me-2" style="background-color:#6985FF; color: black;">View Live Demo</a>
-								<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Fitness%20Website)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">
-									Get Template
-								</a>
-																	</div>
+								<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Fitness%20Website)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">Get Template</a></div>
 							</div>
 					</div>
 			</div>
@@ -742,10 +701,7 @@
 					<p>Business Template</p>
 					<blockquote>"Elevate Your Look with Exceptional Nail Care!"</blockquote>
 					<p class="d-grid justify-content-center">
-						<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Nail%20Salon)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">
-							Free
-						</a>
-											</p>
+						<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Nail%20Salon)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">Free</a></p>
 			</div>
 	</div>
 </div>
@@ -808,10 +764,7 @@
 								<h6>The template includes a stylish layout, image gallery, service descriptions, a booking button, team section, testimonials, contact information, social media links, and customizable text.</h6>								
 								<div class="text-center">
 								<a href="https://webcraft-templates.my.canva.site/coquette-nail-salon" target="_blank" class="btn btn-secondary me-2" style="background-color:#6985FF; color: black;">View Live Demo</a>
-								<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Nail%20Salon)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">
-									Get Template
-								</a>
-																	</div>
+								<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Nail%20Salon)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">Get Template</a></div>
 							</div>
 					</div>
 			</div>
@@ -2907,23 +2860,19 @@
 	  const form = document.getElementById('subscribe-form');
 	  const email = form.email.value;
   
-	  // Check if email input is filled
 	  if (email) {
-		// Open the link in a new tab with the email as a query parameter
 		window.open(`https://formsubmit.co/el/hocuya?email=${encodeURIComponent(email)}`, '_blank');
-		return false; // Prevent the form from submitting the default way
+		return false; 
 	  }
-	  return false; // Prevent default action if email is not filled
+	  return false; 
 	}
   </script>
   
-
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/tiny-slider.js"></script>
 		<script src="js/custom.js"></script>
 		<script src="js/test.js"></script>
-	</body>
 
-		
+	</body>
 </html>

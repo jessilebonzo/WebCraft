@@ -62,7 +62,6 @@
 		<title>Testimonials</title>
 		
 		<style>
-		  /* Set the background image to cover the entire page */
 		  body {
 		      margin: 0;
 		      padding: 0;
@@ -81,7 +80,6 @@
 		      background-color: #6c757d;
 		  }
 
-		  /* Log-out modal styles (Unique to log-out) */
 		  #logoutModal .modal-content {
 		      padding: 20px;
 		      text-align: center;
@@ -90,24 +88,24 @@
 					border-radius: 15px;
 		      border: 1px solid #888;
 		      width: 80%;
-		      max-width: 400px; /* Wider modal */
+		      max-width: 400px; 
 		  }
 
 		  #logoutModal .modal-btn {
 		      margin: 15px;
 		      padding: 10px 20px;
 		      width: 120px;
-		      border-radius: 25px; /* Rounded edges for all modal buttons */
+		      border-radius: 25px; 
 		  }
 
 		  #logoutModal .modal-btn-logout {
-		      background-color: #ff4a4a; /* Red button for logout */
+		      background-color: #ff4a4a; 
 		      color: white;
 		      border: none;
 		  }
 
 		  #logoutModal .modal-btn-cancel {
-		      background-color: #4CAF50; /* Complementary color (green) */
+		      background-color: #4CAF50; 
 		      color: white;
 		      border: none;
 		  }
@@ -117,16 +115,15 @@
 		      justify-content: space-around;
 		  }
 
-		  /* Overlay styles for log-out modal */
 		  #logoutOverlay {
-		      display: none; /* Initially hidden */
+		      display: none; 
 		      position: fixed;
 		      top: 0;
 		      left: 0;
 		      width: 100%;
 		      height: 100%;
-		      background: rgba(0, 0, 0, 0.7); /* Dark overlay */
-		      z-index: 9; /* Behind the modal but above the content */
+		      background: rgba(0, 0, 0, 0.7); 		      
+					z-index: 9; 
 		  }
 		  
 		  body {
@@ -140,8 +137,6 @@
 
 	<body>
 
-		
-    <!-- External Scripts -->
     <script>
         !(function(){
             const sc = document.createElement('script');
@@ -151,7 +146,6 @@
             document.body.appendChild(sc);
         })()
     </script>
-
 
 		<!-- Start Header/Navigation -->
 		<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
@@ -172,16 +166,13 @@
 					</ul>
 			</div>			
 			<div>
-				<p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogout()" style="background-color: #ff4a4a;">Log out</a></p> <!-- Red logout button -->
+				<p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogout()" style="background-color: #ff4a4a;">Log out</a></p> 
 			</div>
 			</div>
 		</nav>
-		<!-- End Header/Navigation -->
 
-		<!-- Overlay for log-out modal -->
 		<div id="logoutOverlay" class="overlay"></div>
 
-		<!-- Log out Confirmation Modal -->
 		<div id="logoutModal" class="modal" style="display: none;">
 		    <div class="modal-content">
 					<div style="text-align: center;">
@@ -194,7 +185,6 @@
 		        </div>
 		    </div>
 		</div>
-
 		<script>
 		    function confirmLogout() {
 		        var modal = document.getElementById("logoutModal");
@@ -208,67 +198,54 @@
 
 		        // Confirm logout action
 		        confirmBtn.onclick = function () {
-		            window.location.href = "index.html"; // Change this to your log-out URL
+		            window.location.href = "index.html"; 
 		        }
 
 		        // Cancel log-out action
 		        cancelBtn.onclick = function () {
 		            modal.style.display = "none";
-		            overlay.style.display = "none"; // Hide overlay
+		            overlay.style.display = "none"; 
 		        }
 
 		        // Close modal and hide overlay when clicking outside of it
 		        window.onclick = function (event) {
 		            if (event.target == modal || event.target == overlay) {
 		                modal.style.display = "none";
-		                overlay.style.display = "none"; // Hide overlay
+		                overlay.style.display = "none"; 
 		            }
 		        }
 		    }
 		</script>
-
-	</body>
-</html>
-
-
-
-		<!-- Start Hero Section -->
-
+<!-- Start Hero Section -->
 		<div class="payment-section">
 			<div class="container">
 				<img src="assets/testimonials.png" alt="Feature" class="blog-image" style="align-items: start; margin-bottom: 20px; margin-top: 20px; width: 52%; height: auto;">
 			</span>
 	</div>	
-<!-- Testimonials Slider -->
  <!-- Start Testimonial Slider -->
  <div class="testimonial-section">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-12">
 				<div class="testimonial-slider-wrap text-center">
-
 					<div id="testimonial-nav">
 						<span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
 						<span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
 					</div>
-
 					<div class="testimonial-slider">
-						
 						<div class="item">
 							<div class="row justify-content-center">
 								<div class="col-lg-8 mx-auto">
-
 									<div class="testimonial-block text-center">
 										<blockquote class="mb-5">
-											<p>&ldquo;As a small business owner with limited coding knowledge, WebCraft has been a lifesaver. The drag-and-drop interface is incredibly intuitive, and the AI-powered assistance has helped me create a professional-looking website without breaking a sweat. I highly recommend it to anyone who wants to establish an online presence without the hassle.&rdquo;</p>
+											<p>&ldquo;As a small business co-owner with limited coding knowledge, WebCraft has been a lifesaver. The drag-and-drop interface is incredibly intuitive, and the AI-powered assistance has helped me create a professional-looking website without breaking a sweat. I highly recommend it to anyone who wants to establish an online presence without the hassle.&rdquo;</p>
 										</blockquote>
-
 										<div class="author-info">
 											<div class="author-pic">
-												<img src="images/person-1.png" alt="Business Owner" class="img-fluid">
+												<img src="assets/2.png" alt="Jairus" class="img-fluid">
 											</div>
-											<h4 class="font-weight-bold">John Doe</h4>
-											<span class="position d-block mb-3">Entrepreneur</span>
+											<h4 class="font-weight-bold">Jairus John Lorenzo</h4>
+											<span class="position d-block mb-3">4th year BSN College Student, Co-Owner</span>
 											<div class="flex items-center mb-2">
 												<ion-icon name="star" class="star-icon"></ion-icon>
 												<ion-icon name="star" class="star-icon"></ion-icon>
@@ -278,27 +255,22 @@
 										</div>
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</div> 
-						<!-- END item -->
-
 						<div class="item">
 							<div class="row justify-content-center">
 								<div class="col-lg-8 mx-auto">
-
 									<div class="testimonial-block text-center">
 										<blockquote class="mb-5">
-											<p>&ldquo;I was initially skeptical about using a free website builder, but WebCraft has exceeded my expectations. The quality of the templates is excellent, and the premium features are reasonably priced. I've already referred it to several friends and colleagues who are also looking to create their own websites.&rdquo;</p>
+										<p>&ldquo;I was initially skeptical about using a free website builder, but WebCraft has exceeded my expectations. The quality of the templates is excellent, and the premium features are reasonably priced. I've already referred it to several friends and colleagues who are also looking to create their own websites.&rdquo;</p>
 										</blockquote>
-
 										<div class="author-info">
 											<div class="author-pic">
-												<img src="assets/testi-imgs/Razel FLoren V. Bataan.png" alt="Maria Jones" class="img-fluid">
+												<img src="assets/4.png" alt="Jade" class="img-fluid">
 											</div>
-											<h4 class="font-weight-bold">Razel Floren V. Bataan</h4>
-											<span class="position d-block mb-3">3rd year BSME College Student</span>
+											<h4 class="font-weight-bold">Jade Ivan Naeg</h4>
+											<span class="position d-block mb-3"> 4th year BSBA College Student</span>
 											<div class="flex items-center mb-2">
 												<ion-icon name="star" class="star-icon"></ion-icon>
 												<ion-icon name="star" class="star-icon"></ion-icon>
@@ -308,26 +280,22 @@
 										</div>
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</div> 
 						<!-- END item -->
-
 						<div class="item">
 							<div class="row justify-content-center">
 								<div class="col-lg-8 mx-auto">
-
 									<div class="testimonial-block text-center">
 										<blockquote class="mb-5">
-											<p>&ldquo;I had a few questions while setting up my website, and the customer support team was incredibly helpful. They responded promptly and provided clear guidance. The AI assistant is also a great feature that has saved me time.&rdquo;</p>
+											<p>&ldquo;As a beginner, WebCraft was a great place to start. It's easy to use and offers everything I need to create a basic website. I'm looking forward to exploring the premium features as my business grows.&rdquo;</p>
 										</blockquote>
-
 										<div class="author-info">
 											<div class="author-pic">
-												<img src="images/person-1.png" alt="Maria Jones" class="img-fluid">
+												<img src="assets/1.png" alt="Rochelle" class="img-fluid">
 											</div>
-											<h4 class="font-weight-bold"> Rochelle Mae E. Aguado</h4>
+											<h4 class="font-weight-bold">Rochelle Mae Aguado</h4>
 											<span class="position d-block mb-3">3rd year BSTM College Student</span>
 											<div class="flex items-center mb-2">
 												<ion-icon name="star" class="star-icon"></ion-icon>
@@ -341,22 +309,43 @@
 								</div>
 							</div>
 						</div> 
-						<!-- END item -->
 						<div class="item">
 							<div class="row justify-content-center">
 								<div class="col-lg-8 mx-auto">
-
+									<div class="testimonial-block text-center">
+										<blockquote class="mb-5">
+											<p>&ldquo;I had a few questions while setting up my website, and the customer support team was incredibly helpful. They responded promptly and provided clear guidance. The AI assistant is also a great feature that has saved me time.&rdquo;</p></blockquote>
+										<div class="author-info">
+											<div class="author-pic">
+												<img src="assets/3.png" alt="Razel" class="img-fluid">
+											</div>
+											<h4 class="font-weight-bold">Razel Floren Bataan</h4>
+											<span class="position d-block mb-3">3rd year BSME College Student</span>
+											<div class="flex items-center mb-2">
+												<ion-icon name="star" class="star-icon"></ion-icon>
+												<ion-icon name="star" class="star-icon"></ion-icon>
+												<ion-icon name="star" class="star-icon"></ion-icon>
+												<ion-icon name="star" class="star-icon"></ion-icon>
+												<ion-icon name="star-outline" class="star-icon"></ion-icon>
+										</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> 
+						<div class="item">
+							<div class="row justify-content-center">
+								<div class="col-lg-8 mx-auto">
 									<div class="testimonial-block text-center">
 										<blockquote class="mb-5">
 											<p>&ldquo;While WebCraft is a great tool, I would love to see more customization options for advanced users. It would also be helpful to have a larger selection of free templates. Overall, it's a solid platform, but there's still room for improvement.&rdquo;</p>
 										</blockquote>
-
 										<div class="author-info">
 											<div class="author-pic">
-												<img src="images/person-1.png" alt="Maria Jones" class="img-fluid">
+												<img src="assets/5.png" alt="Francis" class="img-fluid">
 											</div>
-											<h4 class="font-weight-bold">Maria Jones</h4>
-											<span class="position d-block mb-3">CEO, Co-Founder</span>
+											<h4 class="font-weight-bold">Francis Dave Maniling</h4>
+											<span class="position d-block mb-3">4th year BSIT College Student</span>
 											<div class="flex items-center mb-2">
 												<ion-icon name="star" class="star-icon"></ion-icon>
 												<ion-icon name="star" class="star-icon"></ion-icon>
@@ -366,41 +355,10 @@
 										</div>
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</div> 
-						<!-- END item -->
-						<div class="item">
-							<div class="row justify-content-center">
-								<div class="col-lg-8 mx-auto">
-
-									<div class="testimonial-block text-center">
-										<blockquote class="mb-5">
-											<p>&ldquo;As a beginner, WebCraft was a great place to start. It's easy to use and offers everything I need to create a basic website. I'm looking forward to exploring the premium features as my business grows.&rdquo;</p></blockquote>
-
-										<div class="author-info">
-											<div class="author-pic">
-												<img src="images/person-1.png" alt="Maria Jones" class="img-fluid">
-											</div>
-											<h4 class="font-weight-bold">Maria Jones</h4>
-											<span class="position d-block mb-3">CEO, Co-Founder</span>
-											<div class="flex items-center mb-2">
-												<ion-icon name="star" class="star-icon"></ion-icon>
-												<ion-icon name="star" class="star-icon"></ion-icon>
-												<ion-icon name="star" class="star-icon"></ion-icon>
-												<ion-icon name="star" class="star-icon"></ion-icon>
-												<ion-icon name="star-outline" class="star-icon"></ion-icon>
-										</div>
-										</div>
-									</div>
-
-								</div>
-							</div>
-						</div> 
-						<!-- END item -->
 					</div>
-
 				</div>
 			</div>
 		</div>
@@ -450,11 +408,10 @@
   
 	  // Check if email input is filled
 	  if (email) {
-		// Open the link in a new tab with the email as a query parameter
 		window.open(`https://formsubmit.co/el/hocuya?email=${encodeURIComponent(email)}`, '_blank');
-		return false; // Prevent the form from submitting the default way
+		return false; 
 	  }
-	  return false; // Prevent default action if email is not filled
+	  return false; 
 	}
   </script>
 		<!-- Ionicons Script -->
