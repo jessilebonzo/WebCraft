@@ -1229,6 +1229,11 @@ img.hover-image {
   }
 }
 /* testimonial slider */
+.star-icon {
+  color: #FFD700; 
+  font-size: 24px; 
+}
+
 .testimonial-section {
   padding: 3rem 0 7rem 0; }
 
