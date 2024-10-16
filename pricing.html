@@ -42,8 +42,7 @@
       font-size: 25px;
       animation: flame 1s ease-in-out infinite alternate;
     }
-  
-    /* Custom Modal Styling */
+
     .modal {
       display: none;
       position: fixed;
@@ -96,7 +95,7 @@
       background-repeat: no-repeat;
     }
   </style>
-  
+
 </head>
 
 <body style="background-color: white">
@@ -155,9 +154,9 @@
                       <h5><img src="assets/checkk.png" alt="Icon" class="icon"> Customizable fonts and colors</h5>
                       <h5><img src="assets/checkk.png" alt="Icon" class="icon"> Pre-Designed Pages</h5>
                       <h5><img src="assets/checkk.png" alt="Icon" class="icon"> Vibrant Color Schemes</h5><br>
-                      <p style="text-align: center;">
-                          <a href="https://formsubmit.co/el/hocuya" class="ad-button" target="_blank">Purchase Now</a>
-                      </p>
+                    <p style="text-align: center;">
+                    <a href="https://formsubmit.co/el/hocuya" class="ad-button" target="_blank">Purchase Now</a>
+                    </p>
                   </ul>
               </div>
           </div>
@@ -172,9 +171,9 @@
                       <h5><img src="assets/checkk.png" alt="Icon" class="icon"> Online Form Integration</h5>
                       <h5><img src="assets/checkk.png" alt="Icon" class="icon"> Typography and Iconography</h5>
                       <h5><img src="assets/checkk.png" alt="Icon" class="icon"> Call-to-Action Buttons</h5><br>
-                      <p style="text-align: center;">
-                          <a href="https://formsubmit.co/el/hocuya" class="ad-button" target="_blank">Purchase Now</a>
-                      </p>
+                    <p style="text-align: center;">
+                    <a href="https://formsubmit.co/el/hocuya" class="ad-button" target="_blank">Purchase Now</a>
+                    </p>
                   </ul>
               </div>
           </div>
@@ -229,14 +228,12 @@
   
 	  // Check if email input is filled
 	  if (email) {
-		// Open the link in a new tab with the email as a query parameter
 		window.open(`https://formsubmit.co/el/hocuya?email=${encodeURIComponent(email)}`, '_blank');
-		return false; // Prevent the form from submitting the default way
+		return false; 
 	  }
-	  return false; // Prevent default action if email is not filled
+	  return false; 
 	}
   </script>
-  <!-- Custom Modal for Purchase Confirmation -->
   <div id="purchaseModal" class="modal">
     <div class="modal-content">
       <div style="text-align: center;">
@@ -251,12 +248,11 @@
   <script src="js/tiny-slider.js"></script>
   <script src="js/custom.js"></script>
   <script>
-    // Add click event listener for both purchase buttons
     const buttons = document.querySelectorAll('.ad-button');
     
     buttons.forEach(button => {
       button.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent default action of the link
+        event.preventDefault();
     
         // Show custom modal instead of the alert
         var modal = document.getElementById("purchaseModal");
@@ -266,8 +262,8 @@
     
         // When the user clicks the confirm button
         confirmBtn.onclick = function () {
-          modal.style.display = "none"; // Hide the modal
-          window.close(); // Close the window
+          modal.style.display = "none"; 
+          window.close();
         }
     
         // When the user clicks anywhere outside the modal, close it
@@ -293,11 +289,10 @@
   
     // Check if email input is filled
     if (email) {
-    // Open the link in a new tab with the email as a query parameter
     window.open(`https://formsubmit.co/el/hocuya?email=${encodeURIComponent(email)}`, '_blank');
-    return false; // Prevent the form from submitting the default way
+    return false; 
     }
-    return false; // Prevent default action if email is not filled
+    return false; 
   }
   </script>
   

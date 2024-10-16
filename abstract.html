@@ -67,11 +67,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebCraft</title>
     <style>
-      /* Set the background image to cover the entire page */
+     
       body {
         margin: 0;
         padding: 0;
-        background-image: url('assets/vibes/final_abstractBG.png'); /* Replace with your desired background image */
+        background-image: url('assets/vibes/final_abstractBG.png'); 
         background-size: cover;
         background-position: center;
         height: 100vh;
@@ -86,7 +86,7 @@
         background-size: cover;
         background-position: center;
         width: 100%;
-        height: 350px; /* Adjust height as necessary */
+        height: 350px; 
         margin-bottom: 0;
       }
 
@@ -105,15 +105,13 @@
       .btn-secondary {
         background-color: #6c757d;
       }
-
-      /* Responsive adjustments */
+			
       @media (max-width: 768px) {
         .theme-background {
-          height: 200px; /* Adjust height for smaller screens */
+          height: 200px; 
         }
       }
-
-      /* Log-out modal styles */
+      
       #logoutModal .modal-content {
         padding: 20px;
         text-align: center;
@@ -122,24 +120,24 @@
 				border-radius: 15px;
         border: 1px solid #888;
         width: 80%;
-        max-width: 400px; /* Wider modal */
+        max-width: 400px; 
       }
 
       #logoutModal .modal-btn {
         margin: 15px;
         padding: 10px 20px;
         width: 120px;
-        border-radius: 25px; /* Rounded edges for all modal buttons */
+        border-radius: 25px;
       }
 
       #logoutModal .modal-btn-logout {
-        background-color: #ff4a4a; /* Red button for logout */
+        background-color: #ff4a4a; 
         color: white;
         border: none;
       }
 
       #logoutModal .modal-btn-cancel {
-        background-color: #4CAF50; /* Complementary color (green) */
+        background-color: #4CAF50; 
         color: white;
         border: none;
       }
@@ -149,16 +147,15 @@
         justify-content: space-around;
       }
 
-      /* Overlay styles */
       #logoutOverlay {
-        display: none; /* Initially hidden */
+        display: none; 
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.7); /* Dark overlay */
-        z-index: 9; /* Behind the modal but above the content */
+        background: rgba(0, 0, 0, 0.7); 
+        z-index: 9; 
       }
 
     </style>
@@ -186,18 +183,15 @@
           </ul>
         </div>
         <div>
-          <p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogout()" style="background-color: #ff4a4a;">Log out</a></p> <!-- Red logout button -->
+          <p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogout()" style="background-color: #ff4a4a;">Log out</a></p> 
         </div>
       </div>
     </nav>
-    
-    <!-- Image Below Navbar -->
+
     <div class="theme-background" style="background-image: url('assets/vibes/final_abstractVIBE2.png');"></div>
-    
-    <!-- Overlay for log-out modal -->
+
     <div id="logoutOverlay" class="overlay"></div>
 
-    <!-- Log out Confirmation Modal -->
     <div id="logoutModal" class="modal" style="display: none;">
         <div class="modal-content">
 					<div style="text-align: center;">
@@ -224,20 +218,20 @@
 
             // Confirm logout action
             confirmBtn.onclick = function () {
-                window.location.href = "index.html"; // Change this to your log-out URL
+                window.location.href = "index.html"; 
             }
 
             // Cancel log-out action
             cancelBtn.onclick = function () {
                 modal.style.display = "none";
-                overlay.style.display = "none"; // Hide overlay
+                overlay.style.display = "none"; 
             }
 
             // Close modal and hide overlay when clicking outside of it
             window.onclick = function (event) {
                 if (event.target == modal || event.target == overlay) {
                     modal.style.display = "none";
-                    overlay.style.display = "none"; // Hide overlay
+                    overlay.style.display = "none"; 
                 }
             }
         }
@@ -303,9 +297,7 @@
 									<p>Agency Template</p>
 									<blockquote>"Crafting Unique Experiences that Inspire."</blockquote>
 									<p class="d-grid justify-content-center">
-										<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Online%20Marketing)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">
-											Free
-											</a>									</p>
+										<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Online%20Marketing)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">Free</a></p>
 							</div>
 					</div>
 				</div>
@@ -430,10 +422,7 @@
 													<h6>Yes, you can share the Canva design link with your team for collaborative editing, as long as they have a Canva account.</h6>								
 													<div class="text-center">
 													<a href="https://webcraft-templates.my.canva.site/abstract-online-marketing" target="_blank" class="btn btn-secondary me-2" style="background-color:#6985FF; color: black;">View Live Demo</a>
-
-													<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Online%20Marketing)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">
-														Get Template
-													</a>														</div>
+													<a href="https://formsubmit.co/el/hocuya?subject=Free%20WebCraft%20Template%20Design%20(Online%20Marketing)&message=I%20want%20to%20get%20the%20WebCraft%20free%20editable%20Website%20Design%20of%20this%20theme." class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;" target="_blank">Get Template</a></div>
 												</div>
 										</div>
 								</div>
@@ -772,23 +761,19 @@
     const form = document.getElementById('subscribe-form');
     const email = form.email.value;
 
-    // Check if email input is filled
     if (email) {
-      // Open the link in a new tab with the email as a query parameter
       window.open(`https://formsubmit.co/el/hocuya?email=${encodeURIComponent(email)}`, '_blank');
-      return false; // Prevent the form from submitting the default way
+      return false; 
     }
-    return false; // Prevent default action if email is not filled
+    return false; 
   }
 </script>
-
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/tiny-slider.js"></script>
 		<script src="js/custom.js"></script>
 		<script src="js/test.js"></script>
+
 	</body>
-
-
 </html>
