@@ -137,15 +137,15 @@
 
 	<body>
 
-    <script>
-        !(function(){
-            const sc = document.createElement('script');
-            sc.src = "https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18683&token=670FDDE9E4B01122021603B5";
-            sc.async = true;
-            sc.defer = true;
-            document.body.appendChild(sc);
-        })()
-    </script>
+		<script>
+			!(function(){
+				const sc = document.createElement('script');
+				sc.src = "https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18683&token=670FDDE9E4B01122021603B5";
+				sc.async = true;
+				const s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(sc, s);
+			})();
+		</script>
 
 		<!-- Start Header/Navigation -->
 		<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
