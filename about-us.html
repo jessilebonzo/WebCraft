@@ -25,51 +25,52 @@
 		  background-repeat: no-repeat;
 		}
 		
-				#logoutModalNew .modal-content {
-					padding: 20px;
-					text-align: center;
-					background-color: #fefefe;
-					margin: 15% auto;
-					border-radius: 15px;
-					border: 1px solid #888;
-					width: 80%;
-					max-width: 400px; 
-				}
+        #logoutModal .modal-content {
+        padding: 20px;
+        text-align: center;
+        background-color: #fefefe;
+        margin: 15% auto;
+				border-radius: 15px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 400px; 
+      }
 
-				#logoutModalNew .modal-btn {
-					margin: 15px;
-					padding: 10px 20px;
-					width: 120px;
-					border-radius: 25px; 
-				}
+      #logoutModal .modal-btn {
+        margin: 15px;
+        padding: 10px 20px;
+        width: 120px;
+        border-radius: 25px;
+      }
 
-				#logoutModalNew .modal-btn-logout {
-					background-color: #ff4a4a; 
-					color: white;
-					border: none;
-				}
+      #logoutModal .modal-btn-logout {
+        background-color: #ff4a4a; 
+        color: white;
+        border: none;
+      }
 
-				#logoutModalNew .modal-btn-cancel {
-					background-color: #4CAF50; 
-					color: white;
-					border: none;
-				}
+      #logoutModal .modal-btn-cancel {
+        background-color: #4CAF50; 
+        color: white;
+        border: none;
+      }
 
-				#logoutModalNew .btn-wrapper {
-					display: flex;
-					justify-content: space-around;
-				}
+      #logoutModal .btn-wrapper {
+        display: flex;
+        justify-content: space-around;
+      }
 
-				#logoutOverlayNew {
-					display: none; 
-					position: fixed;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 100%;
-					background: rgba(0, 0, 0, 0.7); 
-					z-index: 9; 
-				}
+      #logoutOverlay {
+        display: none; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7); 
+        z-index: 9; 
+      }
+
 	  </style>
 
 	<body style="background-color: white;">
@@ -98,20 +99,52 @@
 			</div>
 		</nav>
 
-		<div id="logoutOverlay" class="overlay"></div>
+        <div id="logoutOverlay" class="overlay"></div>
 
-		<div id="logoutModal" class="modal" style="display: none;">
-		    <div class="modal-content">
-				<div style="text-align: center;">
+    <div id="logoutModal" class="modal" style="display: none;">
+        <div class="modal-content">
+					<div style="text-align: center;">
 						<img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display: inline-block;">
 				</div>
-		        <p>Are you sure you want to log out?</p>
-		        <div class="btn-wrapper">
-		            <button id="confirmLogoutBtn" class="modal-btn modal-btn-logout">Log out</button>
-		            <button id="cancelLogoutBtn" class="modal-btn modal-btn-cancel">Cancel</button>
-		        </div>
-		    </div>
-		</div>
+            <p>Are you sure you want to log out?</p>
+            <div class="btn-wrapper">
+                <button id="confirmLogoutBtn" class="modal-btn modal-btn-logout">Log out</button>
+                <button id="cancelLogoutBtn" class="modal-btn modal-btn-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function confirmLogout() {
+            var modal = document.getElementById("logoutModal");
+            var overlay = document.getElementById("logoutOverlay");
+            var confirmBtn = document.getElementById("confirmLogoutBtn");
+            var cancelBtn = document.getElementById("cancelLogoutBtn");
+
+            // Show overlay and modal
+            overlay.style.display = "block";
+            modal.style.display = "block";
+
+            // Confirm logout action
+            confirmBtn.onclick = function () {
+                window.location.href = "index.html"; 
+            }
+
+            // Cancel log-out action
+            cancelBtn.onclick = function () {
+                modal.style.display = "none";
+                overlay.style.display = "none"; 
+            }
+
+            // Close modal and hide overlay when clicking outside of it
+            window.onclick = function (event) {
+                if (event.target == modal || event.target == overlay) {
+                    modal.style.display = "none";
+                    overlay.style.display = "none"; 
+                }
+            }
+        }
+    </script>
 
 <!-- Team Section -->
 <section class="about-us">
