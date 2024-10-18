@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCraft</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Baloo 2', cursive;
+            background-color: #f0f0f0;
+        }
+        .button-container {
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 25px;
+            margin: 10px;
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            border: 2px solid #000000;;
+            border-radius: 50px;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .btn-user {
+            background-color: #B0EF8F;
+        }
+        .btn-admin {
+            background-color: #ff4f4f;
+        }
+        body {
+            background-image: url('assets/ChoosingBG.png');
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+        }
+        @media (max-width: 600px) {
+            .btn {
+                display: block;
+                width: 80%;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <a href="signin.html" class="btn btn-user" target="_self">Sign in as User</a>
+        <br>
+        <a href="signinAdmin.html" class="btn btn-admin" target="_self">Sign in as Admin</a>
+    </div>
+</body>
+</html>
