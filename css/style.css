@@ -683,7 +683,7 @@ a {
 /* About Us Section */
 .about-us {
   text-align: center;
-  padding: 50px;
+  padding: 10px;
 }
 
 .about-us p {
@@ -994,12 +994,16 @@ a {
 }
 
 @media (max-width: 576px) {
+  .card-flip {
+    margin-bottom: 0; 
+  }
+
   .card-flip > div {
-    padding: 0.5rem;
+    padding: 0; 
   }
 
   .card-back {
-    padding: 0.5rem;
+    padding: 0; 
   }
 
   .post-thumbnail img {
@@ -1010,7 +1014,8 @@ a {
   .post-content-entry h3 {
     font-size: 1.2rem;
   }
-} */
+}
+
 
 /* Dashboard - All Design Templates */
 .theme-background {
