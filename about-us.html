@@ -157,6 +157,33 @@
 		<p><strong>Join us and start crafting your digital presence today!</strong></p></div>
 </section>
 
+<script>
+
+  // Reference to the active users in Firebase Realtime Database
+  const activeUsersRef = database.ref('status');
+
+  // Generate a persistent unique session ID using localStorage
+  let sessionId = localStorage.getItem('webcraftSessionId');
+  if (!sessionId) {
+    sessionId = "user_" + new Date().getTime();
+    localStorage.setItem('webcraftSessionId', sessionId);
+  }
+
+  const userStatusDatabaseRef = activeUsersRef.child(sessionId);
+
+  // Set user presence (set to true)
+  userStatusDatabaseRef.set(true);
+
+  // Remove user presence when they disconnect or close the browser/tab
+  userStatusDatabaseRef.onDisconnect().remove();
+
+  // Fetch the number of active users in real-time
+  activeUsersRef.on('value', (snapshot) => {
+    const activeUserCount = snapshot.numChildren(); // Count active users
+    document.getElementById('active-user-count').innerText = activeUserCount;
+  });
+</script>
+
 <div class="team-logo">
 	<img src="assets/trademark/webcraftTeam_2.png" alt="WebCraft Team Logo" style="width: 100%; max-width: 460px; margin-top: 100px;">
 </div>

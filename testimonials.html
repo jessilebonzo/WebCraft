@@ -283,7 +283,34 @@
 								</div>
 							</div>
 						</div> 
-						<!-- END item -->
+
+						<script>
+
+							// Reference to the active users in Firebase Realtime Database
+							const activeUsersRef = database.ref('status');
+						
+							// Generate a persistent unique session ID using localStorage
+							let sessionId = localStorage.getItem('webcraftSessionId');
+							if (!sessionId) {
+							  sessionId = "user_" + new Date().getTime();
+							  localStorage.setItem('webcraftSessionId', sessionId);
+							}
+						
+							const userStatusDatabaseRef = activeUsersRef.child(sessionId);
+						
+							// Set user presence (set to true)
+							userStatusDatabaseRef.set(true);
+						
+							// Remove user presence when they disconnect or close the browser/tab
+							userStatusDatabaseRef.onDisconnect().remove();
+						
+							// Fetch the number of active users in real-time
+							activeUsersRef.on('value', (snapshot) => {
+							  const activeUserCount = snapshot.numChildren(); // Count active users
+							  document.getElementById('active-user-count').innerText = activeUserCount;
+							});
+						  </script>
+						  
 						<div class="item">
 							<div class="row justify-content-center">
 								<div class="col-lg-8 mx-auto">

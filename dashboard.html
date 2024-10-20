@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -323,6 +323,33 @@
 	</div>
 </div>
 
+<script>
+
+    // Reference to the active users in Firebase Realtime Database
+    const activeUsersRef = database.ref('status');
+
+    // Generate a persistent unique session ID using localStorage
+    let sessionId = localStorage.getItem('webcraftSessionId');
+    if (!sessionId) {
+      sessionId = "user_" + new Date().getTime();
+      localStorage.setItem('webcraftSessionId', sessionId);
+    }
+
+    const userStatusDatabaseRef = activeUsersRef.child(sessionId);
+
+    // Set user presence (set to true)
+    userStatusDatabaseRef.set(true);
+
+    // Remove user presence when they disconnect or close the browser/tab
+    userStatusDatabaseRef.onDisconnect().remove();
+
+    // Fetch the number of active users in real-time
+    activeUsersRef.on('value', (snapshot) => {
+      const activeUserCount = snapshot.numChildren(); // Count active users
+      document.getElementById('active-user-count').innerText = activeUserCount;
+    });
+  </script>
+  
 <!-- Modal for Comic Store retro  -->
 <div class="modal" id="imageModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
 	<div class="modal-dialog modal-xl modal-dialog-centered">
