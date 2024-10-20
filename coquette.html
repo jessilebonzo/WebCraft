@@ -20,6 +20,9 @@
 
 
 <body>
+
+	<!-- Include the like feature script -->
+<script src="js/like-feature.js"></script>
   
 	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
@@ -318,17 +321,26 @@ console.log("Database Reference: ", pageViewsRef);
 <!-- Yoga Coquette -->
 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
 	<div class="hover-card card-12">
-			<img src="/assets/Yoga Trainer/1 Home.png" alt="Image 4" class="hover-image" data-bs-toggle="modal" data-bs-target="#imageModal4" />
-			<div class="card-content">
-					<h3>Yoga Trainer </h3>
-					<p>Agency Template</p>
-					<blockquote>"Your Online YOGA Trainer!"</blockquote>
-					<p class="d-grid justify-content-center">
-							<a href="payment.html" class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;">₱149.00</a>
-					</p>
-			</div>
+		<img src="/assets/Yoga Trainer/1 Home.png" alt="Image 4" class="hover-image" data-bs-toggle="modal" data-bs-target="#imageModal4" />
+		<div class="card-content">
+			<h3>Yoga Trainer</h3>
+			<p>Agency Template</p>
+			<blockquote>"Your Online YOGA Trainer!"</blockquote>
+			<p class="d-grid justify-content-center">
+				<a href="payment.html" class="btn btn-secondary me-2" style="background-color:#f9bf29; color: black;">₱149.00</a>
+			</p>
+
+			<!-- Add the Like button and Like count here -->
+			<p class="d-grid justify-content-center">
+				<button id="likeButtontemplate1" class="btn btn-secondary me-2" style="background-color:#ff4a4a; color:white;" onclick="toggleLike('template1')">
+					<i class="fa fa-heart"></i> Favorite
+				</button>
+			</p>
+			<p id="likeCounttemplate1" style="text-align: center;">0 likes</p>
+		</div>
 	</div>
 </div>
+
 
 <!-- Jewelry Designer Coquette -->
 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
