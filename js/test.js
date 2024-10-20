@@ -115,3 +115,21 @@ function changeImage(imageSrc) {
 	function changeImage30(imageSrc) {
 	document.getElementById('mainImage30').src = imageSrc;
 	}
+	// heart react
+	$(document).ready(function(){
+    $('.content').click(function(){
+        $(this).toggleClass("heart-active");
+        let numbElement = $(this).find('.numb');
+        let numbElement1 = $(this).find('.numb-1');
+        let currentNumber = parseInt(numbElement.text());
+        let currentNumber1 = parseInt(numbElement1.text());
+
+        if($(this).hasClass("heart-active")) {
+            numbElement.text(currentNumber + 1);
+            numbElement1.text(currentNumber1 + 1);
+        } else {
+            numbElement.text(currentNumber - 1);
+            numbElement1.text(currentNumber1 - 1);
+        }
+    });
+});

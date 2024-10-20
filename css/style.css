@@ -1747,3 +1747,74 @@ img.hover-image {
 .button-container {
   text-align: center;
 }
+/* heart button */
+.icon-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+/* Heart Button */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
+.heart-btn {
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.heart-icon {
+  font-size: 20px;
+  color: grey; 
+  margin-right: 5px;
+  transition: color 0.3s ease;
+}
+
+.content.heart-active .heart-icon {
+  color: red; 
+}
+
+.numb {
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  color: grey;
+}
+
+.numb-1 {
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  color: grey;
+}
+
+.content.heart-active .numb {
+  color: black; 
+}
+.content.heart-active .numb-1 {
+  color: white; 
+}
+
+/* Download Button */
+.download-btn {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.download-btn:hover {
+  background-color: #f9bf29;
+  border-color: #f9bf29;
+}
+
+.download-btn i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: grey;
+}
