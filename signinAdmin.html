@@ -443,7 +443,8 @@
               <div class="login__buttons" style="justify-content: center;">
                 <button type="submit" class="login__button" id="loginButton">Log In</button>
               </div>
-              <div style="margin-top: 1rem; text-align: center;">
+              
+              <!-- <div style="margin-top: 1rem; text-align: center;">
                 <span>Don't have an account? </span>
                 <a
                   class="login__signup"
@@ -453,18 +454,18 @@
                   >Register here</a
                 >
               </div>
-            </div>
+            </div> -->
           </form>
 
           <!-- Sign-Up Form -->
           <form class="login__form" id="signUpForm" style="display: none;">
             <div>
               <h1 class="login__title">
-                <span>Create</span> Account
+                <span>Admin</span> Login
               </h1>
 
               <p class="login__description">
-                Fill in your details to create an account.
+                Welcome! Please login with your admin credentials.
               </p>
             </div>
 
@@ -548,35 +549,41 @@
     <!--=============== MAIN JS ===============-->
     <script type="module">
       // Import the functions you need from the SDKs
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
-      import {
-        getAuth,
-        createUserWithEmailAndPassword,
-        signInWithEmailAndPassword,
-      } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
-      import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
-        authDomain: "webcraft-7f386.firebaseapp.com",
-        projectId: "webcraft-7f386",
-        storageBucket: "webcraft-7f386.appspot.com",
-        messagingSenderId: "983810632123",
-        appId: "1:983810632123:web:de8d379daa38fbca42fc9e",
-        measurementId: "G-WSSVHJ9VV3",
-      };
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
+  authDomain: "webcraft-7f386.firebaseapp.com",
+  projectId: "webcraft-7f386",
+  storageBucket: "webcraft-7f386.appspot.com",
+  messagingSenderId: "983810632123",
+  appId: "1:983810632123:web:de8d379daa38fbca42fc9e",
+  measurementId: "G-WSSVHJ9VV3",
+};
 
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
-      // Initialize Firebase Authentication
-      const auth = getAuth(app);
+// Initialize Firebase Authentication
+const auth = getAuth(app);
 
-      // Initialize Firestore
-      const db = getFirestore(app);
+// Initialize Firestore
+const db = getFirestore(app);
+
+async function isAdmin(email) {
+  const adminRef = doc(db, "admins", email);
+  const adminSnap = await getDoc(adminRef);
+  return adminSnap.exists();
+}
 
       // modal
       const modal = document.getElementById('customModal');
@@ -635,28 +642,32 @@
       });
 
       // Handle Login
-      document.getElementById("loginForm").addEventListener("submit", async function (e) {
-        e.preventDefault();
+document.getElementById("loginForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value;
-        const loginButton = document.getElementById("loginButton");
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const loginButton = document.getElementById("loginButton");
 
-        loginButton.disabled = true;
+  loginButton.disabled = true;
 
-        try {
-          const userCredential = await signInWithEmailAndPassword(auth, email, password);
-          const user = userCredential.user;
-          showModal("Login successful!");
-          modal.dataset.redirect = 'true';
-
-
-          localStorage.setItem('loggedInUserId', user.uid);
-        } catch (error) {
-          showModal(`Invalid Email/Password. Please try again.`);
-          loginButton.disabled = false;
-        }
-      });
+  try {
+    // First, check if the user is an admin
+    if (await isAdmin(email)) {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      showModal("Admin login successful!");
+      modal.dataset.redirect = 'true';
+      localStorage.setItem('loggedInUserId', user.uid);
+    } else {
+      showModal("Access denied. Only admins can log in.");
+    }
+  } catch (error) {
+    showModal(`Invalid Email/Password or not authorized. Please try again.`);
+  } finally {
+    loginButton.disabled = false;
+  }
+});
     </script>
 
     <script>
