@@ -88,6 +88,189 @@
 		  background-position: top;
 		  background-repeat: no-repeat;
 		}
+
+    /* Profile Icon styles */
+    .profile-icon {
+      display: block;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1001;
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 30px;
+    }
+
+    .profile-icon i {
+      color: #fff;
+      font-size: 24px;
+    }
+
+    /* Profile Menu styles */
+    .profile-menu {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;	
+      height: auto;
+      background-color: #FF6D6D;
+      transition: 0.3s;
+      z-index: 1000;
+      border-radius: 25px;
+      border: 2px solid black;
+    }
+
+    .profile-menu.active {
+      right: 0;
+    }
+
+    .profile-menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    .profile-menu ul li {
+      padding: 15px 20px;
+    }
+
+    .profile-menu ul li a {
+      color: black;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Baloo 2', cursive;
+    }
+
+    .profile-menu .divider {
+      height: 5px;
+      background-color: rgba(0, 0, 0, 0.2);
+      margin: 0 10px;
+    }
+
+    /* User Info Display styles */
+    #userInfoDisplay {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    #userInfoDisplay p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    /* Editable name styles */
+    #editNameBtn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    #editNameInput {
+      display: none;
+      margin-top: 5px;
+      width: 100%;
+      max-width: 200px;
+    }
+
+    #saveNameBtn, #exitNameBtn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 5px;
+      margin-right: 5px;
+    }
+
+    #exitNameBtn {
+      background-color: #f44336;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .btn-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .modal-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      background-color: #f44336;
+      color: white;
+    }
+
+    .modal-btn-logout {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .modal-btn-cancel, .modal-btn-ok {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    /* Change Password Modal styles */
+    .input-group {
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
 		</style>
 <!-- Start Header/Navigation -->
 <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
@@ -107,28 +290,84 @@
         </li>
 			</ul>
 	</div>			
-	<div>
-		<p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogout()" style="background-color: #ff4a4a;">Log out</a></p> 
-	</div>
 	</div>
 </nav>
 
 <!-- End Header/Navigation -->
 
+<!-- Profile Icon -->
+<div class="profile-icon" onclick="toggleMenu()">
+  <i class="fas fa-user"></i>
+</div>
+
+<!-- Profile Menu -->
+<div class="profile-menu" id="profileMenu">
+  <ul>
+    <li><a href="#" onclick="toggleUserInfo()">Profile</a></li>
+    <div id="userInfoDisplay" style="display: none;"></div>
+    <div class="divider"></div>
+    <li><a href="#" onclick="openChangePasswordModal()">Change Password</a></li>
+    <div class="divider"></div>
+    <li><a href="#" onclick="confirmLogout()">Log out</a></li>
+  </ul>
+</div>
+
+<!-- Logout Modal -->
 <div id="logoutOverlay" class="overlay"></div>
 
-<div id="logoutModal" class="modal" style="display: none;">
-		<div class="modal-content">
-		<div style="text-align: center;">
-			<img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display: inline-block;">
-		</div>
-				<p>Are you sure you want to log out?</p>
-				<div class="btn-wrapper">
-						<button id="confirmLogoutBtn" class="modal-btn modal-btn-logout">Log out</button>
-						<button id="cancelLogoutBtn" class="modal-btn modal-btn-cancel">Cancel</button>
-				</div>
-		</div>
+<div id="logoutModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <div style="text-align:center;">
+      <img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display:inline-block;">
+    </div>
+    <p>Are you sure you want to log out?</p>
+    <div class='btn-wrapper'>
+      <button id='confirmLogoutBtn' class='modal-btn modal-btn-logout'>Log out</button>
+      <button id='cancelLogoutBtn' class='modal-btn modal-btn-cancel'>Cancel</button>
+    </div>
+  </div>
 </div>
+
+<!-- Change Password Modal -->
+<div id='changePasswordModal' class='modal' style='display:none;'>
+  <div class='modal-content'>
+    <div style='text-align:center;'>
+      <h3>Change Password</h3>
+    </div>
+    <form id='changePasswordForm'>
+      <div class="input-group">
+        <input type='password' id='currentPassword' placeholder='Current Password' required>
+        <i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('currentPassword')"></i>
+      </div>
+      <div class="input-group">
+        <input type='password' id='newPassword' placeholder='New Password' required>
+        <i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('newPassword')"></i>
+      </div>
+      <div class="input-group">
+        <input type='password' id='confirmNewPassword' placeholder='Confirm New Password' required>
+        <i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('confirmNewPassword')"></i>
+      </div>
+      <div class='btn-wrapper'>
+        <button type='submit' class='modal-btn modal-btn-submit'>Change Password</button>
+        <button type='button' class='modal-btn modal-btn-cancel' onclick='closeChangePasswordModal()'>Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Alert Modal -->
+<div id="alertModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <div style="text-align:center;">
+      <img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display:inline-block;">
+    </div>
+    <p id="alertMessage"></p>
+    <div class='btn-wrapper'>
+      <button id='alertOkBtn' class='modal-btn modal-btn-ok'>OK</button>
+    </div>
+  </div>
+</div>
+
   </head>
   <body>
 <!-- Start Hero Section -->
@@ -166,7 +405,27 @@
                         
                         </div>
                         
+                        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+                        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+                        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
                         <script>
+                          // Your Firebase configuration
+                          const firebaseConfig = {
+                            apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
+                            authDomain: "webcraft-7f386.firebaseapp.com",
+                            databaseURL: "https://webcraft-7f386-default-rtdb.asia-southeast1.firebasedatabase.app",
+                            projectId: "webcraft-7f386",
+                            storageBucket: "webcraft-7f386.appspot.com",
+                            messagingSenderId: "983810632123",
+                            appId: "1:983810632123:web:de8d379daa38fbca42fc9e",
+                            measurementId: "G-WSSVHJ9VV3"
+                          };
+
+                          // Initialize Firebase
+                          firebase.initializeApp(firebaseConfig);
+                          const auth = firebase.auth();
+                          const database = firebase.database();
 
                           // Reference to the active users in Firebase Realtime Database
                           const activeUsersRef = database.ref('status');
@@ -191,6 +450,196 @@
                             const activeUserCount = snapshot.numChildren(); // Count active users
                             document.getElementById('active-user-count').innerText = activeUserCount;
                           });
+
+                          function toggleMenu() {
+                            const menu = document.getElementById('profileMenu');
+                            const profileIcon = document.querySelector('.profile-icon');
+                            menu.classList.toggle('active');
+                            profileIcon.classList.toggle('active');
+                          }
+
+                          function toggleUserInfo() {
+                            const user = auth.currentUser;
+                            const userInfoDisplay = document.getElementById('userInfoDisplay');
+
+                            if (userInfoDisplay.style.display === 'none') {
+                              if (user) {
+                                userInfoDisplay.innerHTML = `
+                                  <p><strong>Email:</strong> ${user.email}</p>
+                                  <p><strong>Name:</strong> <span id="displayName">${user.displayName || 'Not set'}</span>
+                                    <button id="editNameBtn" onclick="toggleEditName()">Edit</button>
+                                  </p>
+                                  <input type="text" id="editNameInput" style="display: none;">
+                                  <button id="saveNameBtn" onclick="saveName()" style="display: none;">Save</button>
+                                  <button id="exitNameBtn" onclick="cancelEditName()" style="display: none;">Exit</button>
+                                `;
+                                userInfoDisplay.style.display = 'block';
+                              } else {
+                                userInfoDisplay.innerHTML = '<p>User not logged in</p>';
+                                userInfoDisplay.style.display = 'block';
+                              }
+                            } else {
+                              userInfoDisplay.style.display = 'none';
+                            }
+                          }
+
+                          function toggleEditName() {
+                            const displayName = document.getElementById('displayName');
+                            const editNameBtn = document.getElementById('editNameBtn');
+                            const editNameInput = document.getElementById('editNameInput');
+                            const saveNameBtn = document.getElementById('saveNameBtn');
+                            const exitNameBtn = document.getElementById('exitNameBtn');
+
+                            if (editNameInput.style.display === 'none') {
+                              editNameInput.value = displayName.textContent;
+                              displayName.style.display = 'none';
+                              editNameBtn.style.display = 'none';
+                              editNameInput.style.display = 'inline-block';
+                              saveNameBtn.style.display = 'inline-block';
+                              exitNameBtn.style.display = 'inline-block';
+                            } else {
+                              displayName.style.display = 'inline';
+                              editNameBtn.style.display = 'inline-block';
+                              editNameInput.style.display = 'none';
+                              saveNameBtn.style.display = 'none';
+                              exitNameBtn.style.display = 'none';
+                            }
+                          }
+
+                          function cancelEditName() {
+                            toggleEditName();
+                          }
+
+                          function saveName() {
+                            const user = auth.currentUser;
+                            const newName = document.getElementById('editNameInput').value;
+
+                            user.updateProfile({
+                              displayName: newName
+                            }).then(() => {
+                              document.getElementById('displayName').textContent = newName;
+                              toggleEditName();
+                              showAlert("Name updated successfully!");
+
+                              // Update the name in the Realtime Database
+                              const userRef = database.ref('users/' + user.uid);
+                              userRef.update({
+                                displayName: newName
+                              });
+                            }).catch((error) => {
+                              console.error("Error updating name: ", error);
+                              showAlert("Error updating name. Please try again.");
+                            });
+                          }
+
+                          function confirmLogout() {
+                            toggleMenu(); // Close the menu
+                            var modal = document.getElementById("logoutModal");
+                            var overlay = document.getElementById("logoutOverlay");
+                            var confirmBtn = document.getElementById("confirmLogoutBtn");
+                            var cancelBtn = document.getElementById("cancelLogoutBtn");
+
+                            // Show overlay and modal
+                            overlay.style.display = "block";
+                            modal.style.display = "block";
+
+                            // Confirm logout action
+                            confirmBtn.onclick = function () {
+                              auth.signOut().then(() => {
+                                window.location.href = "index.html";
+                              }).catch((error) => {
+                                console.error("Error signing out: ", error);
+                              });
+                            }
+
+                            // Cancel log-out action
+                            cancelBtn.onclick = function () {
+                              modal.style.display = "none";
+                              overlay.style.display = "none"; 
+                            }
+
+                            // Close modal and hide overlay when clicking outside of it
+                            window.onclick = function (event) {
+                              if (event.target == modal || event.target == overlay) {
+                                modal.style.display = "none";
+                                overlay.style.display = "none"; 
+                              }
+                            }
+                          }
+
+                          function openChangePasswordModal() {
+                            document.getElementById("changePasswordModal").style.display = "block";
+                            document.getElementById("logoutOverlay").style.display = "block"; // Show overlay
+                          }
+
+                          function closeChangePasswordModal() {
+                            document.getElementById("changePasswordModal").style.display = "none";
+                            document.getElementById("logoutOverlay").style.display = "none"; // Hide overlay
+                          }
+
+                          function togglePasswordVisibility(inputId) {
+                            const input = document.getElementById(inputId);
+                            const icon = input.nextElementSibling;
+                            if (input.type === "password") {
+                              input.type = "text";
+                              icon.classList.remove("fa-eye-slash");
+                              icon.classList.add("fa-eye");
+                            } else {
+                              input.type = "password";
+                              icon.classList.remove("fa-eye");
+                              icon.classList.add("fa-eye-slash");
+                            }
+                          }
+
+                          function showAlert(message) {
+                            const alertModal = document.getElementById("alertModal");
+                            const alertMessage = document.getElementById("alertMessage");
+                            const alertOkBtn = document.getElementById("alertOkBtn");
+                            const overlay = document.getElementById("logoutOverlay");
+
+                            alertMessage.textContent = message;
+                            alertModal.style.display = "block";
+                            overlay.style.display = "block";
+
+                            alertOkBtn.onclick = function() {
+                              alertModal.style.display = "none";
+                              overlay.style.display = "none"; // Hide the overlay when OK is clicked
+                            }
+                          }
+
+                          document.getElementById('changePasswordForm').onsubmit = function (event) {
+                            event.preventDefault(); // Prevent default form submission
+
+                            const currentPassword = document.getElementById('currentPassword').value;
+                            const newPassword = document.getElementById('newPassword').value;
+                            const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+                            if (newPassword === confirmNewPassword) {
+                              const user = auth.currentUser;
+
+                              // Reauthenticate the user
+                              const credential = firebase.auth.EmailAuthProvider.credential(
+                                user.email,
+                                currentPassword
+                              );
+
+                              user.reauthenticateWithCredential(credential).then(() => {
+                                // User reauthenticated, now we can change the password
+                                user.updatePassword(newPassword).then(() => {
+                                  closeChangePasswordModal();
+                                  showAlert("Password changed successfully!");
+                                }).catch((error) => {
+                                  console.error("Error updating password: ", error);
+                                  showAlert("Error updating password/Password must be 8 characters long. Please try again.");
+                                });
+                              }).catch((error) => {
+                                console.error("Error reauthenticating: ", error);
+                                showAlert("Current password is incorrect. Please try again.");
+                              });
+                            } else {
+                              showAlert("New passwords do not match. Please try again.");
+                            }
+                          };
                         </script>
 
                           <!-- Right Column: QR Code and Subscribe Button -->
