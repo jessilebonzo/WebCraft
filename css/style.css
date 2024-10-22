@@ -63,7 +63,7 @@
   }
 
   .navbar-collapse {
-      padding: 10px;
+      padding: 5px;
   }
 
   /* Second row for mobile (3 items) */
@@ -1240,7 +1240,9 @@ img.hover-image {
 }
 
 .testimonial-section {
-  padding: 3rem 0 7rem 0; }
+  padding: 3rem 0 7rem 0;
+  font-family: 'Baloo 2', cursive;
+ }
 
 .testimonial-slider-wrap {
   position: relative; }
@@ -1822,4 +1824,317 @@ img.hover-image {
   font-size: 16px;
   margin-right: 5px;
   color: grey;
+}
+/* PROFILE ICON */
+
+.btn-secondary {
+  background-color: #6c757d;
+} 
+.custom-navbar {
+  position: relative;
+  z-index: 10;
+  width: 100%; 
+}
+
+.profile-icon {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  width: 40px; 
+  height: 40px; 
+  cursor: pointer; 
+  margin-left: auto; 
+  margin-right: 10px;
+}
+
+.profile-icon:hover {
+  border-radius: 50%; 
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) { 
+  .profile-icon {
+      width: 50px; 
+      height: 50px;
+  }
+
+  .profile-icon i {
+      font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) { 
+  .profile-icon {
+      width: 45px; 
+      height: 45px;
+  }
+
+  .profile-icon i {
+      font-size: 22px; 
+  }
+}
+#logoutModal .modal-content,
+#alertModal .modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: hidden;
+  max-height: none; /* Remove max height restriction */
+}
+#logoutModal .modal-btn,
+#alertModal .modal-btn {
+  margin: 15px;
+  padding: 10px 20px;
+  width: 120px;
+  border-radius: 25px; 
+}
+
+#logoutModal .modal-btn-logout {
+  background-color: #ff4a4a; 
+  color: white;
+  border: none;
+}
+
+#logoutModal .modal-btn-cancel,
+#alertModal .modal-btn-ok {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+
+#logoutModal .btn-wrapper,
+#alertModal .btn-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+#logoutOverlay,
+#alertOverlay {
+  display: none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9; 
+}
+
+/* New styles for the profile menu */
+.profile-menu {
+  position: absolute;
+  right: 20px;
+  width: 250px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 
+              0 4px 6px rgba(0, 0, 0, 0.1); 
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+}
+
+.profile-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.profile-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.profile-menu ul li {
+  padding: 15px 20px;
+}
+
+.profile-menu ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Baloo 2', cursive;
+}
+
+.profile-menu .divider {
+  height: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 0 10px;
+}
+
+.profile-icon {
+  display: block;
+  position: relative;
+  /* top: 20px; */
+  right: 30px;
+  z-index: 1001;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.profile-icon i {
+  color: #fff;
+  font-size: 24px;
+}
+
+/* Change Password Modal Styles */
+/* Change Password Modal: Fullscreen Fixed Position */
+#changePasswordModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  overflow: hidden; 
+  font-family: 'Baloo 2', cursive;
+  background: rgba(0, 0, 0, 0.7);
+}
+/* Disable scrolling on the background when modal is active */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Centered Modal Content */
+#changePasswordModal .modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  margin: auto; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto; 
+  max-height: 90%; 
+}
+
+#changePasswordModal .input-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+#changePasswordModal input {
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#changePasswordModal .toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+#changePasswordOverlay {
+  display: none;  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;  
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.modal-btn {
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-btn:hover {
+  opacity: 0.8;
+}
+.modal-btn-cancel, .modal-btn-submit {
+  background-color: #ff4a4a; 
+  color: white; 
+  border-radius: 20px; 
+  padding: 10px 20px; 
+  border: none; 
+  cursor: pointer; 
+}
+
+.modal-btn-cancel {
+  background-color: #4CAF50;
+}
+
+.modal-btn-submit {
+  background-color: #ff4a4a;
+  color: white;
+}
+
+/* New styles for user info display */
+#userInfoDisplay {
+  background-color: #e9ecef;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#userInfoDisplay p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+/* New styles for editable name */
+#editNameBtn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+#editNameInput {
+  display: none;
+  margin-top: 5px;
+  width: 100%;
+  max-width: 200px;
+}
+
+#saveNameBtn, #exitNameBtn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+#exitNameBtn {
+  background-color: #f44336;
 }

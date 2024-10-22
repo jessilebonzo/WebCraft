@@ -133,3 +133,126 @@ function changeImage(imageSrc) {
         }
     });
 });
+
+// profile menu
+// Function to toggle the profile menu display
+function toggleMenu() {
+  const profileMenu = document.getElementById('profileMenu');
+  profileMenu.classList.toggle('active');
+}
+
+// Function to close the profile menu
+function closeMenu() {
+  const profileMenu = document.getElementById('profileMenu');
+  profileMenu.classList.remove('active');
+}
+
+function openChangePasswordModal() {
+  closeMenu(); 
+  const changePasswordModal = document.getElementById('changePasswordModal');
+  changePasswordModal.style.display = 'block'; 
+}
+
+
+function toggleMenu() {
+  const menu = document.getElementById('profileMenu');
+  menu.classList.toggle('active');
+}
+
+// Prevent background scrolling when a modal is opened
+function disableBackgroundScroll() {
+  document.body.classList.add('modal-open');
+}
+
+// Enable background scrolling when a modal is closed
+function enableBackgroundScroll() {
+  document.body.classList.remove('modal-open');
+}
+
+// Modify the openChangePasswordModal function to disable background scroll
+function openChangePasswordModal() {
+  closeMenu();
+  const changePasswordModal = document.getElementById('changePasswordModal');
+  changePasswordModal.style.display = 'block';
+  disableBackgroundScroll(); // Lock background scrolling
+}
+
+// Close the Change Password modal and re-enable background scroll
+function closeChangePasswordModal() {
+  const changePasswordModal = document.getElementById('changePasswordModal');
+  changePasswordModal.style.display = 'none';
+  enableBackgroundScroll(); // Re-enable background scrolling
+}
+
+// Close Log Out modal logic with background scroll handling
+$('#logoutModal').on('show.bs.modal', function () {
+  $('#changePasswordModal').modal('hide'); // Ensure Change Password modal is hidden
+  disableBackgroundScroll(); // Lock background scrolling
+});
+
+$('#logoutModal').on('hidden.bs.modal', function () {
+  enableBackgroundScroll(); // Re-enable background scrolling when Log Out modal closes
+});
+// Function to open a specific modal and close others
+const openModal = (modalId) => {
+  // Close all modals first
+  closeAllModals();
+
+  // Open the selected modal
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.style.display = 'block';
+    document.body.classList.add('modal-open');
+  }
+};
+
+// Function to close a specific modal
+const closeModal = (modalId) => {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.style.display = 'none';
+  }
+  document.body.classList.remove('modal-open');
+};
+
+// Function to close all modals
+const closeAllModals = () => {
+  const modals = document.querySelectorAll('.modal'); // Select all modals
+  modals.forEach((modal) => {
+    modal.style.display = 'none';
+  });
+  document.body.classList.remove('modal-open');
+};
+
+// Example: Attach event listeners to profile menu buttons
+document.getElementById('logoutBtn').addEventListener('click', () => {
+  openModal('logoutModal');
+});
+
+document.getElementById('changePasswordBtn').addEventListener('click', () => {
+  openModal('changePasswordModal');
+});
+
+// Function to open the modal
+function openLogoutModal() {
+	document.getElementById('logoutOverlay').style.display = 'block';
+	document.getElementById('logoutModal').style.display = 'block';
+	document.body.style.overflow = 'hidden'; // Prevent body scroll
+}
+
+// Function to close the modal
+function closeLogoutModal() {
+	document.getElementById('logoutOverlay').style.display = 'none';
+	document.getElementById('logoutModal').style.display = 'none';
+	document.body.style.overflow = 'auto'; // Allow body scroll again
+}
+
+// Event listeners for buttons
+document.getElementById('confirmLogoutBtn').addEventListener('click', function() {
+	// Add logout logic here
+});
+
+document.getElementById('cancelLogoutBtn').addEventListener('click', closeLogoutModal);
+
+// Example of opening the modal (you can call this function as needed)
+openLogoutModal();

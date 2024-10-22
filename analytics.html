@@ -9,347 +9,499 @@
   <meta name="description" content="" />
   <meta name="keywords" content="bootstrap, bootstrap4" />
     
-		<!-- Bootstrap CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-		<link href="css/tiny-slider.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
-		<title>Analytics</title>
-		
-		<style>
-		  body {
-		      margin: 0;
-		      padding: 0;
-		      background-size: cover;
-		      background-position: center;
-		      height: 100vh;
-					background-color: white;
-		  }
-
-		  .custom-navbar {
-		      z-index: 10;
-		      width: 100%;
-		  }
-
-		  .btn-secondary {
-		      background-color: #6c757d;
-		  }
-
-		  #logoutModal .modal-content {
-		      padding: 20px;
-		      text-align: center;
-		      background-color: #fefefe;
-		      margin: 15% auto;
-					border-radius: 15px;
-		      border: 1px solid #888;
-		      width: 80%;
-		      max-width: 400px;
-		  }
-
-		  #logoutModal .modal-btn {
-		      margin: 15px;
-		      padding: 10px 20px;
-		      width: 120px;
-		      border-radius: 25px; 
-		  }
-
-		  #logoutModal .modal-btn-logout {
-		      background-color: #ff4a4a; 
-		      color: white;
-		      border: none;
-		  }
-
-		  #logoutModal .modal-btn-cancel {
-		      background-color: #4CAF50;
-		      color: white;
-		      border: none;
-		  }
-
-		  #logoutModal .btn-wrapper {
-		      display: flex;
-		      justify-content: space-around;
-		  }
-
-		  #logoutOverlay {
-		      display: none; 
-		      position: fixed;
-		      top: 0;
-		      left: 0;
-		      width: 100%;
-		      height: 100%;
-		      background: rgba(0, 0, 0, 0.7);
-		      z-index: 9; 
-		  }
-		  
-		  body {
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="css/tiny-slider.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <title>Analytics</title>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      background-color: white;
       background-image: url('assets/Pricing BG.png');
       background-size: cover;
       background-position: top;
       background-repeat: no-repeat;
     }
-		</style>
-	</head>
+  </style>
+</head>
 
-	<body>
-    <!-- External Scripts -->
-    <script>
-        !(function(){
-            const sc = document.createElement('script');
-            sc.src = "https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18683&token=670FDDE9E4B01122021603B5";
-            sc.async = true;
-            const s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(sc, s);
-        })();
-    </script>
-
-		<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
-			<div class="container">
-				<a class="navbar-brand" href="dashboard.html">
-					<img src="assets/trademark/logo_2.png" alt="WebCraft Logo" width="100" height="50"></a>
-
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse justify-content-center" id="navbarsFurni">
-					<ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
-						<!-- <li class="nav-item active"><a class="nav-link" href="dashboard.html">Templates</a></li>
-						<li><a class="nav-link" href="payment.html">Payment</a></li>
-						<li><a class="nav-link" href="analytics.html">Analytics</a></li>
-						<li><a class="nav-link" href="testimonials.html">Testimonials</a> -->
-						</li>
-					</ul>
-			</div>			
-			<div>
-				<p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogout()" style="background-color: #ff4a4a;">Log out</a></p>
-			</div>
-			</div>
-		</nav>
-
-		<div id="logoutOverlay" class="overlay"></div>
-
-		<div id="logoutModal" class="modal" style="display: none;">
-		    <div class="modal-content">
-				<div style="text-align: center;">
-						<img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display: inline-block;">
-				</div>
-		        <p>Are you sure you want to log out?</p>
-		        <div class="btn-wrapper">
-		            <button id="confirmLogoutBtn" class="modal-btn modal-btn-logout">Log out</button>
-		            <button id="cancelLogoutBtn" class="modal-btn modal-btn-cancel">Cancel</button>
-		        </div>
-		    </div>
-		</div>
-  <!-- Start Hero Section -->
-	<div class="payment-section">
-		<div class="container">
-			<img src="assets/analyticsText.png" alt="Feature" class="blog-image" style="align-items: start; margin-bottom: 20px; margin-top: 20px; width: 40%; height: auto;">
-		</div>
-	</div>
-		<script>
-		    function confirmLogout() {
-		        var modal = document.getElementById("logoutModal");
-		        var overlay = document.getElementById("logoutOverlay");
-		        var confirmBtn = document.getElementById("confirmLogoutBtn");
-		        var cancelBtn = document.getElementById("cancelLogoutBtn");
-
-		        // Show overlay and modal
-		        overlay.style.display = "block";
-		        modal.style.display = "block";
-
-		        // Confirm logout action
-		        confirmBtn.onclick = function () {
-		            window.location.href = "index.html"; 
-		        }
-
-		        // Cancel log-out action
-		        cancelBtn.onclick = function () {
-		            modal.style.display = "none";
-		            overlay.style.display = "none"; 
-		        }
-
-		        // Close modal and hide overlay when clicking outside of it
-		        window.onclick = function (event) {
-		            if (event.target == modal || event.target == overlay) {
-		                modal.style.display = "none";
-		                overlay.style.display = "none"; 
-		            }
-		        }
-		    }
-		</script>
-
-<!-- Firebase Initialization Script -->
- <!-- Firebase SDKs -->
- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
- <script>
-	// Your Firebase configuration
-	const firebaseConfig = {
-	  apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
-	  authDomain: "webcraft-7f386.firebaseapp.com",
-	  databaseURL: "https://webcraft-7f386-default-rtdb.asia-southeast1.firebasedatabase.app",
-	  projectId: "webcraft-7f386",
-	  storageBucket: "webcraft-7f386.appspot.com",
-	  messagingSenderId: "983810632123",
-	  appId: "1:983810632123:web:de8d379daa38fbca42fc9e",
-	  measurementId: "G-WSSVHJ9VV3"
-	};
-  
-	// Initialize Firebase
-	const app = firebase.initializeApp(firebaseConfig);
-	const analytics = firebase.analytics();
-	const database = firebase.database();
-  
-	// Reference to the active users in Firebase Realtime Database
-	const activeUsersRef = database.ref('status');
-  
-	// Generate a persistent unique session ID using localStorage
-	let sessionId = localStorage.getItem('webcraftSessionId');
-	if (!sessionId) {
-	  sessionId = "user_" + new Date().getTime();
-	  localStorage.setItem('webcraftSessionId', sessionId);
-	}
-  
-	const userStatusDatabaseRef = activeUsersRef.child(sessionId);
-  
-	// Set user presence (set to true)
-	userStatusDatabaseRef.set(true);
-  
-	// Remove user presence when they disconnect or close the browser/tab
-	userStatusDatabaseRef.onDisconnect().remove();
-  
-	// Fetch the number of active users in real-time
-	activeUsersRef.on('value', (snapshot) => {
-	  const activeUserCount = snapshot.numChildren(); // Count active users
-	  document.getElementById('active-user-count').innerText = activeUserCount;
-	});
-  
-	// Function to log a page view
-	const pageViewsRef = database.ref('analytics/page_views');
-	function logPageView(pageName) {
-	  const pageViewData = {
-		page: pageName,
-		timestamp: Date.now()
-	  };
-  
-	  // Push the page view data to the database
-	  pageViewsRef.push(pageViewData);
-	}
-  
-	// Fetch real-time page views data and display it
-	pageViewsRef.on('value', (snapshot) => {
-	  const data = snapshot.val();
-	  const analyticsDisplay = document.getElementById('analytics-display');
-	  analyticsDisplay.innerHTML = '<h2>Page Views:</h2>';  // Reset content
-  
-	  if (data) {
-		for (const key in data) {
-		  const pageView = data[key];
-		  analyticsDisplay.innerHTML += `<p>Page: ${pageView.page}, Time: ${new Date(pageView.timestamp).toLocaleString()}</p>`;
-		}
-	  } else {
-		analyticsDisplay.innerHTML += '<p>No page view data available.</p>';
-	  }
-	});
-  
-	// Fetch the total number of accounts created
-	const usersRef = database.ref('users');
-	usersRef.on('value', (snapshot) => {
-	  const totalAccountsCount = snapshot.numChildren(); // Count total accounts
-  
-	  // Debugging: Log the snapshot data and count
-	  console.log("Users Snapshot: ", snapshot.val());
-	  console.log("Total Accounts: ", totalAccountsCount);
-  
-	  // Display the total number of accounts in an HTML element
-	  document.getElementById('total-account-count').innerText = totalAccountsCount;
-	});
-  
-  </script>
-  <br>
-<div class="main-container">
-
-  <div class="card-container">
-    <!-- Active Users Section -->
-    <div class="card-41">
-      <div class="active-users-title">
-        <h2 style="font-size: 40px; font-weight:bold;">Active Users</h2>
-      </div>
-      <div class="active-users">
-        <h2>Number of active users:</h2><br>
-        <span id="active-user-count" style="color: black;">0</span>
-      </div>
-    </div>
-
-    <!-- Page Views Section -->
-    <div class="card-41" style="flex: 2;">
-      <div class="page-views-title">
-        <h2 style="font-size: 40px; font-weight:bold;">Page Engagement</h2>
-      </div>
-      <div class="page-views" id="analytics-display">
-        <!-- Real-time analytics data will be displayed here -->
-      </div>
-    </div>
-  </div>
-</div>
-  <br><br><br><br><br><br>
-<!-- footer section -->
-<div class="footer-wrapper">
-	<footer>
-	  <div class="footer-container">
-		<div class="subscribe-section"><br>
-		  <h3 style="font-size: medium;">
-			<img src="assets/envelope-outline.svg" alt="Image" class="img-fluid">
-			Send me tips, trends, freebies, updates & offers.
-		  </h3>
-		  <form id="subscribe-form" action="https://formsubmit.co/el/hocuya" method="POST" target="_blank" onsubmit="return submitForm();">
-			<input type="email" name="email" placeholder="Your Email" required>
-			<button type="submit">
-			  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send">
-				<line x1="22" y1="2" x2="11" y2="13"></line>
-				<polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-			  </svg>
-			</button>
-		  </form>
-		</div>
-		<div class="footer-image">
-		  <img src="assets/trademark/webcraft animated.gif" alt="logo">
-		</div>
-	  </div>
-	</footer>
-	<div class="footer-bottom" style="background-color: #e0e0e0">
-	  <ul class="list-unstyled d-inline-flex ms-auto">
-		<p>
-		  <a href="#">Terms &amp; Conditions |</a>
-		  <a href="#">Cookie Consent |</a>
-		  <a href="#">Privacy Policy |</a>
-		  <a href="#">Support</a>
-		  <a href="#">&copy; WebCraft Team 2024</a>
-		</p>
-	  </ul>
-	</div>
-  </div>
-  
+<body>
+  <!-- External Scripts -->
   <script>
-	function submitForm() {
-	  const form = document.getElementById('subscribe-form');
-	  const email = form.email.value;
-  
-	  // Check if email input is filled
-	  if (email) {
-		window.open(`https://formsubmit.co/el/hocuya?email=${encodeURIComponent(email)}`, '_blank');
-		return false;
-	  }
-	  return false; 
-	}
+    !(function(){
+      const sc = document.createElement('script');
+      sc.src = "https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18683&token=670FDDE9E4B01122021603B5";
+      sc.async = true;
+      const s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(sc, s);
+    })();
   </script>
+
+  <!-- Start Header/Navigation -->
+  <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
+    <div class="container">
+      <a class="navbar-brand" href="analytics.html">
+        <img src="assets/trademark/logo_2.png" alt="WebCraft Logo" width="100" height="50">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarsFurni">
+        <ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
+          <!-- Navigation items can be added here if needed -->
+        </ul>
+      </div>          
+    </div>
+  </nav>
+
+  <!-- Profile Icon -->
+  <div class="profile-icon" onclick="toggleMenu()">
+    <i class="fas fa-user"></i>
+  </div>
+
+  <!-- Profile Menu -->
+  <div class="profile-menu" id="profileMenu">
+    <ul>
+      <li><a href="#" onclick="toggleUserInfo()">Profile</a></li>
+      <div id="userInfoDisplay" style="display: none;"></div>
+      <div class="divider"></div>
+      <li><a href="#" onclick="openChangePasswordModal()">Change Password</a></li>
+      <div class="divider"></div>
+      <li><a href="#" onclick="confirmLogout()">Log out</a></li>
+    </ul>
+  </div>
+
+  <div id="logoutOverlay" class="overlay"></div>
+
+  <div id="logoutModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <div style="text-align:center;">
+        <img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display:inline-block;">
+      </div>
+      <p>Are you sure you want to log out?</p>
+      <div class='btn-wrapper'>
+        <button id='confirmLogoutBtn' class='modal-btn modal-btn-logout'>Log out</button>
+        <button id='cancelLogoutBtn' class='modal-btn modal-btn-cancel'>Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div id='changePasswordModal' class='modal' style='display:none;'>
+    <div class='modal-content'>
+      <div style='text-align:center;'>
+        <h3 style="font-family: 'Baloo 2', cursive;">Change Password</h3>
+      </div>
+      <form id='changePasswordForm'>
+        <div class="input-group">
+          <input type='password' id='currentPassword' placeholder='Current Password' required>
+          <i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('currentPassword')"></i>
+        </div>
+        <div class="input-group">
+          <input type='password' id='newPassword' placeholder='New Password' required>
+          <i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('newPassword')"></i>
+        </div>
+        <div class="input-group">
+          <input type='password' id='confirmNewPassword' placeholder='Confirm New Password' required>
+          <i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('confirmNewPassword')"></i>
+        </div>
+        <div class='btn-wrapper'>
+          <button type='submit' class='modal-btn modal-btn-submit'>Change Password</button>
+          <button type='button' class='modal-btn modal-btn-cancel' onclick='closeChangePasswordModal()'>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Alert Modal -->
+  <div id="alertModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <div style="text-align:center;">
+        <img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display:inline-block;">
+      </div>
+      <p id="alertMessage"></p>
+      <div class='btn-wrapper'>
+        <button id='alertOkBtn' class='modal-btn modal-btn-ok'>OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Start Hero Section -->
+  <div class='payment-section'>
+    <div class='container'>
+      <img src='assets/analyticsText.png' alt='Feature' class='blog-image' style='align-items:start;margin-bottom:20px;margin-top:20px;width:42%;height:auto;'>
+    </div>
+  </div>
+
+  <div class='main-container'>
+    <div class='card-container'>
+      <!-- Active Users Section -->
+      <div class='card-41'>
+        <div class='active-users-title'>
+          <h2 style='font-size:40px;font-weight:bold;'>Active Users</h2>
+        </div>
+        <div class='active-users'>
+          <h2>Number of active users:</h2><br/>
+          <span id='active-user-count' style='color:black;'>0</span>
+        </div>
+      </div>
+
+      <!-- Page Views Section -->
+      <div class='card-41' style='flex:2;'>
+        <div class='page-views-title'>
+          <h2 style='font-size:40px;font-weight:bold;'>Page Engagement</h2>
+        </div>
+        <div class='page-views' id='analytics-display'>
+          <!-- Real-time analytics data will be displayed here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br/><br/><br/><br/><br/><br/>
+
+  <!-- footer section -->
+  <div class='footer-wrapper'>
+    <footer>   
+      <div class='footer-container'>   
+        <div class='subscribe-section'><br/>
+          <h3 style='font-size:medium;'>   
+            <img src='assets/envelope-outline.svg' alt='Image' class='img-fluid'>   
+            Send me tips, trends, freebies, updates & offers.   
+          </h3>   
+          <form id='subscribe-form' action='https://formsubmit.co/el/hocuya' method='POST' target='_blank' onSubmit='return submitForm();'>   
+            <input type='email' name='email' placeholder='Your Email' required>   
+            <button type='submit'>   
+              <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-send'>   
+                <line x1='22' y1='2' x2='11' y2='13'></line>   
+                <polygon points='22 2 15 22 11 13 2 9'></polygon>   
+              </svg>   
+            </button>   
+          </form>   
+        </div>   
+        <div class='footer-image'>   
+          <img src='assets/trademark/webcraft animated.gif' alt='logo'>   
+        </div>   
+      </div>   
+    </footer>   
+    <div class='footer-bottom' style='background-color:#e0e0e0'>   
+      <ul class='list-unstyled d-inline-flex ms-auto'>   
+        <p>   
+          <a href='#'>Terms &amp; Conditions | </a>   
+          <a href='#'>Cookie Consent | </a>   
+          <a href='#'>Privacy Policy | </a>   
+          <a href='#'>Support | </a>    
+          <a href='#'>© WebCraft Team 2024 | </a>    
+        </p>   
+      </ul>    
+    </div>    
+  </div>
+
+  <script src='js/bootstrap.bundle.min.js'></script>    
+  <script src='js/tiny-slider.js'></script>    
+  <script src='js/custom.js'></script>
+
+  <!-- Firebase Initialization Script -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>    
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>    
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script>
+    // Your Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
+      authDomain: "webcraft-7f386.firebaseapp.com",
+      databaseURL: "https://webcraft-7f386-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "webcraft-7f386",
+      storageBucket: "webcraft-7f386.appspot.com",
+      messagingSenderId: "983810632123",
+      appId: "1:983810632123:web:def8d379daa38fbca42fc9e",
+      measurementId: "G-WSSVHJ9VV3"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const analytics = firebase.analytics();
+    const database = firebase.database();
+    const auth = firebase.auth();
+
+    // Reference to the active users in Firebase Realtime Database
+    const activeUsersRef = database.ref('status');
+
+    // Generate a persistent unique session ID using localStorage
+    let sessionId = localStorage.getItem('webcraftSessionId');
+    if (!sessionId) {
+      sessionId = "user_" + new Date().getTime();
+      localStorage.setItem('webcraftSessionId', sessionId);
+    }
+
+    const userStatusDatabaseRef = activeUsersRef.child(sessionId);
+
+    // Set user presence (set to true)
+    userStatusDatabaseRef.set(true);
+
+    // Remove user presence when they disconnect or close the browser/tab
+    userStatusDatabaseRef.onDisconnect().remove();
+
+    // Fetch the number of active users in real-time
+    activeUsersRef.on('value', (snapshot) => {
+      const activeUserCount = snapshot.numChildren(); // Count active users
+      document.getElementById('active-user-count').innerText = activeUserCount;
+    });
+
+    // Function to log a page view
+    const pageViewsRef = database.ref('analytics/page_views');
+    function logPageView(pageName) {
+      const pageViewData = {
+        page: pageName,
+        timestamp: Date.now()
+      };
+
+      // Push the page view data to the database
+      pageViewsRef.push(pageViewData);
+    }
+
+    // Fetch real-time page views data and display it
+    pageViewsRef.on('value', (snapshot) => {
+      const data = snapshot.val();
+      const analyticsDisplay = document.getElementById('analytics-display');
+      analyticsDisplay.innerHTML = '<h2>Page Views:</h2>'; // Reset content
+
+      if (data) {
+        for (const key in data) {
+          const pageView = data[key];
+          analyticsDisplay.innerHTML += `<p>Page: ${pageView.page}, Time: ${new Date(pageView.timestamp).toLocaleString()}</p>`;
+        }
+      } else {
+        analyticsDisplay.innerHTML += '<p>No page view data available.</p>';
+      }
+    });
+
+    // Fetch the total number of accounts created
+    const usersRef = database.ref('users');
+    usersRef.on('value', (snapshot) => {
+      const totalAccountsCount = snapshot.numChildren(); // Count total accounts
+
+      // Debugging Log the snapshot data and count
+      console.log("Users Snapshot:", snapshot.val());
+      console.log("Total Accounts:", totalAccountsCount);
+
+      // Display the total number of accounts in an HTML element
+      document.getElementById('total-account-count').innerText = totalAccountsCount;
+    });
+
+    function toggleMenu() {
+      const menu = document.getElementById('profileMenu');
+      const profileIcon = document.querySelector('.profile-icon');
+      menu.classList.toggle('active');
+      profileIcon.classList.toggle('active');
+    }
+
+    function confirmLogout() {
+      toggleMenu(); // Close the menu
+      var modal = document.getElementById("logoutModal");
+      var overlay = document.getElementById("logoutOverlay");
+      var confirmBtn = document.getElementById("confirmLogoutBtn");
+      var cancelBtn = document.getElementById("cancelLogoutBtn");
+
+      // Show overlay and modal
+      overlay.style.display = "block";
+      modal.style.display = "block";
+
+      // Confirm logout action
+      confirmBtn.onclick = function () {
+        auth.signOut().then(() => {
+          window.location.href = "index.html";
+        }).catch((error) => {
+          console.error("Error signing out: ", error);
+        });
+      }
+
+      // Cancel log-out action
+      cancelBtn.onclick = function () {
+        modal.style.display = "none";
+        overlay.style.display = "none"; 
+      }
+
+      // Close modal and hide overlay when clicking outside of it
+      window.onclick = function (event) {
+        if (event.target == modal || event.target == overlay) {
+          modal.style.display = "none";
+          overlay.style.display = "none"; 
+        }
+      }
+    }
+
+    // Change Password Functions
+    function openChangePasswordModal() {
+      document.getElementById("changePasswordModal").style.display = "block";
+      document.getElementById("logoutOverlay").style.display = "block"; // Show overlay
+    }
+
+    function closeChangePasswordModal() {
+      document.getElementById("changePasswordModal").style.display = "none";
+      document.getElementById("logoutOverlay").style.display = "none"; // Hide overlay
+    }
+
+    function togglePasswordVisibility(inputId) {
+      const input = document.getElementById(inputId);
+      const icon = input.nextElementSibling;
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      }
+    }
+
+    function showAlert(message) {
+      const alertModal = document.getElementById("alertModal");
+      const alertMessage = document.getElementById("alertMessage");
+      const alertOkBtn = document.getElementById("alertOkBtn");
+      const overlay = document.getElementById("logoutOverlay");
+
+      alertMessage.textContent = message;
+      alertModal.style.display = "block";
+      overlay.style.display = "block";
+
+      alertOkBtn.onclick = function() {
+        alertModal.style.display = "none";
+        overlay.style.display = "none"; // Hide the overlay when OK is clicked
+      }
+    }
+
+    document.getElementById('changePasswordForm').onsubmit = function (event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const currentPassword = document.getElementById('currentPassword').value;
+      const newPassword = document.getElementById('newPassword').value;
+      const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+      if (newPassword === confirmNewPassword) {
+        const user = auth.currentUser;
+
+        // Reauthenticate the user
+        const credential = firebase.auth.EmailAuthProvider.credential(
+          user.email,
+          currentPassword
+        );
+
+        user.reauthenticateWithCredential(credential).then(() => {
+          // User reauthenticated, now we can change the password
+          user.updatePassword(newPassword).then(() => {
+            closeChangePasswordModal();
+            showAlert("Password changed successfully!");
+          }).catch((error) => {
+            console.error("Error updating password: ", error);
+            showAlert("Error updating password/Password must be 8 characters long. Please try again.");
+          });
+        }).catch((error) => {
+          console.error("Error reauthenticating: ", error);
+          showAlert("Current password is incorrect. Please try again.");
+        });
+      } else {
+        showAlert("New passwords do not match. Please try again.");
+      }
+    };
+
+    function submitForm() {
+      const form = document.getElementById('subscribe-form');
+      const email = form.email.value;
   
+      // Check if email input is filled
+      if (email) {
+        window.open(`https://formsubmit.co/el/hocuya?email=${encodeURIComponent(email)}`, '_blank');
+        return false;
+      }
+      return false; 
+    }
 
-		<script src="js/bootstrap.bundle.min.js"></script>
-		<script src="js/tiny-slider.js"></script>
-		<script src="js/custom.js"></script>
-	</body>
+    // Function to toggle user information display
+    function toggleUserInfo() {
+      const user = auth.currentUser;
+      const userInfoDisplay = document.getElementById('userInfoDisplay');
+      
+      if (userInfoDisplay.style.display === 'none') {
+        if (user) {
+          userInfoDisplay.innerHTML = `
+            <p><strong>Email:</strong> ${user.email}</p>
+            <p><strong>Name:</strong> <span id="displayName">${user.displayName || 'Not set'}</span>
+              <button id="editNameBtn" onclick="toggleEditName()">Edit</button>
+            </p>
+            <input type="text" id="editNameInput" style="display: none;">
+            <button id="saveNameBtn" onclick="saveName()" style="display: none;">Save</button>
+            <button id="exitNameBtn" onclick="cancelEditName()" style="display: none;">Exit</button>
+          `;
+          userInfoDisplay.style.display = 'block';
+        } else {
+          userInfoDisplay.innerHTML = '<p>User not logged in</p>';
+          userInfoDisplay.style.display = 'block';
+        }
+      } else {
+        userInfoDisplay.style.display = 'none';
+      }
+    }
 
+    function toggleEditName() {
+      const displayName = document.getElementById('displayName');
+      const editNameBtn = document.getElementById('editNameBtn');
+      const editNameInput = document.getElementById('editNameInput');
+      const saveNameBtn = document.getElementById('saveNameBtn');
+      const exitNameBtn = document.getElementById('exitNameBtn');
+
+      if (editNameInput.style.display === 'none') {
+        editNameInput.value = displayName.textContent;
+        displayName.style.display = 'none';
+        editNameBtn.style.display = 'none';
+        editNameInput.style.display = 'inline-block';
+        saveNameBtn.style.display = 'inline-block';
+        exitNameBtn.style.display = 'inline-block';
+      } else {
+        displayName.style.display = 'inline';
+        editNameBtn.style.display = 'inline-block';
+        editNameInput.style.display = 'none';
+        saveNameBtn.style.display = 'none';
+        exitNameBtn.style.display = 'none';
+      }
+    }
+
+    function cancelEditName() {
+      toggleEditName();
+    }
+
+    function saveName() {
+      const user = auth.currentUser;
+      const newName = document.getElementById('editNameInput').value;
+
+      user.updateProfile({
+        displayName: newName
+      }).then(() => {
+        document.getElementById('displayName').textContent = newName;
+        toggleEditName();
+        showAlert("Name updated successfully!");
+        
+        // Update the name in the Realtime Database
+        const userRef = database.ref('users/' + user.uid);
+        userRef.update({
+          displayName: newName
+        });
+      }).catch((error) => {
+        console.error("Error updating name: ", error);
+        showAlert("Error updating name. Please try again.");
+      });
+    }
+  </script>
+</body>
 </html>
