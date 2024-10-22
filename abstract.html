@@ -23,6 +23,7 @@
  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
 	<script>
 		// Your Firebase configuration
@@ -41,6 +42,7 @@
 		const app = firebase.initializeApp(firebaseConfig);
 		  const analytics = firebase.analytics();
 		  const database = firebase.database();
+			const auth = firebase.auth();
 	  
 	  // Function to log a page view
 	  const pageViewsRef = firebase.database().ref('analytics/page_views');
@@ -76,168 +78,302 @@
         background-size: cover;
         background-position: center;
         height: 100vh;
+				background-color: white;
+      	background-position: top;
+      	background-repeat: no-repeat;
       }
-
-      .custom-navbar {
-        z-index: 10;
-        width: 100%;
-      }
-
-      .theme-background {
-        background-size: cover;
-        background-position: center;
-        width: 100%;
-        height: 350px; 
-        margin-bottom: 0;
-      }
-
-      .custom-second-navbar {
-        margin-top: 0;
-      }
-
-      .navbar-nav .nav-link {
-        color: white;
-      }
-
-      .navbar-dark .navbar-toggler {
-        border-color: rgba(255, 255, 255, 0.1);
-      }
-
-      .btn-secondary {
-        background-color: #6c757d;
-      }
-			
-      @media (max-width: 768px) {
-        .theme-background {
-          height: 200px; 
-        }
-      }
-      
-      #logoutModal .modal-content {
-        padding: 20px;
-        text-align: center;
-        background-color: #fefefe;
-        margin: 15% auto;
-				border-radius: 15px;
-        border: 1px solid #888;
-        width: 80%;
-        max-width: 400px; 
-      }
-
-      #logoutModal .modal-btn {
-        margin: 15px;
-        padding: 10px 20px;
-        width: 120px;
-        border-radius: 25px;
-      }
-
-      #logoutModal .modal-btn-logout {
-        background-color: #ff4a4a; 
-        color: white;
-        border: none;
-      }
-
-      #logoutModal .modal-btn-cancel {
-        background-color: #4CAF50; 
-        color: white;
-        border: none;
-      }
-
-      #logoutModal .btn-wrapper {
-        display: flex;
-        justify-content: space-around;
-      }
-
-      #logoutOverlay {
-        display: none; 
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7); 
-        z-index: 9; 
-      }
-
     </style>
   </head>
   
   <body>
-    <!-- Start Header/Navigation -->
-    <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
-      <div class="container">
-        <a class="navbar-brand" href="dashboard.html">
-          <img src="assets/trademark/logo_2.png" alt="WebCraft Logo" width="100" height="50">
-        </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-center" id="navbarsFurni">
-          <ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
-            <li class="nav-item active"><a class="nav-link" href="dashboard.html">Templates</a></li>
+   <!-- Start Header/Navigation -->
+		<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
+			<div class="container">
+				<a class="navbar-brand" href="dashboard.html">
+					<img src="assets/trademark/logo_2.png" alt="WebCraft Logo" width="100" height="50">
+				</a>
+		
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="true" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+		
+				<div class="navbar-collapse justify-content-center collapse show" id="navbarsFurni">
+					<ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
+						<li class="nav-item active"><a class="nav-link" href="dashboard.html">Templates</a></li>
 						<li><a class="nav-link" href="payment.html">Payment</a></li>
 						<li><a class="nav-link" href="about-us.html">About Us</a></li>
-						<li><a class="nav-link" href="testimonials.html">Testimonials</a>
-						</li>
-          </ul>
-        </div>
-        <div>
-          <p><a href="#" class="btn btn-secondary me-2" onclick="confirmLogout()" style="background-color: #ff4a4a;">Log out</a></p> 
-        </div>
-      </div>
-    </nav>
-
-    <div class="theme-background" style="background-image: url('assets/vibes/final_abstractVIBE2.png');"></div>
-
-    <div id="logoutOverlay" class="overlay"></div>
-
-    <div id="logoutModal" class="modal" style="display: none;">
-        <div class="modal-content">
-					<div style="text-align: center;">
-						<img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display: inline-block;">
+						<li><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+					</ul>
 				</div>
-            <p>Are you sure you want to log out?</p>
-            <div class="btn-wrapper">
-                <button id="confirmLogoutBtn" class="modal-btn modal-btn-logout">Log out</button>
-                <button id="cancelLogoutBtn" class="modal-btn modal-btn-cancel">Cancel</button>
-            </div>
-        </div>
-    </div>
+			</div>
+		
+			<!-- Profile Icon -->
+			<div class="profile-icon" onclick="toggleMenu()">
+				<i class="fas fa-user"></i>
+			</div>
+		</nav>
 
-    <script>
-        function confirmLogout() {
-            var modal = document.getElementById("logoutModal");
-            var overlay = document.getElementById("logoutOverlay");
-            var confirmBtn = document.getElementById("confirmLogoutBtn");
-            var cancelBtn = document.getElementById("cancelLogoutBtn");
+		
+	 <!-- Profile Menu -->
+	 <div class="profile-menu" id="profileMenu">
+		<ul>
+			<li><a href="#" onclick="toggleUserInfo()">Profile</a></li>
+			<div id="userInfoDisplay" style="display: none;"></div>
+			<div class="divider"></div>
+			<li><a href="#" onclick="openChangePasswordModal()">Change Password</a></li>
+			<div class="divider"></div>
+			<li><a href="#" onclick="confirmLogout()">Log out</a></li>
+		</ul>
+	</div>
 
-            // Show overlay and modal
-            overlay.style.display = "block";
-            modal.style.display = "block";
+	<!-- Logout Modal -->
+	<div id="logoutOverlay" class="overlay"></div>
 
-            // Confirm logout action
-            confirmBtn.onclick = function () {
-                window.location.href = "index.html"; 
-            }
+	<div id="logoutModal" class="modal" style="display:none;">
+		<div class="modal-content">
+			<div style="text-align:center;">
+				<img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display:inline-block;">
+			</div>
+			<p style="text-align: center;">Are you sure you want to log out?</p>
+			<div class='btn-wrapper'>
+				<button id='confirmLogoutBtn' class='modal-btn modal-btn-logout'>Log out</button>
+				<button id='cancelLogoutBtn' class='modal-btn modal-btn-cancel'>Cancel</button>
+			</div>
+		</div>
+	</div>
 
-            // Cancel log-out action
-            cancelBtn.onclick = function () {
-                modal.style.display = "none";
-                overlay.style.display = "none"; 
-            }
+	<!-- Change Password Modal -->
+	<div id='changePasswordModal' class='modal' style='display:none;'>
+		<div class='modal-content'>
+			<div style='text-align:center;'>
+				<h3>Change Password</h3>
+			</div>
+			<form id='changePasswordForm'>
+				<div class="input-group">
+					<input type='password' id='currentPassword' placeholder='Current Password' required>
+					<i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('currentPassword')"></i>
+				</div>
+				<div class="input-group">
+					<input type='password' id='newPassword' placeholder='New Password' required>
+					<i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('newPassword')"></i>
+				</div>
+				<div class="input-group">
+					<input type='password' id='confirmNewPassword' placeholder='Confirm New Password' required>
+					<i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility('confirmNewPassword')"></i>
+				</div>
+				<div class='btn-wrapper'>
+					<button type='submit' class='modal-btn modal-btn-submit'>Change Password</button>
+					<button type='button' class='modal-btn modal-btn-cancel' onclick='closeChangePasswordModal()'>Cancel</button>
+				</div>
+			</form>
+		</div>
+	</div>
 
-            // Close modal and hide overlay when clicking outside of it
-            window.onclick = function (event) {
-                if (event.target == modal || event.target == overlay) {
-                    modal.style.display = "none";
-                    overlay.style.display = "none"; 
-                }
-            }
-        }
-    </script>
-	
+	<!-- Alert Modal -->
+	<div id="alertModal" class="modal" style="display:none;">
+		<div class="modal-content">
+			<div style="text-align:center;">
+				<img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display:inline-block;">
+			</div>
+			<p id="alertMessage"></p>
+			<div class='btn-wrapper'>
+				<button id='alertOkBtn' class='modal-btn modal-btn-ok'>OK</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function toggleMenu() {
+			const menu = document.getElementById('profileMenu');
+			const profileIcon = document.querySelector('.profile-icon');
+			menu.classList.toggle('active');
+			profileIcon.classList.toggle('active');
+		}
+
+		function toggleUserInfo() {
+			const user = auth.currentUser;
+			const userInfoDisplay = document.getElementById('userInfoDisplay');
+			
+			if (userInfoDisplay.style.display === 'none') {
+				if (user) {
+					userInfoDisplay.innerHTML = `
+						<p><strong>Email:</strong> ${user.email}</p>
+						<p><strong>Name:</strong> <span id="displayName">${user.displayName || 'Not set'}</span>
+							<button id="editNameBtn" onclick="toggleEditName()">Edit</button>
+						</p>
+						<input type="text" id="editNameInput" style="display: none;">
+						<button id="saveNameBtn" onclick="saveName()" style="display: none;">Save</button>
+						<button id="exitNameBtn" onclick="cancelEditName()" style="display: none;">Exit</button>
+					`;
+					userInfoDisplay.style.display = 'block';
+				} else {
+					userInfoDisplay.innerHTML = '<p>User not logged in</p>';
+					userInfoDisplay.style.display = 'block';
+				}
+			} else {
+				userInfoDisplay.style.display = 'none';
+			}
+		}
+
+		function toggleEditName() {
+			const displayName = document.getElementById('displayName');
+			const editNameBtn = document.getElementById('editNameBtn');
+			const editNameInput = document.getElementById('editNameInput');
+			const saveNameBtn = document.getElementById('saveNameBtn');
+			const exitNameBtn = document.getElementById('exitNameBtn');
+
+			if (editNameInput.style.display === 'none') {
+				editNameInput.value = displayName.textContent;
+				displayName.style.display = 'none';
+				editNameBtn.style.display = 'none';
+				editNameInput.style.display = 'inline-block';
+				saveNameBtn.style.display = 'inline-block';
+				exitNameBtn.style.display = 'inline-block';
+			} else {
+				displayName.style.display = 'inline';
+				editNameBtn.style.display = 'inline-block';
+				editNameInput.style.display = 'none';
+				saveNameBtn.style.display = 'none';
+				exitNameBtn.style.display = 'none';
+			}
+		}
+
+		function cancelEditName() {
+			toggleEditName();
+		}
+
+		function saveName() {
+			const user = auth.currentUser;
+			const newName = document.getElementById('editNameInput').value;
+
+			user.updateProfile({
+				displayName: newName
+			}).then(() => {
+				document.getElementById('displayName').textContent = newName;
+				toggleEditName();
+				showAlert("Name updated successfully!");
+				
+				// Update the name in the Realtime Database
+				const userRef = database.ref('users/' + user.uid);
+				userRef.update({
+					displayName: newName
+				});
+			}).catch((error) => {
+				console.error("Error updating name: ", error);
+				showAlert("Error updating name. Please try again.");
+			});
+		}
+
+		function confirmLogout() {
+			toggleMenu(); // Close the menu
+			var modal = document.getElementById("logoutModal");
+			var overlay = document.getElementById("logoutOverlay");
+			var confirmBtn = document.getElementById("confirmLogoutBtn");
+			var cancelBtn = document.getElementById("cancelLogoutBtn");
+
+			// Show overlay and modal
+			overlay.style.display = "block";
+			modal.style.display = "block";
+
+			// Confirm logout action
+			confirmBtn.onclick = function () {
+				auth.signOut().then(() => {
+					window.location.href = "index.html";
+				}).catch((error) => {
+					console.error("Error signing out: ", error);
+				});
+			}
+
+			// Cancel log-out action
+			cancelBtn.onclick = function () {
+				modal.style.display = "none";
+				overlay.style.display = "none"; 
+			}
+
+			// Close modal and hide overlay when clicking outside of it
+			window.onclick = function (event) {
+				if (event.target == modal || event.target == overlay) {
+					modal.style.display = "none";
+					overlay.style.display = "none"; 
+				}
+			}
+		}
+
+		function openChangePasswordModal() {
+			document.getElementById("changePasswordModal").style.display = "block";
+			document.getElementById("logoutOverlay").style.display = "block"; // Show overlay
+		}
+
+		function closeChangePasswordModal() {
+			document.getElementById("changePasswordModal").style.display = "none";
+			document.getElementById("logoutOverlay").style.display = "none"; // Hide overlay
+		}
+
+		function togglePasswordVisibility(inputId) {
+			const input = document.getElementById(inputId);
+			const icon = input.nextElementSibling;
+			if (input.type === "password") {
+				input.type = "text";
+				icon.classList.remove("fa-eye-slash");
+				icon.classList.add("fa-eye");
+			} else {
+				input.type = "password";
+				icon.classList.remove("fa-eye");
+				icon.classList.add("fa-eye-slash");
+			}
+		}
+
+		function showAlert(message) {
+			const alertModal = document.getElementById("alertModal");
+			const alertMessage = document.getElementById("alertMessage");
+			const alertOkBtn = document.getElementById("alertOkBtn");
+			const overlay = document.getElementById("logoutOverlay");
+
+			alertMessage.textContent = message;
+			alertModal.style.display = "block";
+			overlay.style.display = "block";
+
+			alertOkBtn.onclick = function() {
+				alertModal.style.display = "none";
+				overlay.style.display = "none"; // Hide the overlay when OK is clicked
+			}
+		}
+
+		document.getElementById('changePasswordForm').onsubmit = function (event) {
+			event.preventDefault(); // Prevent default form submission
+
+			const currentPassword = document.getElementById('currentPassword').value;
+			const newPassword = document.getElementById('newPassword').value;
+			const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+			if (newPassword === confirmNewPassword) {
+				const user = auth.currentUser;
+
+				// Reauthenticate the user
+				const credential = firebase.auth.EmailAuthProvider.credential(
+					user.email,
+					currentPassword
+				);
+
+				user.reauthenticateWithCredential(credential).then(() => {
+					// User reauthenticated, now we can change the password
+					user.updatePassword(newPassword).then(() => {
+						closeChangePasswordModal();
+						showAlert("Password changed successfully!");
+					}).catch((error) => {
+						console.error("Error updating password: ", error);
+						showAlert("Error updating password/Password must be 8 characters long. Please try again.");
+					});
+				}).catch((error) => {
+					console.error("Error reauthenticating: ", error);
+					showAlert("Current password is incorrect. Please try again.");
+				});
+			} else {
+				showAlert("New passwords do not match. Please try again.");
+			}
+		};
+	</script>
+
     <!-- External Scripts -->
     <script>
         !(function(){
@@ -249,6 +385,7 @@
         })();
     </script>
 
+    <div class="theme-background" style="background-image: url('assets/vibes/final_abstractVIBE2.png');"></div>
 
     <!-- Second Navbar -->
     <nav class="custom-second-navbar navbar navbar-expand-md navbar-dark bg-transparent" aria-label="webcraft second navigation bar">
@@ -317,33 +454,6 @@
 							</div>
 					</div>
 				</div>
-
-				<script>
-
-					// Reference to the active users in Firebase Realtime Database
-					const activeUsersRef = database.ref('status');
-				
-					// Generate a persistent unique session ID using localStorage
-					let sessionId = localStorage.getItem('webcraftSessionId');
-					if (!sessionId) {
-					  sessionId = "user_" + new Date().getTime();
-					  localStorage.setItem('webcraftSessionId', sessionId);
-					}
-				
-					const userStatusDatabaseRef = activeUsersRef.child(sessionId);
-				
-					// Set user presence (set to true)
-					userStatusDatabaseRef.set(true);
-				
-					// Remove user presence when they disconnect or close the browser/tab
-					userStatusDatabaseRef.onDisconnect().remove();
-				
-					// Fetch the number of active users in real-time
-					activeUsersRef.on('value', (snapshot) => {
-					  const activeUserCount = snapshot.numChildren(); // Count active users
-					  document.getElementById('active-user-count').innerText = activeUserCount;
-					});
-				  </script>
 
 				  
 <!-- Digital Marketing -->
@@ -823,6 +933,32 @@
 		</div>
 	</div>
 	<!-- End Design Templates  -->
+	<script>
+
+    // Reference to the active users in Firebase Realtime Database
+    const activeUsersRef = database.ref('status');
+  
+    // Generate a persistent unique session ID using localStorage
+    let sessionId = localStorage.getItem('webcraftSessionId');
+    if (!sessionId) {
+      sessionId = "user_" + new Date().getTime();
+      localStorage.setItem('webcraftSessionId', sessionId);
+    }
+  
+    const userStatusDatabaseRef = activeUsersRef.child(sessionId);
+  
+    // Set user presence (set to true)
+    userStatusDatabaseRef.set(true);
+  
+    // Remove user presence when they disconnect or close the browser/tab
+    userStatusDatabaseRef.onDisconnect().remove();
+  
+    // Fetch the number of active users in real-time
+    activeUsersRef.on('value', (snapshot) => {
+      const activeUserCount = snapshot.numChildren(); // Count active users
+      document.getElementById('active-user-count').innerText = activeUserCount;
+    });
+    </script>
 <!-- footer section -->
 
 <div class="footer-wrapper">

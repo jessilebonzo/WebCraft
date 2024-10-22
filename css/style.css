@@ -1021,7 +1021,7 @@ a {
 .theme-background {
   background-size: cover;
   background-position: center;
-  height: 290px;  
+  height: 310px;  
   width: 100%;
   position: relative;
   z-index: -1;  
@@ -1886,7 +1886,8 @@ img.hover-image {
   left: 50%;
   transform: translate(-50%, -50%);
   overflow-y: hidden;
-  max-height: none; /* Remove max height restriction */
+  max-height: none; 
+  font-family: 'Baloo 2', cursive;;
 }
 #logoutModal .modal-btn,
 #alertModal .modal-btn {
