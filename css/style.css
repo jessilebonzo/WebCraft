@@ -2002,9 +2002,10 @@ img.hover-image {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
   z-index: 9;
-  overflow: hidden; /* Prevent the modal from scrolling */
+  overflow: hidden; 
+  font-family: 'Baloo 2', cursive;
+  background: rgba(0, 0, 0, 0.7);
 }
 /* Disable scrolling on the background when modal is active */
 body.modal-open {
@@ -2019,13 +2020,13 @@ body.modal-open {
   border: 1px solid #888;
   width: 80%;
   max-width: 400px;
-  margin: auto; /* Center horizontally */
+  margin: auto; 
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow-y: auto; /* Allow scrolling inside the modal if content is too long */
-  max-height: 90%; /* Ensure the modal content fits the viewport */
+  overflow-y: auto; 
+  max-height: 90%; 
 }
 
 #changePasswordModal .input-group {
@@ -2055,7 +2056,6 @@ body.modal-open {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);  
   z-index: 9;  
 }
 
