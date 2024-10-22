@@ -63,7 +63,7 @@
   }
 
   .navbar-collapse {
-      padding: 10px;
+      padding: 5px;
   }
 
   /* Second row for mobile (3 items) */
@@ -1240,7 +1240,9 @@ img.hover-image {
 }
 
 .testimonial-section {
-  padding: 3rem 0 7rem 0; }
+  padding: 3rem 0 7rem 0;
+  font-family: 'Baloo 2', cursive;
+ }
 
 .testimonial-slider-wrap {
   position: relative; }
@@ -1825,27 +1827,67 @@ img.hover-image {
 }
 /* PROFILE ICON */
 
-.custom-navbar {
-  z-index: 10;
-  width: 100%;
-}
-
 .btn-secondary {
   background-color: #6c757d;
+} 
+.custom-navbar {
+  position: relative;
+  z-index: 10;
+  width: 100%; 
 }
 
+.profile-icon {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  width: 40px; 
+  height: 40px; 
+  cursor: pointer; 
+  margin-left: auto; 
+  margin-right: 10px;
+}
+
+.profile-icon:hover {
+  border-radius: 50%; 
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) { 
+  .profile-icon {
+      width: 50px; 
+      height: 50px;
+  }
+
+  .profile-icon i {
+      font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) { 
+  .profile-icon {
+      width: 45px; 
+      height: 45px;
+  }
+
+  .profile-icon i {
+      font-size: 22px; 
+  }
+}
 #logoutModal .modal-content,
 #alertModal .modal-content {
-  padding: 20px;
-  text-align: center;
   background-color: #fefefe;
-  margin: 15% auto;
+  padding: 20px;
   border-radius: 15px;
   border: 1px solid #888;
   width: 80%;
   max-width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: hidden;
+  max-height: none; /* Remove max height restriction */
 }
-
 #logoutModal .modal-btn,
 #alertModal .modal-btn {
   margin: 15px;
@@ -1888,11 +1930,10 @@ img.hover-image {
 /* New styles for the profile menu */
 .profile-menu {
   position: absolute;
-  top: 80px; 
   right: 20px;
   width: 250px;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 
               0 4px 6px rgba(0, 0, 0, 0.1); 
   opacity: 0;
@@ -1901,7 +1942,6 @@ img.hover-image {
   z-index: 1000;
 }
 
-/* Make the profile menu visible */
 .profile-menu.active {
   opacity: 1;
   visibility: visible;
@@ -1934,9 +1974,9 @@ img.hover-image {
 
 .profile-icon {
   display: block;
-  position: fixed;
-  top: 20px;
-  right: 20px;
+  position: relative;
+  /* top: 20px; */
+  right: 30px;
   z-index: 1001;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.5);
@@ -1954,15 +1994,38 @@ img.hover-image {
 }
 
 /* Change Password Modal Styles */
+/* Change Password Modal: Fullscreen Fixed Position */
+#changePasswordModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9;
+  overflow: hidden; /* Prevent the modal from scrolling */
+}
+/* Disable scrolling on the background when modal is active */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Centered Modal Content */
 #changePasswordModal .modal-content {
-  padding: 20px;
-  text-align: center;
   background-color: #fefefe;
-  margin: 15% auto;
+  padding: 20px;
   border-radius: 15px;
   border: 1px solid #888;
   width: 80%;
   max-width: 400px;
+  margin: auto; /* Center horizontally */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto; /* Allow scrolling inside the modal if content is too long */
+  max-height: 90%; /* Ensure the modal content fits the viewport */
 }
 
 #changePasswordModal .input-group {
@@ -1983,6 +2046,17 @@ img.hover-image {
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+}
+
+#changePasswordOverlay {
+  display: none;  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);  
+  z-index: 9;  
 }
 
 .btn-wrapper {
