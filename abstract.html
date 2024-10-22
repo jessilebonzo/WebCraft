@@ -15,6 +15,11 @@
   <link href="css/style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
   <title>Abstract Themes</title>
+  <style>
+    body.modal-open {
+      overflow: hidden;
+    }
+  </style>
 </head>
 
 <body>
@@ -274,6 +279,7 @@
 			// Show overlay and modal
 			overlay.style.display = "block";
 			modal.style.display = "block";
+			document.body.classList.add('modal-open');
 
 			// Confirm logout action
 			confirmBtn.onclick = function () {
@@ -286,27 +292,33 @@
 
 			// Cancel log-out action
 			cancelBtn.onclick = function () {
-				modal.style.display = "none";
-				overlay.style.display = "none"; 
+				closeModal();
 			}
 
 			// Close modal and hide overlay when clicking outside of it
 			window.onclick = function (event) {
 				if (event.target == modal || event.target == overlay) {
-					modal.style.display = "none";
-					overlay.style.display = "none"; 
+					closeModal();
 				}
 			}
 		}
 
+		function closeModal() {
+			document.getElementById("logoutModal").style.display = "none";
+			document.getElementById("logoutOverlay").style.display = "none";
+			document.body.classList.remove('modal-open');
+		}
+
 		function openChangePasswordModal() {
 			document.getElementById("changePasswordModal").style.display = "block";
-			document.getElementById("logoutOverlay").style.display = "block"; // Show overlay
+			document.getElementById("logoutOverlay").style.display = "block";
+			document.body.classList.add('modal-open');
 		}
 
 		function closeChangePasswordModal() {
 			document.getElementById("changePasswordModal").style.display = "none";
-			document.getElementById("logoutOverlay").style.display = "none"; // Hide overlay
+			document.getElementById("logoutOverlay").style.display = "none";
+			document.body.classList.remove('modal-open');
 		}
 
 		function togglePasswordVisibility(inputId) {
@@ -332,10 +344,12 @@
 			alertMessage.textContent = message;
 			alertModal.style.display = "block";
 			overlay.style.display = "block";
+			document.body.classList.add('modal-open');
 
 			alertOkBtn.onclick = function() {
 				alertModal.style.display = "none";
-				overlay.style.display = "none"; // Hide the overlay when OK is clicked
+				overlay.style.display = "none";
+				document.body.classList.remove('modal-open');
 			}
 		}
 

@@ -84,6 +84,10 @@
 					background-position: top;
 					background-repeat: no-repeat;
 				}
+				
+				body.modal-open {
+					overflow: hidden;
+				}
 			</style>
 		</head>
 		<body>
@@ -284,6 +288,7 @@
 		// Show overlay and modal
 		overlay.style.display = "block";
 		modal.style.display = "block";
+		document.body.classList.add('modal-open');
 
 		// Confirm logout action
 		confirmBtn.onclick = function () {
@@ -298,6 +303,7 @@
 		cancelBtn.onclick = function () {
 			modal.style.display = "none";
 			overlay.style.display = "none"; 
+			document.body.classList.remove('modal-open');
 		}
 
 		// Close modal and hide overlay when clicking outside of it
@@ -305,6 +311,7 @@
 			if (event.target == modal || event.target == overlay) {
 				modal.style.display = "none";
 				overlay.style.display = "none"; 
+				document.body.classList.remove('modal-open');
 			}
 		}
 	}
