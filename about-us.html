@@ -29,6 +29,25 @@
     body.modal-open {
       overflow: hidden;
     }
+    
+    /* New styles for mobile view */
+    @media (max-width: 767px) {
+      .navbar-brand {
+        margin-right: auto;
+      }
+      .profile-icon {
+        position: absolute;
+        right: 15px;
+        top: 30%;
+        transform: translateY(-50%);
+      }
+      .profile-menu {
+        position: absolute;
+        top: 2.75%;
+        right: 15px;
+        z-index: 1000;
+      }
+    }
 	  </style>
 
 	<body style="background-color: white;">

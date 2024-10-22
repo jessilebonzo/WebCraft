@@ -77,6 +77,26 @@
 			background-position: top;
 			background-repeat: no-repeat;
     }
+
+	
+    /* New styles for mobile view */
+    @media (max-width: 767px) {
+      .navbar-brand {
+        margin-right: auto;
+      }
+      .profile-icon {
+        position: absolute;
+        right: 15px;
+        top: 30%;
+        transform: translateY(-50%);
+      }
+      .profile-menu {
+        position: absolute;
+        top: 10%;
+        right: 15px;
+        z-index: 1000;
+      }
+    }
     
     body.modal-open {
       overflow: hidden;
