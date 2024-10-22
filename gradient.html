@@ -78,6 +78,11 @@
 				background-position: center;
 		}
 
+		.heart-active {
+    color: red;
+}
+
+
 		
     /* New styles for mobile view */
     @media (max-width: 767px) {
@@ -519,6 +524,7 @@
 			</div>
 	</div>
 </div>
+
 <!-- Beats Gradient -->
 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
 	<div class="hover-card card-10">
@@ -636,6 +642,25 @@
 			</div>	
 			</div>
 	</div>
+	<script>
+		document.querySelectorAll('.heart-btn').forEach(button => {
+			button.addEventListener('click', function() {
+				const heartIcon = this.querySelector('.heart-icon');
+				const numb = this.querySelector('.numb-1');
+				let currentNumber = parseInt(numb.textContent);
+		
+				// Toggle the red color for heart
+				heartIcon.classList.toggle('heart-active');
+		
+				// Increment or decrement the number
+				if (heartIcon.classList.contains('heart-active')) {
+					numb.textContent = currentNumber + 1;
+				} else {
+					numb.textContent = currentNumber - 1;
+				}
+			});
+		});
+		</script>
 </div>
 
 <!-- Modal for Fitness Image -->

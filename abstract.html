@@ -88,7 +88,10 @@
       	background-repeat: no-repeat;
       }
 
-	  
+	  .heart-active {
+    color: red;
+} 
+
     /* New styles for mobile view */
     @media (max-width: 767px) {
       .navbar-brand {
@@ -606,6 +609,26 @@
 			</div>		
 				</div>
 		</div>
+
+		<script>
+			document.querySelectorAll('.heart-btn').forEach(button => {
+		button.addEventListener('click', function() {
+			const heartIcon = this.querySelector('.heart-icon');
+			const numb = this.querySelector('.numb');
+			let currentNumber = parseInt(numb.textContent);
+	
+			// Toggle the heart icon color
+			heartIcon.classList.toggle('heart-active');
+	
+			// Increment or decrement the number
+			if (heartIcon.classList.contains('heart-active')) {
+				numb.textContent = currentNumber + 1;
+			} else {
+				numb.textContent = currentNumber - 1;
+			}
+				});
+			});
+		  </script> 
 	</div>
 	
 	<!-- Modal for First Image -->
