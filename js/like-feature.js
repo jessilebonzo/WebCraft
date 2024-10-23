@@ -1,4 +1,4 @@
-<><script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script><script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script><script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script></>
+    <><script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script><script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script><script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script></>
 // Your Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
@@ -32,6 +32,7 @@ const firebaseConfig = {
             displayLikeCount(templateId);  // Display the like count
             displayDownloadCount(templateId);  // Display the download count
         });
+        firebase.initializeApp(firebaseConfig);
     }
 
     // Toggle like functionality
