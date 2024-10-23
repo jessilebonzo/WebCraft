@@ -37,11 +37,11 @@
 				<div class="collapse navbar-collapse justify-content-center" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
 							<li class="nav-item active">
-									<a class="nav-link" href="index.html">Home</a>
+									<a class="nav-link" href="index.html"><strong>Home</strong></a>
 							</li>
-							<li><a class="nav-link" href="pricing.html">Pricing</a></li>
-							<li><a class="nav-link" href="preview.html">Preview</a></li>
-							<li><a class="nav-link" href="features.html">Features</a></li>
+							<li><a class="nav-link" href="pricing.html"><strong>Pricing</strong></a></li>
+							<li><a class="nav-link" href="preview.html"><strong>Preview</strong></a></li>
+							<li><a class="nav-link" href="features.html"><strong>Features</strong></a></li>
 					</ul>
 			</div>			
 			<div><p><a href="signinChoosing.html" class="btn btn-secondary me-2;">Sign in</a></p></div>
@@ -59,7 +59,15 @@
 													<span><img src="assets/Landingpage/easy.png" alt="Easy" class="easy-image"></span>
 											</h1>
 											<p class="description" style="font-weight: bold;">Experience crafting your own website with our stunning website design templates, <br>various themes, and unlimited revisions! Discover design made easy today!</p>
-											<p><a href="signinChoosing.html" class="btn btn-secondary me-2">Get Started</a></p>
+											<p>
+												<a href="signinChoosing.html" class="btn btn-secondary me-2" style="animation: moveLeftRight 2s linear infinite alternate;">Get Started</a>
+											</p>
+											<style>
+												@keyframes moveLeftRight {
+													0% { transform: translateX(-10px); }
+													100% { transform: translateX(10px); }
+												}
+											</style>
 									</div>
 							</div>
 							<div class="col-lg-5 text-right">
@@ -99,7 +107,15 @@
 											<span>Analytics Dashboard</span>
 									</li>
 							</ul>
-							<p class="d-grid justify-content-center"><a href="features.html" class="btn btn-secondary me-2" style="background-color:#6985FF; color: black;">Learn More</a></p>						
+							<p class="d-grid justify-content-center">
+								<a href="features.html" class="btn btn-secondary me-2" style="background-color:#6985FF; color: black; animation: moveLeftRight 2s linear infinite alternate;">Learn More</a>
+							</p>
+							<style>
+								@keyframes moveLeftRight {
+									0% { transform: translateX(-10px); }
+									100% { transform: translateX(10px); }
+								}
+							</style>
 					</div>
 			</div>
 	</div>
@@ -108,7 +124,18 @@
 <!-- Top picks with responsive background -->
 <div class="section-wrapper" style="text-align: center; background-image: url('assets/Top pick BG.png'); background-size: cover; background-position: top; padding: 10px; background-color: white;">
 	<span>
-		<img src="assets/topPicks_2.png" alt="Feature" class="aboutUs-image" style="width: 100%; max-width: 635px; height: auto;">
+		<a href="preview.html">
+			<img src="assets/topPicks_2.png" alt="Feature" class="aboutUs-image" style="width: 100%; max-width: 635px; height: auto; cursor: pointer;">
+		</a>
+		<style>
+			@keyframes floatUpDown {
+				0%, 100% { transform: translateY(0); }
+				50% { transform: translateY(-10px); }
+			}
+			.aboutUs-image {
+				animation: floatUpDown 3s ease-in-out infinite;
+			}
+		</style>
 	</span>
 	<div class="container-fluid ranking-container">
 		<!-- Podium for Rank 2 -->
@@ -154,6 +181,7 @@
 
 		<!-- Start PRO Section -->
 		<div class="pro-section"><br>
+			<br><br>
 			<div class="container"></div>
         <div class="note-box">
             <div class="holes">
@@ -193,7 +221,19 @@
 								</ul>
 
 									<p style="text-align: center;">
-										<a href="pricing.html" style="background-color:#6985FF; border: 1px solid #000" class="btn btn-secondary me-2">Start Now</a></p>
+										<a href="pricing.html" style="background-color:#6985FF; border: 1px solid #000" class="btn btn-secondary me-2 moving-button">Start Now</a></p>
+										<style>
+											@keyframes moveButton {
+												0% { transform: translateX(-10%); }
+												50% { transform: translateX(10%); }
+												100% { transform: translateX(-10%); }
+											}
+											.moving-button {
+												display: inline-block;
+												animation: moveButton 4s linear infinite;
+												white-space: nowrap;
+											}
+										</style>
 								</p>
 							</div>						
 						</div>
@@ -201,7 +241,7 @@
 					</div>
 				</div>							
 				</div>
-				<br>
+				<br><br><br>
 				</div> 
 			<!-- footer section -->
 			<div class="footer-wrapper">

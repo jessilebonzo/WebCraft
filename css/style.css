@@ -2,9 +2,15 @@
 
 /* dashboard-nav-active */
 /* second navbar for themes */
+.custom-navbar-nav {
+  font-family: 'Baloo 2', cursive;
+  font-weight: bold; 
+}
+
 .custom-second-navbar {
   background-color: transparent !important;
   border: none;
+  font-family: 'Baloo 2', cursive;
 }
 
 .custom-second-navbar .custom-navbar-nav .nav-link {
@@ -1021,7 +1027,7 @@ a {
 .theme-background {
   background-size: cover;
   background-position: center;
-  height: 290px;  
+  height: 310px;  
   width: 100%;
   position: relative;
   z-index: -1;  
@@ -1850,12 +1856,33 @@ img.hover-image {
 .profile-icon:hover {
   border-radius: 50%; 
 }
+body.modal-open {
+  overflow: hidden;
+  pointer-events: none; 
+}
+
+.modal, .modal-content {
+  pointer-events: auto; 
+}
 
 /* Responsive adjustments */
-@media (max-width: 768px) { 
+@media (max-width: 767px) { 
+  .navbar-brand {
+    margin-right: auto;
+  }
   .profile-icon {
-      width: 50px; 
-      height: 50px;
+      /* width: 50px; 
+      height: 50px; */
+      position: absolute;
+      right: 15px;
+      top: 30%;
+      transform: translateY(-50%);
+  }
+  .profile-menu {
+    position: absolute;
+    top: 10%;
+    right: 15px;
+    z-index: 1000;
   }
 
   .profile-icon i {
@@ -1886,7 +1913,8 @@ img.hover-image {
   left: 50%;
   transform: translate(-50%, -50%);
   overflow-y: hidden;
-  max-height: none; /* Remove max height restriction */
+  max-height: none; 
+  font-family: 'Baloo 2', cursive;;
 }
 #logoutModal .modal-btn,
 #alertModal .modal-btn {

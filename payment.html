@@ -30,6 +30,37 @@
 		  background-position: top;
 		  background-repeat: no-repeat;
 		}
+
+    
+    /* New styles for mobile view */
+    @media (max-width: 767px) {
+      .navbar-brand {
+        margin-right: auto;
+      }
+      .profile-icon {
+        position: absolute;
+        right: 15px;
+        top: 30%;
+        transform: translateY(-50%);
+      }
+      .profile-menu {
+        position: absolute;
+        top: 10%;
+        right: 15px;
+        z-index: 1000;
+      }
+    }
+		
+		/* Add this new style for the modal */
+    body.modal-open {
+  overflow: hidden;
+  pointer-events: none; /* Disable interactions */
+}
+
+.modal, .modal-content {
+  pointer-events: auto; /* Enable interactions inside the modal */
+}
+
 		</style>
 		<!-- Start Header/Navigation -->
 		<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
@@ -42,10 +73,11 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 		
-				<div class="navbar-collapse justify-content-center collapse show" id="navbarsFurni" style="">
+				<div class="navbar-collapse justify-content-center collapse show" id="navbarsFurni">
 					<ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
-						<li class="nav-item active"><a class="nav-link" href="dashboard.html">Templates</a></li>
-						<li><a class="nav-link" href="payment.html">Payment</a></li>
+						<li class="nav-item"><a class="nav-link" href="dashboard.html">Templates</a></li>
+						<li class="nav-item active">
+              <a class="nav-link" href="payment.html">Payment</a></li>
 						<li><a class="nav-link" href="about-us.html">About Us</a></li>
 						<li><a class="nav-link" href="testimonials.html">Testimonials</a></li>
 					</ul>
@@ -68,7 +100,7 @@
     <div class="divider"></div>
     <li><a href="#" onclick="openChangePasswordModal()">Change Password</a></li>
     <div class="divider"></div>
-    <li><a href="#" onclick="confirmLogout()">Log out</a></li>
+    <li><a href="#" onclick="confirmLogout(); toggleMenu();">Log out</a></li>
   </ul>
 </div>
 
@@ -82,7 +114,7 @@
     </div>
     <p style="text-align:center;">Are you sure you want to log out?</p>
     <div class='btn-wrapper'>
-      <button id='confirmLogoutBtn' class='modal-btn modal-btn-logout'>Log out</button>
+      <button id='confirmLogoutBtn' class='modal-btn modal-btn-logout' onclick="toggleMenu()">Log out</button>
       <button id='cancelLogoutBtn' class='modal-btn modal-btn-cancel'>Cancel</button>
     </div>
   </div>
@@ -121,8 +153,8 @@
     <div style="text-align:center;">
       <img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display:inline-block;">
     </div>
-    <p id="alertMessage"></p>
-    <div class='btn-wrapper'>
+    <p id="alertMessage" style="text-align:center;"></p>
+    <div class='btn-wrapper' style="text-align:center;">
       <button id='alertOkBtn' class='modal-btn modal-btn-ok'>OK</button>
     </div>
   </div>
@@ -302,6 +334,7 @@
                             // Show overlay and modal
                             overlay.style.display = "block";
                             modal.style.display = "block";
+                            document.body.classList.add('modal-open');
 
                             // Confirm logout action
                             confirmBtn.onclick = function () {
@@ -316,6 +349,7 @@
                             cancelBtn.onclick = function () {
                               modal.style.display = "none";
                               overlay.style.display = "none"; 
+                              document.body.classList.remove('modal-open');
                             }
 
                             // Close modal and hide overlay when clicking outside of it
@@ -323,6 +357,7 @@
                               if (event.target == modal || event.target == overlay) {
                                 modal.style.display = "none";
                                 overlay.style.display = "none"; 
+                                document.body.classList.remove('modal-open');
                               }
                             }
                           }
@@ -330,11 +365,13 @@
                           function openChangePasswordModal() {
                             document.getElementById("changePasswordModal").style.display = "block";
                             document.getElementById("logoutOverlay").style.display = "block"; // Show overlay
+                            document.body.classList.add('modal-open');
                           }
 
                           function closeChangePasswordModal() {
                             document.getElementById("changePasswordModal").style.display = "none";
                             document.getElementById("logoutOverlay").style.display = "none"; // Hide overlay
+                            document.body.classList.remove('modal-open');
                           }
 
                           function togglePasswordVisibility(inputId) {
@@ -360,10 +397,12 @@
                             alertMessage.textContent = message;
                             alertModal.style.display = "block";
                             overlay.style.display = "block";
+                            document.body.classList.add('modal-open');
 
                             alertOkBtn.onclick = function() {
                               alertModal.style.display = "none";
                               overlay.style.display = "none"; // Hide the overlay when OK is clicked
+                              document.body.classList.remove('modal-open');
                             }
                           }
 
@@ -565,6 +604,7 @@
         // Show overlay and modal
         overlay.style.display = "block";
         modal.style.display = "block";
+        document.body.classList.add('modal-open');
 
         // Confirm logout action
         confirmBtn.onclick = function () {
@@ -575,6 +615,7 @@
         cancelBtn.onclick = function () {
           modal.style.display = "none";
           overlay.style.display = "none"; 
+          document.body.classList.remove('modal-open');
         };
 
         // Close modal and hide overlay when clicking outside of it
@@ -582,6 +623,7 @@
           if (event.target == modal || event.target == overlay) {
             modal.style.display = "none";
             overlay.style.display = "none"; 
+            document.body.classList.remove('modal-open');
           }
         };
       }

@@ -1,6 +1,51 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+   
+  <script>
+    // Your Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
+      authDomain: "webcraft-7f386.firebaseapp.com",
+      databaseURL: "https://webcraft-7f386-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "webcraft-7f386",
+      storageBucket: "webcraft-7f386.appspot.com",
+      messagingSenderId: "983810632123",
+      appId: "1:983810632123:web:def8d379daa38fbca42fc9e",
+      measurementId: "G-WSSVHJ9VV3"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const analytics = firebase.analytics();
+    const database = firebase.database();
+    const auth = firebase.auth();
+
+    // Function to log a page view
+    const pageViewsRef = firebase.database().ref('analytics/page_views');
+    console.log("Database Reference: ", pageViewsRef);
+    function logPageView(pageName) {
+      const pageViewData = {
+        page: pageName,
+        timestamp: Date.now()
+      };
+    
+      // Push the page view data to the database
+      pageViewsRef.push(pageViewData);
+    }
+    
+    // Log a page view when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      // Ensure Firebase is initialized
+      // logPageView('Analytics');
+    });
+    
+  </script>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="WebCraft Team">
@@ -30,11 +75,28 @@
       background-position: top;
       background-repeat: no-repeat;
     }
+
+    @media (max-width: 767px) {
+      .navbar-brand {
+        margin-right: auto;
+      }
+      .profile-icon {
+        position: absolute;
+        right: 15px;
+        top: 40%;
+        transform: translateY(-50%);
+      }
+      .profile-menu {
+        position: absolute;
+        top: 9%;
+        right: 15px;
+        z-index: 1000;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <!-- External Scripts -->
   <script>
     !(function(){
       const sc = document.createElement('script');
@@ -52,21 +114,21 @@
         <img src="assets/trademark/logo_2.png" alt="WebCraft Logo" width="100" height="50">
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-center" id="navbarsFurni">
+
+      <div class="navbar-collapse justify-content-center collapse show" id="navbarsFurni">
         <ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
-          <!-- Navigation items can be added here if needed -->
         </ul>
-      </div>          
+      </div>
+    </div>
+
+    <!-- Profile Icon -->
+    <div class="profile-icon" onclick="toggleMenu()">
+      <i class="fas fa-user"></i>
     </div>
   </nav>
-
-  <!-- Profile Icon -->
-  <div class="profile-icon" onclick="toggleMenu()">
-    <i class="fas fa-user"></i>
-  </div>
 
   <!-- Profile Menu -->
   <div class="profile-menu" id="profileMenu">
@@ -74,12 +136,13 @@
       <li><a href="#" onclick="toggleUserInfo()">Profile</a></li>
       <div id="userInfoDisplay" style="display: none;"></div>
       <div class="divider"></div>
-      <li><a href="#" onclick="openChangePasswordModal()">Change Password</a></li>
+      <li><a href="#" onclick="openChangePasswordModal(); toggleMenu();">Change Password</a></li>
       <div class="divider"></div>
       <li><a href="#" onclick="confirmLogout()">Log out</a></li>
     </ul>
   </div>
 
+  <!-- Logout Modal -->
   <div id="logoutOverlay" class="overlay"></div>
 
   <div id="logoutModal" class="modal" style="display:none;">
@@ -87,7 +150,7 @@
       <div style="text-align:center;">
         <img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display:inline-block;">
       </div>
-      <p>Are you sure you want to log out?</p>
+      <p style="text-align: center;">Are you sure you want to log out?</p>
       <div class='btn-wrapper'>
         <button id='confirmLogoutBtn' class='modal-btn modal-btn-logout'>Log out</button>
         <button id='cancelLogoutBtn' class='modal-btn modal-btn-cancel'>Cancel</button>
@@ -99,7 +162,7 @@
   <div id='changePasswordModal' class='modal' style='display:none;'>
     <div class='modal-content'>
       <div style='text-align:center;'>
-        <h3 style="font-family: 'Baloo 2', cursive;">Change Password</h3>
+        <h3>Change Password</h3>
       </div>
       <form id='changePasswordForm'>
         <div class="input-group">
@@ -128,7 +191,7 @@
       <div style="text-align:center;">
         <img src="assets/trademark4.png" alt="WebCraft Logo" width="120" height="135" style="display:inline-block;">
       </div>
-      <p id="alertMessage"></p>
+      <p id="alertMessage" style="text-align: center;"></p>
       <div class='btn-wrapper'>
         <button id='alertOkBtn' class='modal-btn modal-btn-ok'>OK</button>
       </div>
@@ -200,7 +263,7 @@
           <a href='#'>Cookie Consent | </a>   
           <a href='#'>Privacy Policy | </a>   
           <a href='#'>Support | </a>    
-          <a href='#'>© WebCraft Team 2024 | </a>    
+          <a href='#'>© WebCraft Team 2024 </a>    
         </p>   
       </ul>    
     </div>    
@@ -210,95 +273,7 @@
   <script src='js/tiny-slider.js'></script>    
   <script src='js/custom.js'></script>
 
-  <!-- Firebase Initialization Script -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>    
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>    
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
   <script>
-    // Your Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
-      authDomain: "webcraft-7f386.firebaseapp.com",
-      databaseURL: "https://webcraft-7f386-default-rtdb.asia-southeast1.firebasedatabase.app",
-      projectId: "webcraft-7f386",
-      storageBucket: "webcraft-7f386.appspot.com",
-      messagingSenderId: "983810632123",
-      appId: "1:983810632123:web:def8d379daa38fbca42fc9e",
-      measurementId: "G-WSSVHJ9VV3"
-    };
-
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const analytics = firebase.analytics();
-    const database = firebase.database();
-    const auth = firebase.auth();
-
-    // Reference to the active users in Firebase Realtime Database
-    const activeUsersRef = database.ref('status');
-
-    // Generate a persistent unique session ID using localStorage
-    let sessionId = localStorage.getItem('webcraftSessionId');
-    if (!sessionId) {
-      sessionId = "user_" + new Date().getTime();
-      localStorage.setItem('webcraftSessionId', sessionId);
-    }
-
-    const userStatusDatabaseRef = activeUsersRef.child(sessionId);
-
-    // Set user presence (set to true)
-    userStatusDatabaseRef.set(true);
-
-    // Remove user presence when they disconnect or close the browser/tab
-    userStatusDatabaseRef.onDisconnect().remove();
-
-    // Fetch the number of active users in real-time
-    activeUsersRef.on('value', (snapshot) => {
-      const activeUserCount = snapshot.numChildren(); // Count active users
-      document.getElementById('active-user-count').innerText = activeUserCount;
-    });
-
-    // Function to log a page view
-    const pageViewsRef = database.ref('analytics/page_views');
-    function logPageView(pageName) {
-      const pageViewData = {
-        page: pageName,
-        timestamp: Date.now()
-      };
-
-      // Push the page view data to the database
-      pageViewsRef.push(pageViewData);
-    }
-
-    // Fetch real-time page views data and display it
-    pageViewsRef.on('value', (snapshot) => {
-      const data = snapshot.val();
-      const analyticsDisplay = document.getElementById('analytics-display');
-      analyticsDisplay.innerHTML = '<h2>Page Views:</h2>'; // Reset content
-
-      if (data) {
-        for (const key in data) {
-          const pageView = data[key];
-          analyticsDisplay.innerHTML += `<p>Page: ${pageView.page}, Time: ${new Date(pageView.timestamp).toLocaleString()}</p>`;
-        }
-      } else {
-        analyticsDisplay.innerHTML += '<p>No page view data available.</p>';
-      }
-    });
-
-    // Fetch the total number of accounts created
-    const usersRef = database.ref('users');
-    usersRef.on('value', (snapshot) => {
-      const totalAccountsCount = snapshot.numChildren(); // Count total accounts
-
-      // Debugging Log the snapshot data and count
-      console.log("Users Snapshot:", snapshot.val());
-      console.log("Total Accounts:", totalAccountsCount);
-
-      // Display the total number of accounts in an HTML element
-      document.getElementById('total-account-count').innerText = totalAccountsCount;
-    });
-
     function toggleMenu() {
       const menu = document.getElementById('profileMenu');
       const profileIcon = document.querySelector('.profile-icon');
@@ -306,129 +281,6 @@
       profileIcon.classList.toggle('active');
     }
 
-    function confirmLogout() {
-      toggleMenu(); // Close the menu
-      var modal = document.getElementById("logoutModal");
-      var overlay = document.getElementById("logoutOverlay");
-      var confirmBtn = document.getElementById("confirmLogoutBtn");
-      var cancelBtn = document.getElementById("cancelLogoutBtn");
-
-      // Show overlay and modal
-      overlay.style.display = "block";
-      modal.style.display = "block";
-
-      // Confirm logout action
-      confirmBtn.onclick = function () {
-        auth.signOut().then(() => {
-          window.location.href = "index.html";
-        }).catch((error) => {
-          console.error("Error signing out: ", error);
-        });
-      }
-
-      // Cancel log-out action
-      cancelBtn.onclick = function () {
-        modal.style.display = "none";
-        overlay.style.display = "none"; 
-      }
-
-      // Close modal and hide overlay when clicking outside of it
-      window.onclick = function (event) {
-        if (event.target == modal || event.target == overlay) {
-          modal.style.display = "none";
-          overlay.style.display = "none"; 
-        }
-      }
-    }
-
-    // Change Password Functions
-    function openChangePasswordModal() {
-      document.getElementById("changePasswordModal").style.display = "block";
-      document.getElementById("logoutOverlay").style.display = "block"; // Show overlay
-    }
-
-    function closeChangePasswordModal() {
-      document.getElementById("changePasswordModal").style.display = "none";
-      document.getElementById("logoutOverlay").style.display = "none"; // Hide overlay
-    }
-
-    function togglePasswordVisibility(inputId) {
-      const input = document.getElementById(inputId);
-      const icon = input.nextElementSibling;
-      if (input.type === "password") {
-        input.type = "text";
-        icon.classList.remove("fa-eye-slash");
-        icon.classList.add("fa-eye");
-      } else {
-        input.type = "password";
-        icon.classList.remove("fa-eye");
-        icon.classList.add("fa-eye-slash");
-      }
-    }
-
-    function showAlert(message) {
-      const alertModal = document.getElementById("alertModal");
-      const alertMessage = document.getElementById("alertMessage");
-      const alertOkBtn = document.getElementById("alertOkBtn");
-      const overlay = document.getElementById("logoutOverlay");
-
-      alertMessage.textContent = message;
-      alertModal.style.display = "block";
-      overlay.style.display = "block";
-
-      alertOkBtn.onclick = function() {
-        alertModal.style.display = "none";
-        overlay.style.display = "none"; // Hide the overlay when OK is clicked
-      }
-    }
-
-    document.getElementById('changePasswordForm').onsubmit = function (event) {
-      event.preventDefault(); // Prevent default form submission
-
-      const currentPassword = document.getElementById('currentPassword').value;
-      const newPassword = document.getElementById('newPassword').value;
-      const confirmNewPassword = document.getElementById('confirmNewPassword').value;
-
-      if (newPassword === confirmNewPassword) {
-        const user = auth.currentUser;
-
-        // Reauthenticate the user
-        const credential = firebase.auth.EmailAuthProvider.credential(
-          user.email,
-          currentPassword
-        );
-
-        user.reauthenticateWithCredential(credential).then(() => {
-          // User reauthenticated, now we can change the password
-          user.updatePassword(newPassword).then(() => {
-            closeChangePasswordModal();
-            showAlert("Password changed successfully!");
-          }).catch((error) => {
-            console.error("Error updating password: ", error);
-            showAlert("Error updating password/Password must be 8 characters long. Please try again.");
-          });
-        }).catch((error) => {
-          console.error("Error reauthenticating: ", error);
-          showAlert("Current password is incorrect. Please try again.");
-        });
-      } else {
-        showAlert("New passwords do not match. Please try again.");
-      }
-    };
-
-    function submitForm() {
-      const form = document.getElementById('subscribe-form');
-      const email = form.email.value;
-  
-      // Check if email input is filled
-      if (email) {
-        window.open(`https://formsubmit.co/el/hocuya?email=${encodeURIComponent(email)}`, '_blank');
-        return false;
-      }
-      return false; 
-    }
-
-    // Function to toggle user information display
     function toggleUserInfo() {
       const user = auth.currentUser;
       const userInfoDisplay = document.getElementById('userInfoDisplay');
@@ -502,6 +354,174 @@
         showAlert("Error updating name. Please try again.");
       });
     }
+
+    function confirmLogout() {
+      toggleMenu(); // Close the menu
+      var modal = document.getElementById("logoutModal");
+      var overlay = document.getElementById("logoutOverlay");
+      var confirmBtn = document.getElementById("confirmLogoutBtn");
+      var cancelBtn = document.getElementById("cancelLogoutBtn");
+
+      // Show overlay and modal
+      overlay.style.display = "block";
+      modal.style.display = "block";
+      document.body.classList.add('modal-open');
+
+      // Confirm logout action
+      confirmBtn.onclick = function () {
+        auth.signOut().then(() => {
+          window.location.href = "index.html";
+        }).catch((error) => {
+          console.error("Error signing out: ", error);
+        });
+      }
+
+      // Cancel log-out action
+      cancelBtn.onclick = function () {
+        modal.style.display = "none";
+        overlay.style.display = "none"; 
+        document.body.classList.remove('modal-open');
+      }
+
+      // Close modal and hide overlay when clicking outside of it
+      window.onclick = function (event) {
+        if (event.target == modal || event.target == overlay) {
+          modal.style.display = "none";
+          overlay.style.display = "none"; 
+          document.body.classList.remove('modal-open');
+        }
+      }
+    }
+
+    function openChangePasswordModal() {
+      document.getElementById("changePasswordModal").style.display = "block";
+      document.getElementById("logoutOverlay").style.display = "block"; // Show overlay
+      document.body.classList.add('modal-open'); // Add class to body
+    }
+
+    function closeChangePasswordModal() {
+      document.getElementById("changePasswordModal").style.display = "none";
+      document.getElementById("logoutOverlay").style.display = "none"; // Hide overlay
+      document.body.classList.remove('modal-open'); // Remove class from body
+    }
+
+    function togglePasswordVisibility(inputId) {
+      const input = document.getElementById(inputId);
+      const icon = input.nextElementSibling;
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      }
+    }
+
+    function showAlert(message) {
+      const alertModal = document.getElementById("alertModal");
+      const alertMessage = document.getElementById("alertMessage");
+      const alertOkBtn = document.getElementById("alertOkBtn");
+      const overlay = document.getElementById("logoutOverlay");
+
+      alertMessage.textContent = message;
+      alertModal.style.display = "block";
+      overlay.style.display = "block";
+      document.body.classList.add('modal-open');
+
+      alertOkBtn.onclick = function() {
+        alertModal.style.display = "none";
+        overlay.style.display = "none"; // Hide the overlay when OK is clicked
+        document.body.classList.remove('modal-open');
+      }
+    }
+
+    document.getElementById('changePasswordForm').onsubmit = function (event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const currentPassword = document.getElementById('currentPassword').value;
+      const newPassword = document.getElementById('newPassword').value;
+      const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+      if (newPassword === confirmNewPassword) {
+        const user = auth.currentUser;
+
+        // Reauthenticate the user
+        const credential = firebase.auth.EmailAuthProvider.credential(
+          user.email,
+          currentPassword
+        );
+
+        user.reauthenticateWithCredential(credential).then(() => {
+          // User reauthenticated, now we can change the password
+          user.updatePassword(newPassword).then(() => {
+            closeChangePasswordModal();
+            showAlert("Password changed successfully!");
+          }).catch((error) => {
+            console.error("Error updating password: ", error);
+            showAlert("Error updating password/Password must be 8 characters long. Please try again.");
+          });
+        }).catch((error) => {
+          console.error("Error reauthenticating: ", error);
+          showAlert("Current password is incorrect. Please try again.");
+        });
+      } else {
+        showAlert("New passwords do not match. Please try again.");
+      }
+    };
+
+    function submitForm() {
+      const form = document.getElementById('subscribe-form');
+      const email = form.email.value;
+  
+      // Check if email input is filled
+      if (email) {
+        window.open(`https://formsubmit.co/el/hocuya?email=${encodeURIComponent(email)}`, '_blank');
+        return false;
+      }
+      return false; 
+    }
+
+    // Reference to the active users in Firebase Realtime Database
+    const activeUsersRef = database.ref('status');
+
+    // Generate a persistent unique session ID using localStorage
+    let sessionId = localStorage.getItem('webcraftSessionId');
+    if (!sessionId) {
+      sessionId = "user_" + new Date().getTime();
+      localStorage.setItem('webcraftSessionId', sessionId);
+    }
+
+    const userStatusDatabaseRef = activeUsersRef.child(sessionId);
+
+    // Set user presence (set to true)
+    userStatusDatabaseRef.set(true);
+
+    // Remove user presence when they disconnect or close the browser/tab
+    userStatusDatabaseRef.onDisconnect().remove();
+
+    // Fetch the number of active users in real-time
+    activeUsersRef.on('value', (snapshot) => {
+      const activeUserCount = snapshot.numChildren(); // Count active users
+      document.getElementById('active-user-count').innerText = activeUserCount;
+    });
+
+    // Fetch real-time page views data and display it
+    pageViewsRef.on('value', (snapshot) => {
+      const data = snapshot.val();
+      const analyticsDisplay = document.getElementById('analytics-display');
+      analyticsDisplay.innerHTML = '<h2>Page Views:</h2>'; // Reset content
+
+      if (data) {
+        for (const key in data) {
+          const pageView = data[key];
+          analyticsDisplay.innerHTML += `<p>Page: ${pageView.page}, Time: ${new Date(pageView.timestamp).toLocaleString()}</p>`;
+        }
+      } else {
+        analyticsDisplay.innerHTML += '<p>No page view data available.</p>';
+      }
+    });
   </script>
 </body>
 </html>
