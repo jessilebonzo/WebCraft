@@ -2,9 +2,15 @@
 
 /* dashboard-nav-active */
 /* second navbar for themes */
+.custom-navbar-nav {
+  font-family: 'Baloo 2', cursive;
+  font-weight: bold; 
+}
+
 .custom-second-navbar {
   background-color: transparent !important;
   border: none;
+  font-family: 'Baloo 2', cursive;
 }
 
 .custom-second-navbar .custom-navbar-nav .nav-link {
