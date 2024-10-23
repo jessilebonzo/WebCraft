@@ -156,6 +156,7 @@
 /* Hero-Home Section */
 .main-heading {
   font-family: 'Baloo 2', cursive;
+  padding-top: 20px;
 }
 
 .easy-image {
@@ -847,9 +848,42 @@ a {
   padding: 50px 20px;
 }
 .feature-image-1 {
-  max-width: 400px;
-  display: list-item;
-  height: 130px;
+  max-width: 300px; 
+  height: auto; 
+  display: block; 
+  margin: 20px 0; 
+}
+.feature-image-2 {
+  max-width: 300px; 
+  height: auto; 
+  display: block; 
+  margin: 20px 0; 
+}
+
+/* Styles for tablet view */
+@media (min-width: 768px) {
+  .feature-image-1 {
+    width: 800px; 
+  }
+}
+
+/* Styles for desktop view */
+@media (min-width: 1024px) {
+  .feature-image-1 {
+    max-width: 600px; 
+    height: auto; 
+  }
+  .feature-image-2 {
+    max-width: 400px; 
+    height: auto; 
+  }
+}
+
+.image-container {
+  display: flex;        
+  align-items: flex-start;
+  justify-content: flex-start; 
+  padding: 20px;      
 }
 
 .features-container {
@@ -887,9 +921,26 @@ a {
 }
 
 .blog-image {
-  width: 300px;
-  height: 100px;
+  width: 400px;  
+  height: 100px; 
+  display: block; 
+  margin: 20px auto; 
 }
+
+/* Styles for tablet view */
+@media (min-width: 768px) {
+  .blog-image {
+    width: 800px; 
+  }
+}
+
+/* Styles for desktop view */
+@media (min-width: 1024px) {
+  .blog-image {
+    width: 600px; 
+  }
+}
+
 
 .feature-text {
   border-radius: 10px;
