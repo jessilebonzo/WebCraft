@@ -77,43 +77,22 @@
 				background-size: cover;
 				background-position: center;
 		}
-
-		.heart-active {
-    color: red;
-}
-
-
-		
-    /* New styles for mobile view */
-    @media (max-width: 767px) {
-      .navbar-brand {
-        margin-right: auto;
-      }
-      .profile-icon {
-        position: absolute;
-        right: 15px;
-        top: 30%;
-        transform: translateY(-50%);
-      }
-      .profile-menu {
-        position: absolute;
-        top: 10%;
-        right: 15px;
-        z-index: 1000;
-      }
-    }
-      .modal-open {
-          overflow: hidden;
-		  pointer-events: none; /* Disable interactions */
-
-      }
-	  .modal, .modal-content {
-  pointer-events: auto; /* Enable interactions inside the modal */
-}
-
+					.heart-active {
+					color: red;
+			}
   </style>
 </head>
 <body>
+    <!-- External Scripts -->
+    <script>
+			!(function(){
+					const sc = document.createElement('script');
+					sc.src = "https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18683&token=670FDDE9E4B01122021603B5";
+					sc.async = true;
+					const s = document.getElementsByTagName('script')[0];
+					s.parentNode.insertBefore(sc, s);
+			})();
+	</script>
 
    <!-- Start Header/Navigation -->
 		<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
@@ -315,33 +294,29 @@
 
 		// Cancel log-out action
 		cancelBtn.onclick = function () {
-			closeModal();
+			modal.style.display = "none";
+			overlay.style.display = "none"; 
+			document.body.classList.remove('modal-open');
 		}
 
 		// Close modal and hide overlay when clicking outside of it
 		window.onclick = function (event) {
 			if (event.target == modal || event.target == overlay) {
-				closeModal();
+				modal.style.display = "none";
+				overlay.style.display = "none"; 
+				document.body.classList.remove('modal-open');
 			}
 		}
 	}
 
-	function closeModal() {
-		document.getElementById("logoutModal").style.display = "none";
-		document.getElementById("logoutOverlay").style.display = "none";
-		document.body.classList.remove('modal-open');
-	}
-
 	function openChangePasswordModal() {
 		document.getElementById("changePasswordModal").style.display = "block";
-		document.getElementById("logoutOverlay").style.display = "block";
-		document.body.classList.add('modal-open');
+		document.getElementById("logoutOverlay").style.display = "block"; 
 	}
 
 	function closeChangePasswordModal() {
 		document.getElementById("changePasswordModal").style.display = "none";
-		document.getElementById("logoutOverlay").style.display = "none";
-		document.body.classList.remove('modal-open');
+		document.getElementById("logoutOverlay").style.display = "none"; 
 	}
 
 	function togglePasswordVisibility(inputId) {
@@ -367,17 +342,15 @@
 		alertMessage.textContent = message;
 		alertModal.style.display = "block";
 		overlay.style.display = "block";
-		document.body.classList.add('modal-open');
 
 		alertOkBtn.onclick = function() {
 			alertModal.style.display = "none";
-			overlay.style.display = "none";
-			document.body.classList.remove('modal-open');
+			overlay.style.display = "none"; 
 		}
 	}
 
 	document.getElementById('changePasswordForm').onsubmit = function (event) {
-		event.preventDefault(); // Prevent default form submission
+		event.preventDefault(); 
 
 		const currentPassword = document.getElementById('currentPassword').value;
 		const newPassword = document.getElementById('newPassword').value;
@@ -429,57 +402,6 @@
             </div>
         </div>
     </nav>
-    
-    <!-- Log out functionality -->
-    <script>
-        function confirmLogout() {
-            var modal = document.getElementById("logoutModal");
-            var overlay = document.getElementById("logoutOverlay");
-            var confirmBtn = document.getElementById("confirmLogoutBtn");
-            var cancelBtn = document.getElementById("cancelLogoutBtn");
-
-            // Show overlay and modal
-            overlay.style.display = "block";
-            modal.style.display = "block";
-            document.body.classList.add('modal-open');
-
-            // Confirm logout action
-            confirmBtn.onclick = function () {
-                window.location.href = "index.html"; 
-            }
-
-            // Cancel log-out action
-            cancelBtn.onclick = function () {
-                closeModal();
-            }
-
-            // Close modal and hide overlay when clicking outside of it
-            window.onclick = function (event) {
-                if (event.target == modal || event.target == overlay) {
-                    closeModal();
-                }
-            }
-        }
-
-        function closeModal() {
-            document.getElementById("logoutModal").style.display = "none";
-            document.getElementById("logoutOverlay").style.display = "none";
-            document.body.classList.remove('modal-open');
-        }
-    </script>
-
-    <!-- External Scripts -->
-    <script>
-        !(function(){
-            const sc = document.createElement('script');
-            sc.src = "https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18683&token=670FDDE9E4B01122021603B5";
-            sc.async = true;
-            const s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(sc, s);
-        })();
-    </script>
-</body>
-</html>
 
 		<!-- Start Hero Section -->
 			<div class="hero-section">
@@ -993,33 +915,33 @@
 					</div>
 			</div>
 	</div>
-	<script>
-
-		// Reference to the active users in Firebase Realtime Database
-		const activeUsersRef = database.ref('status');
-	  
-		// Generate a persistent unique session ID using localStorage
-		let sessionId = localStorage.getItem('webcraftSessionId');
-		if (!sessionId) {
-		  sessionId = "user_" + new Date().getTime();
-		  localStorage.setItem('webcraftSessionId', sessionId);
-		}
-	  
-		const userStatusDatabaseRef = activeUsersRef.child(sessionId);
-	  
-		// Set user presence (set to true)
-		userStatusDatabaseRef.set(true);
-	  
-		// Remove user presence when they disconnect or close the browser/tab
-		userStatusDatabaseRef.onDisconnect().remove();
-	  
-		// Fetch the number of active users in real-time
-		activeUsersRef.on('value', (snapshot) => {
-		  const activeUserCount = snapshot.numChildren(); // Count active users
-		  document.getElementById('active-user-count').innerText = activeUserCount;
-		});
-	  </script>
 </div>
+<script>
+
+	// Reference to the active users in Firebase Realtime Database
+	const activeUsersRef = database.ref('status');
+	
+	// Generate a persistent unique session ID using localStorage
+	let sessionId = localStorage.getItem('webcraftSessionId');
+	if (!sessionId) {
+		sessionId = "user_" + new Date().getTime();
+		localStorage.setItem('webcraftSessionId', sessionId);
+	}
+	
+	const userStatusDatabaseRef = activeUsersRef.child(sessionId);
+	
+	// Set user presence (set to true)
+	userStatusDatabaseRef.set(true);
+	
+	// Remove user presence when they disconnect or close the browser/tab
+	userStatusDatabaseRef.onDisconnect().remove();
+	
+	// Fetch the number of active users in real-time
+	activeUsersRef.on('value', (snapshot) => {
+		const activeUserCount = snapshot.numChildren(); 
+		document.getElementById('active-user-count').innerText = activeUserCount;
+	});
+	</script>
 </div>
 
 <!-- End Design Templates  -->

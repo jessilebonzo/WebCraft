@@ -1850,12 +1850,33 @@ img.hover-image {
 .profile-icon:hover {
   border-radius: 50%; 
 }
+body.modal-open {
+  overflow: hidden;
+  pointer-events: none; 
+}
+
+.modal, .modal-content {
+  pointer-events: auto; 
+}
 
 /* Responsive adjustments */
-@media (max-width: 768px) { 
+@media (max-width: 767px) { 
+  .navbar-brand {
+    margin-right: auto;
+  }
   .profile-icon {
-      width: 50px; 
-      height: 50px;
+      /* width: 50px; 
+      height: 50px; */
+      position: absolute;
+      right: 15px;
+      top: 30%;
+      transform: translateY(-50%);
+  }
+  .profile-menu {
+    position: absolute;
+    top: 10%;
+    right: 15px;
+    z-index: 1000;
   }
 
   .profile-icon i {
