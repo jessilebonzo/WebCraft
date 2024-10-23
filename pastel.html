@@ -98,9 +98,15 @@
       }
     }
     
-    body.modal-open {
-      overflow: hidden;
-    }
+	body.modal-open {
+  overflow: hidden;
+  pointer-events: none; /* Disable interactions */
+}
+
+.modal, .modal-content {
+  pointer-events: auto; /* Enable interactions inside the modal */
+}
+
 
 	.heart-active {
     color: red;

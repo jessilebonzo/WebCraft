@@ -101,7 +101,14 @@
       position: fixed;
       width: 100%;
       height: 100%;
+      pointer-events: none; /* Disable interactions */
+
     }
+
+.modal, .modal-content {
+  pointer-events: auto; /* Enable interactions inside the modal */
+}
+
   </style>
 </head>
 
