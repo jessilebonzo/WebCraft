@@ -75,6 +75,24 @@
       background-position: top;
       background-repeat: no-repeat;
     }
+
+    @media (max-width: 767px) {
+      .navbar-brand {
+        margin-right: auto;
+      }
+      .profile-icon {
+        position: absolute;
+        right: 15px;
+        top: 40%;
+        transform: translateY(-50%);
+      }
+      .profile-menu {
+        position: absolute;
+        top: 9%;
+        right: 15px;
+        z-index: 1000;
+      }
+    }
   </style>
 </head>
 
@@ -118,7 +136,7 @@
       <li><a href="#" onclick="toggleUserInfo()">Profile</a></li>
       <div id="userInfoDisplay" style="display: none;"></div>
       <div class="divider"></div>
-      <li><a href="#" onclick="openChangePasswordModal()">Change Password</a></li>
+      <li><a href="#" onclick="openChangePasswordModal(); toggleMenu();">Change Password</a></li>
       <div class="divider"></div>
       <li><a href="#" onclick="confirmLogout()">Log out</a></li>
     </ul>

@@ -99,7 +99,7 @@
     <div class="divider"></div>
     <li><a href="#" onclick="openChangePasswordModal()">Change Password</a></li>
     <div class="divider"></div>
-    <li><a href="#" onclick="confirmLogout()">Log out</a></li>
+    <li><a href="#" onclick="confirmLogout(); toggleMenu();">Log out</a></li>
   </ul>
 </div>
 
@@ -113,7 +113,7 @@
     </div>
     <p style="text-align:center;">Are you sure you want to log out?</p>
     <div class='btn-wrapper'>
-      <button id='confirmLogoutBtn' class='modal-btn modal-btn-logout'>Log out</button>
+      <button id='confirmLogoutBtn' class='modal-btn modal-btn-logout' onclick="toggleMenu()">Log out</button>
       <button id='cancelLogoutBtn' class='modal-btn modal-btn-cancel'>Cancel</button>
     </div>
   </div>

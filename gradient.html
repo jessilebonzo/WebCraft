@@ -80,6 +80,25 @@
 					.heart-active {
 					color: red;
 			}
+
+			
+			@media (max-width: 767px) {
+      .navbar-brand {
+        margin-right: auto;
+      }
+      .profile-icon {
+        position: absolute;
+        right: 15px;
+        top: 30%;
+        transform: translateY(-50%);
+      }
+      .profile-menu {
+        position: absolute;
+        top: 9%;
+        right: 15px;
+        z-index: 1000;
+      }
+    }
   </style>
 </head>
 <body>
@@ -383,6 +402,7 @@
 		}
 	};
 </script>
+<br>
 <div class="theme-background" style="background-image: url('assets/vibes/final_gradientflowVIBE.png');"></div>
     <!-- Second Navbar -->
     <nav class="custom-second-navbar navbar navbar-expand-md navbar-dark bg-transparent" aria-label="webcraft second navigation bar">
