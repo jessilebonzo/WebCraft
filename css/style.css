@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap');
+
 
 /* dashboard-nav-active */
 .custom-navbar-nav {
   font-family: 'Baloo 2', cursive;
-  font-weight: bold; 
 }
 
 .custom-second-navbar {
@@ -18,7 +19,6 @@
   position: relative;
   text-decoration: none;
   transition: color 0.3s ease;
-  font-family: 'Baloo 2', cursive;
 }
 
 .custom-second-navbar .custom-navbar-nav .nav-link:hover {
@@ -389,7 +389,7 @@ a {
       .hero .intro-excerpt {
         max-width: 650px; } }
   .hero h1 {
-    font-weight: 700;
+    font-weight: 500;
     color: black;
     margin-bottom: 30px; }
     @media (min-width: 1400px) {
@@ -484,7 +484,7 @@ a {
 
 /* PRO Section */
 .coins-img {
-  width: 100%;
+  /* width: 100%; */
   max-width: 350px;
 }
 .pro-section {
@@ -845,7 +845,7 @@ a {
 
 .yellow {
   background-color: #FFE98A;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 .yellow-1 {
   background-color: #FFF1B7;
@@ -853,13 +853,13 @@ a {
 }
 .red {
   background-color: #E37072;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 
 .teal {
   background-color: #219B90;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 @media (max-width: 1024px) {
@@ -1334,7 +1334,7 @@ img.hover-image {
 /* Pricing */
 .feature-card-2 {
   background-color: #FF6D6D;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 25px;
@@ -1589,7 +1589,7 @@ img.hover-image {
   flex-wrap: wrap;
   position: relative;
   background-color: #FF6D6D;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 25px;
@@ -1622,7 +1622,7 @@ img.hover-image {
   flex-wrap: wrap;
   position: relative;
   background-color: #FF6D6D;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 25px;
