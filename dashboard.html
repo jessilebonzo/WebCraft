@@ -63,14 +63,7 @@
 		<link href="css/style.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
 		<title>All Design Templates</title>
-	</head>
 
-	<body style="background-color:white">
-		
-		<head>
-			<meta charset="UTF-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<title>WebCraft</title>
 			<style>
 				body {
 					margin: 0;
@@ -84,25 +77,6 @@
 					background-position: top;
 					background-repeat: no-repeat;
 				}
-
-				
-				@media (max-width: 767px) {
-      .navbar-brand {
-        margin-right: auto;
-      }
-      .profile-icon {
-        position: absolute;
-        right: 15px;
-        top: 30%;
-        transform: translateY(-50%);
-      }
-      .profile-menu {
-        position: absolute;
-        top: 9%;
-        right: 15px;
-        z-index: 1000;
-      }
-    }
 			</style>
 		</head>
 		<body>
@@ -114,35 +88,35 @@
 					const s = document.getElementsByTagName('script')[0];
 					s.parentNode.insertBefore(sc, s);
 				})();
-			</script>	
+			</script>
 		
-		<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
-			<div class="container">
-				<a class="navbar-brand" href="dashboard.html">
-					<img src="assets/trademark/logo_2.png" alt="WebCraft Logo" width="100" height="50">
-				</a>
-		
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="true" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-		
-				<div class="navbar-collapse justify-content-center collapse show" id="navbarsFurni">
-					<ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
-						<li class="nav-item active">
-							<a class="nav-link" href="dashboard.html">Templates</a></li>
-            <li><a class="nav-link" href="payment.html">Payment</a></li>
-						<li><a class="nav-link" href="about-us.html">About Us</a></li>
-						<li><a class="nav-link" href="testimonials.html">Testimonials</a></li>
-					</ul>
+			<!-- Start Header/Navigation -->
+			<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
+				<div class="container">
+					<a class="navbar-brand" href="dashboard.html">
+						<img src="assets/trademark/logo_2.png" alt="WebCraft Logo" width="100" height="50">
+					</a>
+			
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="true" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+			
+					<div class="navbar-collapse justify-content-center collapse show" id="navbarsFurni">
+						<ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
+							<li class="nav-item active">
+								<a class="nav-link" href="dashboard.html">Templates</a></li>
+							<li><a class="nav-link" href="payment.html">Payment</a></li>
+							<li><a class="nav-link" href="about-us.html">About Us</a></li>
+							<li><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+						</ul>
+					</div>
 				</div>
-			</div>
-		
-			<!-- Profile Icon -->
-			<div class="btn-circle btn-fixed" onclick="toggleMenu()">
-				<i class="fas fa-user fa-2x"></i> 
-			</div>
-		</nav>
+			
+				<!-- Profile Icon -->
+				<div class="btn-circle btn-fixed" onclick="toggleMenu()">
+					<i class="fas fa-user fa-2x"></i> 
+				</div>
+			</nav>
  <!-- Profile Menu -->
  <div class="profile-menu" id="profileMenu">
 	<ul>
@@ -334,11 +308,13 @@
 	function openChangePasswordModal() {
 		document.getElementById("changePasswordModal").style.display = "block";
 		document.getElementById("logoutOverlay").style.display = "block"; 
+		document.body.classList.add('modal-open');
 	}
 
 	function closeChangePasswordModal() {
 		document.getElementById("changePasswordModal").style.display = "none";
 		document.getElementById("logoutOverlay").style.display = "none"; 
+		document.body.classList.remove('modal-open');
 	}
 
 	function togglePasswordVisibility(inputId) {
@@ -364,15 +340,17 @@
 		alertMessage.textContent = message;
 		alertModal.style.display = "block";
 		overlay.style.display = "block";
+		document.body.classList.add('modal-open');
 
 		alertOkBtn.onclick = function() {
 			alertModal.style.display = "none";
-			overlay.style.display = "none"; 
+			overlay.style.display = "none"; // Hide the overlay when OK is clicked
+			document.body.classList.remove('modal-open');
 		}
 	}
 
 	document.getElementById('changePasswordForm').onsubmit = function (event) {
-		event.preventDefault(); 
+		event.preventDefault(); // Prevent default form submission
 
 		const currentPassword = document.getElementById('currentPassword').value;
 		const newPassword = document.getElementById('newPassword').value;
@@ -405,6 +383,7 @@
 		}
 	};
 </script>
+
 <div class="theme-background" style="background-image: url('assets/vibes/final_allVIBE2.png');"></div>
 		<!-- Second Navbar -->
 		<nav class="custom-second-navbar navbar navbar-expand-md navbar-dark bg-transparent" aria-label="webcraft second navigation bar">
