@@ -204,7 +204,7 @@
   position: relative;
   overflow: hidden;
   /* font-family: 'Baloo 2', cursive; */
-  background-image: url(/assets/vibes/home-bg3-transformed.png);
+  background-image: url(/assets/vibes/home-bg3-transformed2.png);
   background-size: cover;
   background-position: center; 
   background-repeat: no-repeat;
@@ -436,9 +436,9 @@ a {
         margin-right: 20px; }
 
 .hero {
-  background-image: url(/assets/vibes/home-bg1-transformed.png);
+  background-image: url(/assets/vibes/home-bg1-transformed3.png);
   background-size: cover;
-  background-position: center; 
+  background-position: top;
   background-repeat: no-repeat;
   padding: 0 0 0 0;
   position: relative; 
@@ -2189,14 +2189,15 @@ body.modal-open {
 #changePasswordModal {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
   width: 100%;
   height: 100%;
-  z-index: 9;
-  overflow: hidden; 
+  z-index: 1050; /* Increased to ensure it appears in the foreground */
+  overflow: hidden;
   font-family: 'Baloo 2', cursive;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.9);
+  transform: translate(-50%, -50%); /* Center the modal */
 }
 /* Disable scrolling on the background when modal is active */
 body.modal-open {
