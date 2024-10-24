@@ -100,11 +100,32 @@
         border: 2px solid hsla(244, 16%, 92%, 0.75);
         margin-inline: 1.5rem;
         row-gap: 1.25rem;
-        backdrop-filter: blur(20px);
+        backdrop-filter: blur(5px);
         padding: 2rem;
         border-radius: 1rem;
       }
-
+      .login__img {
+        position: absolute;
+        width: 100%;
+        height: 90%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    /* iPad (portrait) */
+    @media (max-width: 1024px) {
+        .login__img {
+            height: auto; /* Allow height to adjust based on content */
+        }
+    }
+    
+    /* Mobile devices */
+    @media (max-width: 768px) {
+        .login__img {
+            height: 70%; /* Adjust height for better fit on smaller screens */
+        }
+    }
+    
       .login__title {
         color: var(--title-color);
         font-size: var(--h2-font-size);
@@ -721,7 +742,7 @@
       showHiddenPassword("confirmPassword", "input-icon-confirm");
     </script>
 
-<script>
+<!-- <script>
   !(function(){
       const sc = document.createElement('script');
       sc.src = "https://apps.voc.ai/api_v2/gpt/bots/livechat/embed.js?id=18683&token=670FDDE9E4B01122021603B5";
@@ -729,6 +750,6 @@
       const s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(sc, s);
   })();
-</script>
+</script> -->
   </body>
 </html>
