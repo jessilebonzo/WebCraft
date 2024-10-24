@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap');
+.text-center {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  flex-wrap: nowrap; 
+  gap: 10px; 
+}
+
+.text-center a {
+  flex: 1 1 45%; 
+  text-align: center;
+  padding: 10px 0; 
+  font-size: 14px; 
+}
+
+@media (min-width: 768px) {
+  .text-center a {
+    flex: 0 1 120px; 
+    margin: 0 10px;
+  }
+}
 
 /* Flexbox layout to align logo, navbar toggler, links, and button */
 .custom-navbar .container {
@@ -1322,14 +1343,22 @@ img.hover-image {
   color: #555;
   text-align: justify;
 }
+.img-fluid {
+  max-width: 150%; 
+  height: auto;
+}
 
 .img-fluid-1 {
   max-width: 90%; 
-  height: auto;
+  height: auto; 
 }
-@media (min-width: 992px) { 
+
+@media (max-width: 991px) { 
+  .img-fluid {
+    max-width: 100%;
+  }
   .img-fluid-1 {
-      max-width: 100%; 
+    max-width: 100%; 
   }
 }
 
