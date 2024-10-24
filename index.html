@@ -111,7 +111,16 @@
 </div>
 
 <!-- Top picks with responsive background -->
-<div class="section-wrapper" style="text-align: center; background-image: url('assets/Top pick BG.png'); background-size: cover; background-position: top; padding: 10px; background-color: white;">
+<div class="section-wrapper" style="text-align: center; background-image: url('assets/top-picks.png'); background-size: cover; background-position: top; padding: 10px; background-color: white;">
+	<style>
+		@keyframes floatUpDown {
+			0%, 100% { transform: translateY(0); }
+			50% { transform: translateY(-10px); }
+		}
+		.aboutUs-image {
+			animation: floatUpDown 3s ease-in-out infinite;
+		}
+	</style>
 	<span>
 		<a href="preview.html">
 			<img src="assets/topPicks_2.png" alt="Feature" class="aboutUs-image" style="width: 100%; max-width: 635px; height: auto; cursor: pointer;">
