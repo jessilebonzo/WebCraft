@@ -317,6 +317,11 @@
         document.getElementById("changePasswordModal").style.display = "none";
         document.getElementById("logoutOverlay").style.display = "none"; 
         document.body.classList.remove('modal-open');
+        
+        // Clear the password fields
+        document.getElementById('currentPassword').value = '';
+        document.getElementById('newPassword').value = '';
+        document.getElementById('confirmNewPassword').value = '';
       }
 
       function togglePasswordVisibility(inputId) {
@@ -389,7 +394,7 @@
 		<!-- Start Hero Section -->
 		<div class="payment-section">
 			<div class="container">
-				<img src="assets/testimonials.png" alt="Feature" class="blog-image">
+				<img src="assets/testimonials.png" alt="Feature" class="blog-image" style="margin-top: 40px;">
 	</div>	
  <!-- Start Testimonial Slider -->
  <div class="testimonial-section">

@@ -112,7 +112,7 @@
       <div class="divider"></div>
       <li><a href="#" onclick="openChangePasswordModal(); toggleMenu();">Change Password</a></li>
       <div class="divider"></div>
-      <li><a href="#" onclick="confirmLogout()">Log out</a></li>
+      <li><a href="#" onclick="confirmLogout(); toggleMenu();">Log out</a></li>
     </ul>
   </div>
 
@@ -326,44 +326,40 @@
         showAlert("Error updating name. Please try again.");
       });
     }
-
     function confirmLogout() {
-      toggleMenu(); // Close the menu
-      var modal = document.getElementById("logoutModal");
-      var overlay = document.getElementById("logoutOverlay");
-      var confirmBtn = document.getElementById("confirmLogoutBtn");
-      var cancelBtn = document.getElementById("cancelLogoutBtn");
-
-      // Show overlay and modal
-      overlay.style.display = "block";
-      modal.style.display = "block";
-      document.body.classList.add('modal-open');
-
-      // Confirm logout action
-      confirmBtn.onclick = function () {
+      // Get the modal and overlay elements
+      const logoutModal = document.getElementById('logoutModal');
+      const logoutOverlay = document.getElementById('logoutOverlay');
+      
+      // Show the modal and overlay
+      logoutModal.style.display = 'block';
+      logoutOverlay.style.display = 'block';
+      
+      // Add event listeners to the buttons
+      document.getElementById('confirmLogoutBtn').addEventListener('click', function() {
         auth.signOut().then(() => {
-          window.location.href = "index.html";
+          window.location.href = 'index.html'; // Redirect to the login page after logout
         }).catch((error) => {
-          console.error("Error signing out: ", error);
+          console.error('Sign out error: ', error);
         });
-      }
+      });
 
-      // Cancel log-out action
-      cancelBtn.onclick = function () {
-        modal.style.display = "none";
-        overlay.style.display = "none"; 
-        document.body.classList.remove('modal-open');
-      }
-
-      // Close modal and hide overlay when clicking outside of it
-      window.onclick = function (event) {
-        if (event.target == modal || event.target == overlay) {
-          modal.style.display = "none";
-          overlay.style.display = "none"; 
-          document.body.classList.remove('modal-open');
-        }
-      }
+      document.getElementById('cancelLogoutBtn').addEventListener('click', function() {
+        // Hide the modal and overlay when cancel is clicked
+        logoutModal.style.display = 'none';
+        logoutOverlay.style.display = 'none';
+      });
     }
+
+    // Optional: Close modal if clicking outside of it
+    window.onclick = function(event) {
+      const logoutModal = document.getElementById('logoutModal');
+      const logoutOverlay = document.getElementById('logoutOverlay');
+      if (event.target === logoutOverlay) {
+        logoutModal.style.display = 'none';
+        logoutOverlay.style.display = 'none';
+      }
+    };
 
     function openChangePasswordModal() {
       document.getElementById("changePasswordModal").style.display = "block";
@@ -375,6 +371,11 @@
       document.getElementById("changePasswordModal").style.display = "none";
       document.getElementById("logoutOverlay").style.display = "none"; // Hide overlay
       document.body.classList.remove('modal-open'); // Remove class from body
+
+      // Clear the input fields when the modal is closed
+      document.getElementById('currentPassword').value = '';
+      document.getElementById('newPassword').value = '';
+      document.getElementById('confirmNewPassword').value = '';
     }
 
     function togglePasswordVisibility(inputId) {

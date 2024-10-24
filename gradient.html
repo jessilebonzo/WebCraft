@@ -331,11 +331,17 @@
 	function openChangePasswordModal() {
 		document.getElementById("changePasswordModal").style.display = "block";
 		document.getElementById("logoutOverlay").style.display = "block"; 
+		
 	}
 
 	function closeChangePasswordModal() {
 		document.getElementById("changePasswordModal").style.display = "none";
 		document.getElementById("logoutOverlay").style.display = "none"; 
+		document.body.classList.remove('modal-open');
+
+		document.getElementById('currentPassword').value = '';
+      document.getElementById('newPassword').value = '';
+      document.getElementById('confirmNewPassword').value = '';
 	}
 
 	function togglePasswordVisibility(inputId) {

@@ -44,27 +44,43 @@
     }
 
     .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-  
-    .modal-content {
-      background-color: #fefefe;
-      margin: 15% auto;
-      padding: 20px;
-      width: 20%;
-      border: 1px solid #888;
-      border-radius: 15px;
-      width: 80%;
-      max-width: 300px;
-      text-align: center;
-    }
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Add these properties for better centering */
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 15px;
+  width: 90%; /* Changed from 80% */
+  max-width: 300px;
+  text-align: center;
+  /* Remove margin and add these properties */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Add a media query for mobile devices */
+@media screen and (max-width: 768px) {
+  .modal-content {
+    width: 85%;
+    max-width: 280px;
+    padding: 15px;
+  }
+}
   
     .btn {
       padding: 13px 32px; 
@@ -133,7 +149,7 @@
     <div class="container">
       <div class="pricing-section">
         <div class="container">
-          <img src="assets/pricing.png" alt="Feature" class="feature-image-2" style="align-items: start; width: 500px; height: auto;">
+          <img src="assets/pricing.png" alt="Feature" class="feature-image-2" style="align-items: start; width: 500px; height: auto; margin-top: 50px;">
         </div>	
           </div>
         </div>
