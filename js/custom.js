@@ -8,19 +8,20 @@
 			var slider = tns({
 				container: '.testimonial-slider',
 				items: 1,
-				axis: "horizontal",
+				axis: "horizontal", 
 				controlsContainer: "#testimonial-nav",
 				swipeAngle: false,
-				speed: 700,
+				speed: 500, 
 				nav: true,
 				controls: true,
 				autoplay: true,
 				autoplayHoverPause: true,
-				autoplayTimeout: 3500,
+				autoplayTimeout: 3000, 
 				autoplayButtonOutput: false
 			});
 		}
 	};
-	tinyslider();
 
-})()
+	// Initialize the slider
+	tinyslider();
+})();
