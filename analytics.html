@@ -76,23 +76,6 @@
       background-repeat: no-repeat;
     }
 
-    @media (max-width: 767px) {
-      .navbar-brand {
-        margin-right: auto;
-      }
-      .profile-icon {
-        position: absolute;
-        right: 15px;
-        top: 40%;
-        transform: translateY(-50%);
-      }
-      .profile-menu {
-        position: absolute;
-        top: 9%;
-        right: 15px;
-        z-index: 1000;
-      }
-    }
   </style>
 </head>
 
@@ -113,20 +96,11 @@
       <a class="navbar-brand" href="analytics.html">
         <img src="assets/trademark/logo_2.png" alt="WebCraft Logo" width="100" height="50">
       </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="true" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="navbar-collapse justify-content-center collapse show" id="navbarsFurni">
-        <ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
-        </ul>
-      </div>
     </div>
 
     <!-- Profile Icon -->
-    <div class="profile-icon" onclick="toggleMenu()">
-      <i class="fas fa-user"></i>
+    <div class="btn-circle btn-fixed" onclick="toggleMenu()">
+      <i class="fas fa-user fa-2x"></i> 
     </div>
   </nav>
 
@@ -199,11 +173,9 @@
   </div>
 
   <!-- Start Hero Section -->
-  <div class='payment-section'>
     <div class='container'>
-      <img src='assets/analyticsText.png' alt='Feature' class='blog-image' style='align-items:start;margin-bottom:20px;margin-top:20px;width:42%;height:auto;'>
+      <img src="assets/analyticsText.png" alt="Feature" class="feature-image-1" style="align-items: start; width: 500px; height: auto;">
     </div>
-  </div>
 
   <div class='main-container'>
     <div class='card-container'>
