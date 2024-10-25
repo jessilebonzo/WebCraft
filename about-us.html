@@ -28,21 +28,15 @@
 		}
 	  </style>
 
-		<!-- Start Header/Navigation -->
     <!-- Start Header - Navigation -->
     <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
         <div class="container-fluid">
-            <!-- Logo -->
             <a class="navbar-brand" href="dashboard.html">
                 <img src="assets/trademark/logo_2.png" alt="WebCraft Logo" width="100" height="50">
             </a>
-
-            <!-- Navbar Toggler Button (for mobile only) -->
             <button class="navbar-toggler d-md-none position-absolute start-50 translate-middle-x" type="button" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <!-- Navigation Menu -->
             <div class="collapse navbar-collapse justify-content-center" id="navbarsFurni">
                 <ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
                     <li class="nav-item">
@@ -53,8 +47,6 @@
                     <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
                 </ul>
             </div>
-
-            <!-- Profile Icon -->
             <div class="btn-circle btn-fixed" onclick="toggleMenu()">
                 <i class="fas fa-user fa-2x"></i> 
             </div>
@@ -103,7 +95,6 @@
 
         <!-- Logout Modal -->
         <div id="logoutOverlay" class="overlay"></div>
-
         <div id="logoutModal" class="modal" style="display:none;">
           <div class="modal-content">
             <div style="text-align:center;">
@@ -166,7 +157,6 @@
 		<p>At WebCraft, we believe in making website creation accessible to everyone, regardless of technical expertise. As a remote learning platform, we empower users to build and design websites using a low-code, free approach. Our goal is to simplify the web development process, allowing users to bring their ideas to life without the need for advanced coding skills. Whether you're a beginner or a seasoned designer, WebCraft provides the tools and resources you need to create professional, stunning websites with ease.<br></p>
 		<p><strong>Join us and start crafting your digital presence today!</strong></p></div>
 </section>
-
 
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
@@ -290,7 +280,7 @@
   }
 
   function confirmLogout() {
-    toggleMenu(); // Close the menu
+    toggleMenu(); 
     var modal = document.getElementById("logoutModal");
     var overlay = document.getElementById("logoutOverlay");
     var confirmBtn = document.getElementById("confirmLogoutBtn");
@@ -369,13 +359,13 @@
 
     alertOkBtn.onclick = function() {
       alertModal.style.display = "none";
-      overlay.style.display = "none"; // Hide the overlay when OK is clicked
+      overlay.style.display = "none"; 
       document.body.classList.remove('modal-open');
     }
   }
 
   document.getElementById('changePasswordForm').onsubmit = function (event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); 
 
     const currentPassword = document.getElementById('currentPassword').value;
     const newPassword = document.getElementById('newPassword').value;
@@ -523,5 +513,4 @@
             s.parentNode.insertBefore(sc, s);
         })();
     </script>
-
 </html>

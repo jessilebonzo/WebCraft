@@ -71,7 +71,6 @@
       transform: translate(-50%, -50%);
     }
 
-    /* Add a media query for mobile devices */
     @media screen and (max-width: 768px) {
       .modal-content {
         width: 85%;
@@ -107,6 +106,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      background-color: white
     }
 
     body.modal-open {
@@ -116,22 +116,15 @@
 
 </head>
 
-		<!-- Start Header/Navigation -->
-
 <body style="background-color: white">
   <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
     <div class="container-fluid">
-        <!-- Logo -->
         <a class="navbar-brand" href="index.html">
             <img src="assets/trademark/logo_2.png" alt="WebCraft Logo" width="100" height="50">
         </a>
-
-        <!-- Navbar Toggler Button (for mobile only) -->
         <button class="navbar-toggler d-md-none position-absolute start-50 translate-middle-x" type="button" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <!-- Navigation Menu -->
         <div class="collapse navbar-collapse justify-content-center" id="navbarsFurni">
             <ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
                 <li class="nav-item">
@@ -142,8 +135,6 @@
                 <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
             </ul>
         </div>
-
-        <!-- Sign In Button -->
         <a href="signinChoosing.html" class="btn btn-secondary btn-fixed">Sign in</a>
     </div>
 </nav>
@@ -235,8 +226,8 @@
 </div>
 <br>
 <br>
-
 <!-- End Hero Section -->
+ 
  <!-- footer section -->
 <div class="footer-wrapper">
 	<footer>

@@ -97,8 +97,6 @@
         <img src="assets/trademark/logo_2.png" alt="WebCraft Logo" width="100" height="50">
       </a>
     </div>
-
-    <!-- Profile Icon -->
     <div class="btn-circle btn-fixed" onclick="toggleMenu()">
       <i class="fas fa-user fa-2x"></i> 
     </div>
@@ -118,7 +116,6 @@
 
   <!-- Logout Modal -->
   <div id="logoutOverlay" class="overlay"></div>
-
   <div id="logoutModal" class="modal" style="display:none;">
     <div class="modal-content">
       <div style="text-align:center;">
@@ -338,7 +335,7 @@
       // Add event listeners to the buttons
       document.getElementById('confirmLogoutBtn').addEventListener('click', function() {
         auth.signOut().then(() => {
-          window.location.href = 'index.html'; // Redirect to the login page after logout
+          window.location.href = 'index.html'; 
         }).catch((error) => {
           console.error('Sign out error: ', error);
         });
@@ -363,14 +360,14 @@
 
     function openChangePasswordModal() {
       document.getElementById("changePasswordModal").style.display = "block";
-      document.getElementById("logoutOverlay").style.display = "block"; // Show overlay
-      document.body.classList.add('modal-open'); // Add class to body
+      document.getElementById("logoutOverlay").style.display = "block"; 
+      document.body.classList.add('modal-open');
     }
 
     function closeChangePasswordModal() {
       document.getElementById("changePasswordModal").style.display = "none";
-      document.getElementById("logoutOverlay").style.display = "none"; // Hide overlay
-      document.body.classList.remove('modal-open'); // Remove class from body
+      document.getElementById("logoutOverlay").style.display = "none"; 
+      document.body.classList.remove('modal-open'); 
 
       // Clear the input fields when the modal is closed
       document.getElementById('currentPassword').value = '';
@@ -405,13 +402,13 @@
 
       alertOkBtn.onclick = function() {
         alertModal.style.display = "none";
-        overlay.style.display = "none"; // Hide the overlay when OK is clicked
+        overlay.style.display = "none"; 
         document.body.classList.remove('modal-open');
       }
     }
 
     document.getElementById('changePasswordForm').onsubmit = function (event) {
-      event.preventDefault(); // Prevent default form submission
+      event.preventDefault(); 
 
       const currentPassword = document.getElementById('currentPassword').value;
       const newPassword = document.getElementById('newPassword').value;
@@ -476,7 +473,7 @@
 
     // Fetch the number of active users in real-time
     activeUsersRef.on('value', (snapshot) => {
-      const activeUserCount = snapshot.numChildren(); // Count active users
+      const activeUserCount = snapshot.numChildren(); 
       document.getElementById('active-user-count').innerText = activeUserCount;
     });
 
@@ -484,7 +481,7 @@
     pageViewsRef.on('value', (snapshot) => {
       const data = snapshot.val();
       const analyticsDisplay = document.getElementById('analytics-display');
-      analyticsDisplay.innerHTML = '<h2>Page Views:</h2>'; // Reset content
+      analyticsDisplay.innerHTML = '<h2>Page Views:</h2>'; 
 
       if (data) {
         for (const key in data) {

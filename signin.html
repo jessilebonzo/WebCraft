@@ -111,18 +111,16 @@
         object-fit: cover;
         object-position: center;
     }
-    
-    /* iPad (portrait) */
+
     @media (max-width: 1024px) {
         .login__img {
-            height: auto; /* Allow height to adjust based on content */
+            height: auto; 
         }
     }
     
-    /* Mobile devices */
     @media (max-width: 768px) {
         .login__img {
-            height: 70%; /* Adjust height for better fit on smaller screens */
+            height: 70%; 
         }
     }
     
@@ -277,8 +275,8 @@
 @media screen and (max-width: 360px) {
   .login__buttons {
     flex-direction: column;
-    display: flex; /* Ensure buttons are visible */
-    align-items: center; /* Center the buttons */
+    display: flex; 
+    align-items: center; 
   }
 }
 
@@ -286,7 +284,7 @@
   .login__form {
     width: 450px;
     justify-self: center;
-    display: block; /* Ensure form elements stack properly */
+    display: block; 
   }
 }
 
@@ -310,13 +308,13 @@
   .login__form {
     justify-self: flex-end;
     margin-right: 4.5rem;
-    display: flex; /* Ensure buttons don't collapse */
-    flex-direction: column; /* Stack form elements */
+    display: flex; 
+    flex-direction: column; 
   }
 
   .login__buttons {
-    display: flex; /* Ensure buttons are visible */
-    flex-direction: row; /* Align buttons horizontally */
+    display: flex; 
+    flex-direction: row; 
     justify-content: space-around;
   }
 }
@@ -358,7 +356,7 @@
     padding: 1rem 2rem;
     font-size: var(--normal-font-size);
     border-radius: 0.75rem;
-    display: block; /* Ensure visibility */
+    display: block; 
   }
 }
 
@@ -384,7 +382,6 @@
   text-align: center;
 }
 
-/* Responsive styles for mobile */
 @media (max-width: 767px) {
   .modal-content {
     width: 80%;   

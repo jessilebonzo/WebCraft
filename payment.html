@@ -33,20 +33,14 @@
 
 		</style>
 		<!-- Start Header/Navigation -->
-    <!-- Start Header - Navigation -->
     <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
         <div class="container-fluid">
-            <!-- Logo -->
             <a class="navbar-brand" href="dashboard.html">
                 <img src="assets/trademark/logo_2.png" alt="WebCraft Logo" width="100" height="50">
             </a>
-
-            <!-- Navbar Toggler Button (for mobile only) -->
             <button class="navbar-toggler d-md-none position-absolute start-50 translate-middle-x" type="button" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <!-- Navigation Menu -->
             <div class="collapse navbar-collapse justify-content-center" id="navbarsFurni">
                 <ul class="custom-navbar-nav navbar-nav mb-2 mb-md-0">
                     <li class="nav-item">
@@ -59,8 +53,6 @@
                     <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
                 </ul>
             </div>
-
-            <!-- Profile Icon -->
             <div class="btn-circle btn-fixed" onclick="toggleMenu()">
                 <i class="fas fa-user fa-2x"></i> 
             </div>
@@ -186,9 +178,7 @@
         <div class="container">
                 <div class="features-section1">
                   <div class="features-container">
-                      <!-- Feature Card with Two Columns -->
                       <div class="feature-card-3">
-                        <!-- Left Column: Features List with Price at the Top -->
                         <div class="feature-list">
                           <h2 class="price">₱ 149
                             <img src="assets/3Dcart.gif" alt="GIF" style="width: 65px; height: 70px;"></h2>
@@ -244,7 +234,7 @@
                       
                           // Fetch the number of active users in real-time
                           activeUsersRef.on('value', (snapshot) => {
-                            const activeUserCount = snapshot.numChildren(); // Count active users
+                            const activeUserCount = snapshot.numChildren(); 
                             document.getElementById('active-user-count').innerText = activeUserCount;
                           });
 
@@ -369,18 +359,17 @@
 
                           function openChangePasswordModal() {
                             document.getElementById("changePasswordModal").style.display = "block";
-                            document.getElementById("logoutOverlay").style.display = "block"; // Show overlay
+                            document.getElementById("logoutOverlay").style.display = "block"; 
                             document.body.classList.add('modal-open');
                           }
 
                           function closeChangePasswordModal() {
                             document.getElementById("changePasswordModal").style.display = "none";
-                            document.getElementById("logoutOverlay").style.display = "none"; // Hide overlay
+                            document.getElementById("logoutOverlay").style.display = "none";
                             document.body.classList.remove('modal-open');
                             document.getElementById('currentPassword').value = '';
-      document.getElementById('newPassword').value = '';
-      document.getElementById('confirmNewPassword').value = '';
-
+                            document.getElementById('newPassword').value = '';
+                            document.getElementById('confirmNewPassword').value = '';
                           }
 
                           function togglePasswordVisibility(inputId) {
@@ -410,7 +399,7 @@
 
                             alertOkBtn.onclick = function() {
                               alertModal.style.display = "none";
-                              overlay.style.display = "none"; // Hide the overlay when OK is clicked
+                              overlay.style.display = "none"; 
                               document.body.classList.remove('modal-open');
                             }
                           }
@@ -450,7 +439,6 @@
                           };
                         </script>
 
-                          <!-- Right Column: QR Code and Subscribe Button -->
                           <div class="qr-subscribe">
                             <div class="qr-code-container">
                               <img src="assets/QR149.png" alt="QR Code" class="qr-code">
@@ -471,9 +459,7 @@
               <br>
               <div class="features-section1">
                 <div class="features-container">
-                    <!-- Feature Card with Two Columns -->
                     <div class="feature-card-4">
-                      <!-- Left Column: Features List with Price at the Top -->
                       <div class="feature-list">
                         <h2 class="price">₱ 159 <img src="assets/3Dcart.gif" alt="GIF" style="width: 65px; height: 70px;"></h2>
                         <ul>
@@ -505,7 +491,6 @@
 <br>
 
 <div class="additional-image-container" style="background-image: url('assets/Tutorial BG2.png'); background-size: 85%; background-position: center; background-repeat: no-repeat; padding: 20px; text-align: center; margin-top: 100px;">
-  <!-- Add the new image at the top -->
   <img src="assets/Tutorial BG3.png" alt="Top Image" style="width: 60%; height: auto;">
   <br><br>
   <div class="additional-image" style="display: inline-block;">
@@ -592,7 +577,6 @@
       }
     </script>
 
-    <!-- External Scripts -->
     <script>
       !(function(){
           const sc = document.createElement('script');
