@@ -15,27 +15,26 @@
   <link href="css/tiny-slider.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+	<script defer src="/_vercel/insights/script.js"></script>
   <title>Coquette Themes</title>
+
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+ 	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+ 	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+ 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
   <style>
    body.modal-open {
   overflow: hidden;
-  pointer-events: none; /* Disable interactions */
-}
+  pointer-events: none; 
+	}
 
-.modal, .modal-content {
-  pointer-events: auto; /* Enable interactions inside the modal */
-}
-  </style>
-</head>
-
-
+	.modal, .modal-content {
+  pointer-events: auto; 
+	}
+</style>
 <body>
-  
- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
 <script>
   // Your Firebase configuration
@@ -76,11 +75,6 @@ console.log("Database Reference: ", pageViewsRef);
 });
   
 	</script>
-
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebCraft</title>
     <style>
       body {
         margin: 0;
@@ -1077,7 +1071,6 @@ console.log("Database Reference: ", pageViewsRef);
 		  return false;
 		}
 	  </script>
-		<script defer src="/_vercel/insights/script.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/tiny-slider.js"></script>

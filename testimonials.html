@@ -1,57 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-
-	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-   
-	<script>
-		// Your Firebase configuration
-		const firebaseConfig = {
-			apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
-			authDomain: "webcraft-7f386.firebaseapp.com",
-			databaseURL: "https://webcraft-7f386-default-rtdb.asia-southeast1.firebasedatabase.app",
-			projectId: "webcraft-7f386",
-			storageBucket: "webcraft-7f386.appspot.com",
-			messagingSenderId: "983810632123",
-			appId: "1:983810632123:web:de8d379daa38fbca42fc9e",
-			measurementId: "G-WSSVHJ9VV3"
-		}
-	  
-		// Initialize Firebase
-		const app = firebase.initializeApp(firebaseConfig);
-		  const analytics = firebase.analytics();
-		  const database = firebase.database();
-			const auth = firebase.auth();
-	  
-	  // Function to log a page view
-	  const pageViewsRef = firebase.database().ref('analytics/page_views');
-	  console.log("Database Reference: ", pageViewsRef);
-		  function logPageView(pageName) {
-			const pageViewData = {
-			  page: pageName,
-			  timestamp: Date.now()
-			};
-		
-			// Push the page view data to the database
-			pageViewsRef.push(pageViewData);
-		  }
-		
-		  // Log a page view when the page loads
-		  document.addEventListener('DOMContentLoaded', function() {
-		// Ensure Firebase is initialized
-		logPageView('All Templates');
-	  });
-		
-		  </script>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="WebCraft Team">
    <link rel="shortcut icon" href="assets/trademark/logo_2.png">
-
   <meta name="description" content="" />
   <meta name="keywords" content="bootstrap, bootstrap4" />
 
@@ -62,7 +15,13 @@
 		<link href="css/style.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
 		<title>Testimonials</title>
-		
+		<script defer src="/_vercel/insights/script.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+	</head>
 		<style>
 		body {
 		  margin: 0;
@@ -75,10 +34,46 @@
       background-position: top;
       background-repeat: no-repeat;
     }
-
 		</style>
-	</head>
-
+		<script>
+			// Your Firebase configuration
+			const firebaseConfig = {
+				apiKey: "AIzaSyAPnTLVwPCAF9EzdwAIQmqSzK16eSbcOz4",
+				authDomain: "webcraft-7f386.firebaseapp.com",
+				databaseURL: "https://webcraft-7f386-default-rtdb.asia-southeast1.firebasedatabase.app",
+				projectId: "webcraft-7f386",
+				storageBucket: "webcraft-7f386.appspot.com",
+				messagingSenderId: "983810632123",
+				appId: "1:983810632123:web:de8d379daa38fbca42fc9e",
+				measurementId: "G-WSSVHJ9VV3"
+			}
+			
+			// Initialize Firebase
+			const app = firebase.initializeApp(firebaseConfig);
+				const analytics = firebase.analytics();
+				const database = firebase.database();
+				const auth = firebase.auth();
+			
+			// Function to log a page view
+			const pageViewsRef = firebase.database().ref('analytics/page_views');
+			console.log("Database Reference: ", pageViewsRef);
+				function logPageView(pageName) {
+				const pageViewData = {
+					page: pageName,
+					timestamp: Date.now()
+				};
+			
+				// Push the page view data to the database
+				pageViewsRef.push(pageViewData);
+				}
+			
+				// Log a page view when the page loads
+				document.addEventListener('DOMContentLoaded', function() {
+			// Ensure Firebase is initialized
+			logPageView('All Templates');
+			});
+			
+				</script>
 	<body>
 
 		<script>
@@ -644,7 +639,6 @@
 		<!-- Ionicons Script -->
 <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
 <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
-<script defer src="/_vercel/insights/script.js"></script>
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/tiny-slider.js"></script>
 		<script src="js/custom.js"></script>
