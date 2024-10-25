@@ -44,43 +44,41 @@
     }
 
     .modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Add these properties for better centering */
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      align-items: center;
+      justify-content: center;
+    }
 
-.modal-content {
-  background-color: #fefefe;
-  padding: 20px;
-  border: 1px solid #888;
-  border-radius: 15px;
-  width: 90%; /* Changed from 80% */
-  max-width: 300px;
-  text-align: center;
-  /* Remove margin and add these properties */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+    .modal-content {
+      background-color: #fefefe;
+      padding: 20px;
+      border: 1px solid #888;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 300px;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
-/* Add a media query for mobile devices */
-@media screen and (max-width: 768px) {
-  .modal-content {
-    width: 85%;
-    max-width: 280px;
-    padding: 15px;
-  }
-}
+    /* Add a media query for mobile devices */
+    @media screen and (max-width: 768px) {
+      .modal-content {
+        width: 85%;
+        max-width: 280px;
+        padding: 15px;
+      }
+    }
   
     .btn {
       padding: 13px 32px; 
@@ -109,6 +107,10 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+    }
+
+    body.modal-open {
+      overflow: hidden;
     }
   </style>
 
@@ -177,7 +179,7 @@
                       <h5><img src="assets/checkk.png" alt="Icon" class="icon"> Pre-Designed Pages</h5>
                       <h5><img src="assets/checkk.png" alt="Icon" class="icon"> Vibrant Color Schemes</h5><br>
                     <p style="text-align: center;">
-                    <a href="https://formsubmit.co/el/hocuya" class="ad-button" target="_blank" style="display: inline-block; animation: moveLeftRight 2s ease-in-out infinite;">Purchase Now</a>
+                    <a href="#" class="ad-button" style="display: inline-block; animation: moveLeftRight 2s ease-in-out infinite;">Purchase Now</a>
                     </p>
                   </ul>
               </div>
@@ -194,7 +196,7 @@
                       <h5><img src="assets/checkk.png" alt="Icon" class="icon"> Typography and Iconography</h5>
                       <h5><img src="assets/checkk.png" alt="Icon" class="icon"> Call-to-Action Buttons</h5><br>
                     <p style="text-align: center;">
-                    <a href="https://formsubmit.co/el/hocuya" class="ad-button" target="_blank" style="display: inline-block; animation: moveRightLeft 2s ease-in-out infinite;">Purchase Now</a>
+                    <a href="#" class="ad-button" style="display: inline-block; animation: moveRightLeft 2s ease-in-out infinite;">Purchase Now</a>
                     </p>
                   </ul>
               </div>
@@ -274,31 +276,31 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   <script>
     const buttons = document.querySelectorAll('.ad-button');
+    const modal = document.getElementById("purchaseModal");
+    const confirmBtn = document.getElementById("confirmPurchaseBtn");
     
     buttons.forEach(button => {
       button.addEventListener('click', function(event) {
         event.preventDefault();
     
-        // Show custom modal instead of the alert
-        var modal = document.getElementById("purchaseModal");
-        var confirmBtn = document.getElementById("confirmPurchaseBtn");
-    
-        modal.style.display = "block";
-    
-        // When the user clicks the confirm button
-        confirmBtn.onclick = function () {
-          modal.style.display = "none"; 
-          window.close();
-        }
-    
-        // When the user clicks anywhere outside the modal, close it
-        window.onclick = function (event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        }
+        // Show custom modal
+        modal.style.display = "flex";
+        document.body.classList.add('modal-open');
       });
     });
+    
+    // When the user clicks the confirm button
+    confirmBtn.onclick = function () {
+      modal.style.display = "none";
+      document.body.classList.remove('modal-open');
+    }
+    
+    // Prevent clicks outside the modal from closing it
+    modal.onclick = function (event) {
+      if (event.target === modal) {
+        event.stopPropagation();
+      }
+    }
   </script>
   
   <script>
